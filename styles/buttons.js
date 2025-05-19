@@ -15,7 +15,7 @@ const baseStyle = {
 const ButtonStyles = StyleSheet.create({
     base: {
         ...baseStyle,
-        width: wp("50%"),
+        width: wp("70%"),
         height: hp("5.5%"),
     },
     small: {
@@ -26,12 +26,23 @@ const ButtonStyles = StyleSheet.create({
         transform: [{ scale: 0.95 }],
         backgroundColor: colors.darkBrown,
     },
+    baseReturn: {
+        backgroundColor: "#ffffff00",
+        borderWidth: 2,
+        borderColor: colors.darkBrown,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    basePressed: {
+        backgroundColor: colors.drawerBg,
+    },
     return: {
         width: wp("12%"),
         height: wp("12%"),
         borderRadius: wp("6.5%"),
+        backgroundColor: "#ffffff00",
     },
-    
+
 });
 
 export default ButtonStyles;

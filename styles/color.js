@@ -1,5 +1,6 @@
 const colors = {
     background: '#f0dbcfa4',
+    drawerBg: '#d6c5bbff',
 
     carrot: '#CE8147',
     lightBrown: '#513C2C',

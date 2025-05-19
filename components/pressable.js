@@ -25,9 +25,9 @@ export const IconButton = ({ iconName, onPress, size = 24, color = "#fff" }) => 
     return (
         <Pressable
             style={({ pressed }) => [
-                ButtonStyles.base,
+                ButtonStyles.baseReturn,
                 ButtonStyles.return,
-                pressed && ButtonStyles.pressed,
+                pressed && ButtonStyles.basePressed,
             ]}
             onPress={onPress}
         >

@@ -16,7 +16,7 @@ export default function TestStyles() {
 
       <CustomButton title="This is Button" onPress={() => { }} />
       <CustomButton title="Small Button" onPress={() => { }} size="small" />
-     <IconButton iconName="arrowleft" onPress={() => { }} size={28} color={colors.txtWhite}/>
+      <IconButton iconName="arrowleft" onPress={() => { }} size={28} color={colors.txtWhite} />
     </View>
   );
 }
