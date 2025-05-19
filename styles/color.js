@@ -1,0 +1,18 @@
+const colors = {
+    background: '#f0dbcfa4',
+
+    carrot: '#CE8147',
+    lightBrown: '#513C2C',
+    darkBrown: '#28190E',
+    greeny: '#329F5B',
+
+    //txtColors
+    txtHeader: '#28190E',
+    txtSubtitle: '#462b18',
+    txtBody: '#5e3920',
+    txtSmall: '#6e4527',
+    txtWhite: '#fffbf7',
+
+};
+
+export default colors;
