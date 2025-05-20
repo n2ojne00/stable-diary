@@ -13,6 +13,7 @@ const baseStyle = {
 };
 
 const ButtonStyles = StyleSheet.create({
+    
     base: {
         ...baseStyle,
         width: wp("70%"),
@@ -26,8 +27,16 @@ const ButtonStyles = StyleSheet.create({
         transform: [{ scale: 0.95 }],
         backgroundColor: colors.darkBrown,
     },
+
+    //Return icon header
+    return: {
+        width: wp("12%"),
+        height: wp("12%"),
+        borderRadius: wp("6.5%"),
+        backgroundColor: colors.nocolor,
+    },
     baseReturn: {
-        backgroundColor: "#ffffff00",
+        backgroundColor: colors.nocolor,
         borderWidth: 2,
         borderColor: colors.darkBrown,
         alignItems: 'center',
@@ -36,11 +45,22 @@ const ButtonStyles = StyleSheet.create({
     basePressed: {
         backgroundColor: colors.drawerBg,
     },
-    return: {
-        width: wp("12%"),
-        height: wp("12%"),
-        borderRadius: wp("6.5%"),
-        backgroundColor: "#ffffff00",
+
+    //Horse
+    horseBase: {
+        //alignSelf: 'center',
+        alignItems: 'center',
+        justifyContent: 'space-evenly',
+        borderRadius: 5,
+        width: wp("90%"),
+        height: wp("18%"),
+        backgroundColor: colors.lightBg,
+        elevation: 3,
+    },
+
+    horsePressed: {
+        backgroundColor: colors.lightBrown,
+        color: colors.txtWhite,
     },
 
 });

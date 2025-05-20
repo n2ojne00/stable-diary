@@ -1,11 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native';
-import TestStyles from './pages/style-test';
 import FontLoader from './components/fontLoader';
-import BackgroundImage from './components/bgImage';
-import base from './styles/base';
-import DrawerNavigator from './navigation/AppNavigation';
+import BackgroundImage from './components/background';
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
+import DrawerNavigator from './navigation/AppDrawer';
 import AppHeader from './navigation/AppHeader';
+import BottomTabs from './navigation/AppBottomTabs';
+
 
 const navTheme = {
   ...DefaultTheme,
@@ -20,11 +19,8 @@ export default function App() {
 
     <BackgroundImage>
       <NavigationContainer theme={navTheme}>
-        
         <FontLoader>
-
           <DrawerNavigator />
-
         </FontLoader>
       </NavigationContainer>
     </BackgroundImage>

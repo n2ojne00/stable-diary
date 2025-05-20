@@ -1,0 +1,22 @@
+{
+  "date": "2025-05-20",
+  "horse": {
+    "horse_ID": 112233,
+    "horseName": "Silver Blaze",
+    "horseBreed": "Thoroughbred",
+    "horseNickName": "Blazer",
+    "dateOfBirth": "2015-04-10",
+    "gender": "Gelding",
+    "color": "Dapple Gray",
+    "height_cm": 165,
+    "weight_kg": 500,
+    "owner": {
+      "ownerName": "John Smith",
+      "ownerContact": "+123 44 444 8888",
+      "email": "john@example.com"
+    },
+    "temperament": "Calm but energetic when ridden",
+    "stallNumber": "B12",
+    "notes": "Prefers being stabled next to mares. Sensitive to loud noises."
+  }
+}

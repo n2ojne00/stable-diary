@@ -4,7 +4,7 @@ import { ImageBackground, StyleSheet } from 'react-native';
 export default function BackgroundImage({ children }) {
     return (
         <ImageBackground
-            source={require('../img/bg-oats.jpg')} // Replace with your image path
+            source={require('../images/bg-oats.jpg')}
             style={styles.background}
             resizeMode="cover"
         >
