@@ -30,9 +30,9 @@ const ButtonStyles = StyleSheet.create({
 
     //Return icon header
     return: {
-        width: wp("12%"),
-        height: wp("12%"),
-        borderRadius: wp("6.5%"),
+        width: wp("9%"),
+        height: wp("9%"),
+        borderRadius: wp("4.5%"),
         backgroundColor: colors.nocolor,
     },
     baseReturn: {
@@ -69,6 +69,7 @@ const ButtonStyles = StyleSheet.create({
         borderRadius: 5,
         width: wp("70%"),
         height: wp("12%"),
+        elevation: 2,
     }
 
 });

@@ -33,7 +33,7 @@ export default function TestStyles() {
           onChangeText={""}
           style={ButtonStyles.txtInput} />
 
-          <InputText title='Test' value='' placeholder='email' keytype ='text' onChange={() => { }} />
+        <InputText title='Test' value='' placeholder='email' keytype='text' onChange={() => { }} />
       </View>
     </View>
   );

@@ -17,6 +17,7 @@ const base = StyleSheet.create({
         height: hp("70%"),
         borderRadius: 10,
         backgroundColor: colors.lightBg,
+        elevation: 5,
     }
 });
 
