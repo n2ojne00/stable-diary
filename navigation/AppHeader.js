@@ -22,12 +22,12 @@ export default function AppHeader({ navigation }) {
             <TouchableOpacity onPress={() => navigation.openDrawer()} style={{ padding: 4 }}>
                 <Ionicons name="menu" size={35} color={colors.lightBrown} />
             </TouchableOpacity>
-           
+
             <View style={{ padding: 4 }}>
                 <IconButton
                     iconName="arrowleft"
                     onPress={() => navigation.canGoBack() && navigation.goBack()}
-                    size={30}
+                    size={25}
                     color={colors.darkBrown}
                 />
             </View>

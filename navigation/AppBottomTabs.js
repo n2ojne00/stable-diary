@@ -2,8 +2,8 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import TestStyles from '../pages/style-test';
-import Home from '../pages/Home';
-import HorseProfile from '../pages/horseprofile';
+import Home from '../pages/home';
+
 
 
 const Tab = createBottomTabNavigator();
@@ -17,7 +17,6 @@ export default function AppBottomTabs() {
     >
       <Tab.Screen name="HomeTab" component={Home} />
       <Tab.Screen name="ProfileTab" component={TestStyles} />
-      <Tab.Screen name="HorseTab" component={HorseProfile} />
     </Tab.Navigator>
   );
 }

@@ -18,7 +18,7 @@ export default function App() {
   return (
 
     <BackgroundImage>
-      <NavigationContainer theme={navTheme}>
+      <NavigationContainer theme={navTheme} >
         <FontLoader>
           <DrawerNavigator />
         </FontLoader>
