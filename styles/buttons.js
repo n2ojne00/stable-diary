@@ -63,6 +63,14 @@ const ButtonStyles = StyleSheet.create({
         color: colors.txtWhite,
     },
 
+    txtInput: {
+        paddingLeft: wp("5%"),
+        backgroundColor: colors.inputBg,
+        borderRadius: 5,
+        width: wp("70%"),
+        height: wp("12%"),
+    }
+
 });
 
 export default ButtonStyles;

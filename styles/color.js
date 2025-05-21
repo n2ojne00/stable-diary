@@ -4,6 +4,7 @@ const colors = {
     drawerBg: '#d6c5bbff',
     nocolor: '#ffffff00',
     lightBg: '#ddc1b0ff',
+    inputBg: '#f0d7caff',
 
     carrot: '#CE8147',
     lightBrown: '#513C2C',
