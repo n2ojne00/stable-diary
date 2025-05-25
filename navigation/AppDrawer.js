@@ -1,13 +1,14 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import Home from '../pages/home';
 import TestStyles from '../pages/style-test';
 import colors from '../styles/color';
 import AppHeader from './AppHeader';
 import AddNewTraining from '../pages/newTraining';
 import MyStable from '../pages/stableView';
 import History from '../pages/history';
-import SignUpScreen from '../screens/SignUpScreen';
+import SignUpScreen from '../account/SignUpScreen';
+import LoginScreen from '../account/LoginScreen';
+import Home from '../pages/home';
 
 
 const Drawer = createDrawerNavigator();
@@ -33,7 +34,6 @@ export default function DrawerNavigator() {
         >
              {/* This wraps BottomTabs under a single "Home" screen */}
             <Drawer.Screen name="Home" component={Home} />
-            <Drawer.Screen name="Sign Up" component={SignUpScreen} />
             <Drawer.Screen name="Stable" component={MyStable} />
             <Drawer.Screen name="Profile" component={TestStyles} />
             <Drawer.Screen name="New Training" component={AddNewTraining} />

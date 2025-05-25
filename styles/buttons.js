@@ -4,16 +4,14 @@ import colors from "./color";
 
 const baseStyle = {
     backgroundColor: colors.lightBrown,
-    paddingHorizontal: wp("1%"),
     borderRadius: 5,
     alignItems: "center",
     justifyContent: "center",
-    alignSelf: "center",
-    margin: hp("0.5%"),
+    marginVertical: hp("0.5%"),
 };
 
 const ButtonStyles = StyleSheet.create({
-    
+
     base: {
         ...baseStyle,
         width: wp("70%"),
@@ -64,6 +62,7 @@ const ButtonStyles = StyleSheet.create({
     },
 
     txtInput: {
+        marginVertical: hp("0.8%"),
         paddingLeft: wp("5%"),
         backgroundColor: colors.inputBg,
         borderRadius: 5,

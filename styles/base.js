@@ -11,7 +11,8 @@ const base = StyleSheet.create({
     },
 
     inputBox: {
-        alignItems: 'left',
+        paddingLeft: wp("10%"),
+        justifyContent: 'center',
         alignSelf: 'center',
         width: wp("90%"),
         height: hp("70%"),

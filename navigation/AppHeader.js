@@ -1,5 +1,3 @@
-// components/AppHeader.js
-import React from 'react';
 import { View, TouchableOpacity, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import colors from '../styles/color';

@@ -4,7 +4,6 @@ import txtStyles from "../styles/text";
 import ButtonStyles from "../styles/buttons";
 import React from "react";
 
-
 //keyboardShouldPersistTaps="handled" 
 
 //Validators to certain text input if needed.
@@ -36,8 +35,9 @@ export const InputText = ({ title, placeholder, keytype, contentType, secure, va
     return (
         <>
             <Text style={txtStyles.body}>{title}</Text>
-            <TextInput 
-            value={text}
+            
+            <TextInput
+                value={text}
                 multiline={false}
                 placeholder={placeholder}
                 placeholderTextColor={colors.txtSmall}
@@ -46,7 +46,8 @@ export const InputText = ({ title, placeholder, keytype, contentType, secure, va
                 textContentType={contentType}
                 secureTextEntry={secure}
                 style={ButtonStyles.txtInput} />
-                {error ? <Text style={txtStyles.error}>{error}</Text> : null}
+            {error ? <Text style={txtStyles.error}>{error}</Text> : null}
+
         </>
     );
 };
