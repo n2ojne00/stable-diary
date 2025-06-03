@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-native-responsive-screen";
 import colors from "./color";
+import txtStyles from "./text";
 
 const baseStyle = {
     backgroundColor: colors.lightBrown,
@@ -69,7 +70,29 @@ const ButtonStyles = StyleSheet.create({
         width: wp("70%"),
         height: wp("12%"),
         elevation: 2,
-    }
+    },
+
+    selectList: {
+        width: wp("90%"),
+        backgroundColor: colors.inputBg,
+        borderColor: colors.lightBrown,
+    },
+    selectDropDown: {
+        width: wp("90%"),
+        backgroundColor: colors.inputBg,
+        borderColor: colors.lightBrown,
+    },
+    selectCheckBox: {
+        borderColor: colors.carrot,
+        width: wp("4%"),
+        height: wp("4%"),
+        
+    },
+    selectBadge: {
+        backgroundColor: colors.carrot,
+        color: colors.txtWhite,
+        
+    },
 
 });
 
