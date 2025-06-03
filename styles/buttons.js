@@ -62,16 +62,8 @@ const ButtonStyles = StyleSheet.create({
         color: colors.txtWhite,
     },
 
-    txtInput: {
-        marginVertical: hp("0.8%"),
-        paddingLeft: wp("5%"),
-        backgroundColor: colors.inputBg,
-        borderRadius: 5,
-        width: wp("70%"),
-        height: wp("12%"),
-        elevation: 2,
-    },
 
+    //DROPDOWN
     selectList: {
         width: wp("90%"),
         backgroundColor: colors.inputBg,

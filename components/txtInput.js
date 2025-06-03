@@ -3,6 +3,7 @@ import colors from "../styles/color";
 import txtStyles from "../styles/text";
 import ButtonStyles from "../styles/buttons";
 import React from "react";
+import InputStyles from "../styles/input";
 
 //keyboardShouldPersistTaps="handled" 
 
@@ -18,7 +19,7 @@ const validators = {
 };
 
 //<InputText title='' placeholder='' keytype='default' contentType='password' secure={true/false} validationType='none/password/..'/>
-export const InputText = ({ title, placeholder, keytype, contentType, secure, validationType = 'none', onValidChange, }) => {
+export const InputText = ({ title, placeholder, keytype, contentType, secure, validationType = 'none', onValidChange, maxLength = 1000, }) => {
     const [text, setText] = React.useState('');
     const [error, setError] = React.useState('');
 
@@ -35,7 +36,7 @@ export const InputText = ({ title, placeholder, keytype, contentType, secure, va
     return (
         <>
             <Text style={txtStyles.body}>{title}</Text>
-            
+
             <TextInput
                 value={text}
                 multiline={false}
@@ -45,10 +46,44 @@ export const InputText = ({ title, placeholder, keytype, contentType, secure, va
                 onChangeText={handleTextChange}
                 textContentType={contentType}
                 secureTextEntry={secure}
-                style={ButtonStyles.txtInput} />
+                style={InputStyles.txtInput}
+                maxLength={maxLength}
+            />
             {error ? <Text style={txtStyles.error}>{error}</Text> : null}
 
         </>
     );
 };
+
+
+export const NoteInput = ({ title, placeholder, keytype, contentType, maxLength = 1000, }) => {
+    const [text, setText] = React.useState('');
+    const [error, setError] = React.useState('');
+
+    const handleTextChange = (value) => {
+        setText(value);
+    };
+
+    return (
+        <>
+            <Text style={txtStyles.body}>{title}</Text>
+
+            <TextInput
+                value={text}
+                multiline={true}
+                placeholder={placeholder}
+                placeholderTextColor={colors.txtSmall}
+                keyboardType={keytype}
+                onChangeText={handleTextChange}
+                textContentType={contentType}
+                style={InputStyles.noteInput}
+                maxLength={maxLength}
+            />
+            {error ? <Text style={txtStyles.error}>{error}</Text> : null}
+
+        </>
+    );
+};
+
+
 
