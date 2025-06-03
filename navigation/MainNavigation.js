@@ -4,17 +4,16 @@ import DrawerNavigator from './AppDrawer';
 import Home from '../pages/home';
 import LoginScreen from '../account/LoginScreen';
 import SignUpScreen from '../account/SignUpScreen';
-import AppHeader from './AppHeader';
-import colors from '../styles/color';
 
 const Stack = createNativeStackNavigator();
 
-export default function MainNavigation() {
+export default function MainNavigation(navigation) {
 
     return (
 
-        <Stack.Navigator screenOptions={{headerShown: false,}}
+        <Stack.Navigator screenOptions={{headerShown: false,}} component={DrawerNavigator}
         >
+            
             <Stack.Screen
                 name="DrawerNavigation"
                 component={DrawerNavigator}

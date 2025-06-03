@@ -4,11 +4,10 @@ import TestStyles from '../pages/style-test';
 import colors from '../styles/color';
 import AppHeader from './AppHeader';
 import AddNewTraining from '../pages/newTraining';
+import Home from '../pages/home';
 import MyStable from '../pages/stableView';
 import History from '../pages/history';
-import SignUpScreen from '../account/SignUpScreen';
-import LoginScreen from '../account/LoginScreen';
-import Home from '../pages/home';
+
 
 
 const Drawer = createDrawerNavigator();
@@ -32,7 +31,7 @@ export default function DrawerNavigator() {
                 },
             })}
         >
-             {/* This wraps BottomTabs under a single "Home" screen */}
+
             <Drawer.Screen name="Home" component={Home} />
             <Drawer.Screen name="Stable" component={MyStable} />
             <Drawer.Screen name="Profile" component={TestStyles} />

@@ -8,7 +8,9 @@ import { InputText } from '../components/txtInput';
 
 export default function TestStyles() {
   return (
+
     <View style={base.container}>
+      <Text style={txtStyles.header}>TESTING STYLES</Text>
       {/**
            * <Text style={txtStyles.header}>Hello World, header</Text>
       <Text style={txtStyles.header}>Hello World, header</Text>
@@ -26,15 +28,12 @@ export default function TestStyles() {
       <View style={base.inputBox}>
 
         <Text style={txtStyles.body}>This is text</Text>
-        <TextInput value={""}
-          placeholder="Age"
-          placeholderTextColor={colors.txtSmall}
-          keyboardType="numeric"
-          onChangeText={""}
-          style={ButtonStyles.txtInput} />
+
 
         <InputText title='Test' value='' placeholder='email' keytype='text' onChange={() => { }} />
+
       </View>
     </View>
+
   );
 }

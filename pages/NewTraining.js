@@ -132,6 +132,8 @@ export default function AddNewTraining() {
         }
         <NoteInput title='Muistiinpanot' placeholder='...' keytype='default' />
 
+        {// SAVE
+        }
         <CustomButton title="Tallenna" onPress={() => { }} size="small" />
 
       </View>

@@ -1,9 +1,7 @@
 import FontLoader from './components/fontLoader';
 import BackgroundImage from './components/background';
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
-import DrawerNavigator from './navigation/AppDrawer';
 import MainNavigation from './navigation/MainNavigation';
-
 
 const navTheme = {
   ...DefaultTheme,
@@ -18,11 +16,13 @@ export default function App() {
   return (
 
     <BackgroundImage>
+
       <NavigationContainer theme={navTheme} >
         <FontLoader>
-          <MainNavigation/>
+          <MainNavigation />
         </FontLoader>
       </NavigationContainer>
+
     </BackgroundImage>
 
   );
