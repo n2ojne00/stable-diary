@@ -61,9 +61,9 @@ export default function AddNewTraining() {
   //sorting data to alphabetical order
   dataSport.sort((a, b) => a.value.localeCompare(b.value));
 
-  return (
-    <View style={base.container}>
-      <Text style={txtStyles.header}>Kirjaa harjoitus</Text>
+  return ( 
+    <View style={[{alignItems: 'center', justifyContent: 'center'}, base.container]}>
+      <Text style={txtStyles.header}>Harjoitus</Text>
       <View>
 
         {// SET THE DATE
@@ -134,7 +134,7 @@ export default function AddNewTraining() {
 
         {// SAVE
         }
-        <CustomButton title="Tallenna" onPress={() => { }} size="small" />
+        <CustomButton title="Tallenna" onPress={() => { }} size="small"/>
 
       </View>
     </View>

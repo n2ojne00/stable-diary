@@ -17,6 +17,7 @@ const ButtonStyles = StyleSheet.create({
         ...baseStyle,
         width: wp("70%"),
         height: hp("5.5%"),
+        alignSelf: 'center',
     },
     small: {
         width: wp("40%"),
@@ -66,12 +67,12 @@ const ButtonStyles = StyleSheet.create({
 
     //DROPDOWN
     selectList: {
-        width: wp("90%"),
+        width: wp("85%"),
         backgroundColor: colors.inputBg,
         borderColor: colors.lightBrown,
     },
     selectDropDown: {
-        width: wp("90%"),
+        width: wp("85%"),
         backgroundColor: colors.inputBg,
         borderColor: colors.lightBrown,
     },

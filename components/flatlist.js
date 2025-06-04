@@ -14,6 +14,7 @@ export default function ListComponent({ listData, renderItem, sortBy }) {
 
     return (
         <FlatList
+            showsVerticalScrollIndicator={false}
             data={sortedData}
             keyExtractor={(item) => item.horse_ID?.toString() || item.id?.toString()}
             renderItem={renderItem}

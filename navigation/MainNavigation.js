@@ -11,7 +11,7 @@ export default function MainNavigation(navigation) {
 
     return (
 
-        <Stack.Navigator screenOptions={{headerShown: false,}} component={DrawerNavigator}
+        <Stack.Navigator screenOptions={{headerShown: false,}} 
         >
             
             <Stack.Screen

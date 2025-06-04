@@ -11,7 +11,7 @@ export default function LoginScreen() {
     return (
         <View style={base.container}>
             
-            <View style={base.inputBox}>
+            <View style={base.loginBox}>
                 <Text style={txtStyles.title}>LOGIN</Text>
                 {//validator for username needed
                 }

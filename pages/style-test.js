@@ -25,7 +25,7 @@ export default function TestStyles() {
             <Horse title="Horse name" onPress={() => { }} color={colors.txtWhite}/>
            */}
 
-      <View style={base.inputBox}>
+      <View style={base.loginBox}>
 
         <Text style={txtStyles.body}>This is text</Text>
 

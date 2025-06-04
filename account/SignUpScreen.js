@@ -9,7 +9,7 @@ export default function SignUpScreen() {
     return (
         <View style={base.container}>
             
-            <View style={base.inputBox}>
+            <View style={base.loginBox}>
                 <Text style={txtStyles.title}>SIGN UP</Text>
                 {//validator for username needed
                 }

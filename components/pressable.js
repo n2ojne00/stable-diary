@@ -1,9 +1,9 @@
 import React from "react";
 import { Pressable, Text } from "react-native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-native-responsive-screen";
-import ButtonStyles from "../styles/buttons";
 import txtStyles from "../styles/text";
 import AntDesign from '@expo/vector-icons/AntDesign';
+import ButtonStyles from "../styles/buttons";
 
 
 //<CustomButton title="This is Button" onPress={() => { }} />

@@ -29,7 +29,7 @@ export default function AppHeader({ navigation }) {
                     color={colors.darkBrown}
                 />
             </View>
-            <Text>Hello</Text>
+            
         </View>
     );
 }
