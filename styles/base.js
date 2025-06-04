@@ -21,6 +21,8 @@ const base = StyleSheet.create({
         backgroundColor: colors.lightBg,
         elevation: 5,
     }
+
+    
 });
 
 export default base;

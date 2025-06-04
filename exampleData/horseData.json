@@ -1,22 +1,73 @@
-{
-  "date": "2025-05-20",
-  "horse": {
+
+[
+  {
+    "date": "2025-05-20",
     "horse_ID": 112233,
     "horseName": "Silver Blaze",
     "horseBreed": "Thoroughbred",
     "horseNickName": "Blazer",
     "dateOfBirth": "2015-04-10",
     "gender": "Gelding",
-    "color": "Dapple Gray",
-    "height_cm": 165,
-    "weight_kg": 500,
     "owner": {
       "ownerName": "John Smith",
       "ownerContact": "+123 44 444 8888",
       "email": "john@example.com"
-    },
-    "temperament": "Calm but energetic when ridden",
-    "stallNumber": "B12",
-    "notes": "Prefers being stabled next to mares. Sensitive to loud noises."
+    }
+  },
+  {
+    "date": "2025-05-21",
+    "horse_ID": 223344,
+    "horseName": "Midnight Shadow",
+    "horseBreed": "Arabian",
+    "horseNickName": "Shadow",
+    "dateOfBirth": "2018-07-22",
+    "gender": "Mare",
+    "owner": {
+      "ownerName": "Emily Dawson",
+      "ownerContact": "+198 77 321 6543",
+      "email": "emilyd@example.com"
+    }
+  },
+  {
+    "date": "2025-05-22",
+    "horse_ID": 334455,
+    "horseName": "Copper Coin",
+    "horseBreed": "Quarter Horse",
+    "horseNickName": "Copper",
+    "dateOfBirth": "2016-03-18",
+    "gender": "Stallion",
+    "owner": {
+      "ownerName": "Luis Hernandez",
+      "ownerContact": "+144 66 789 1230",
+      "email": "luis.h@example.org"
+    }
+  },
+  {
+    "date": "2025-05-23",
+    "horse_ID": 445566,
+    "horseName": "Storm Dancer",
+    "horseBreed": "Friesian",
+    "horseNickName": "Stormy",
+    "dateOfBirth": "2014-11-30",
+    "gender": "Mare",
+    "owner": {
+      "ownerName": "Grace Kim",
+      "ownerContact": "+122 55 234 7689",
+      "email": "grace.kim@horsemail.net"
+    }
+  },
+  {
+    "date": "2025-05-24",
+    "horse_ID": 556677,
+    "horseName": "Echo Valley",
+    "horseBreed": "Paint Horse",
+    "horseNickName": "Echo",
+    "dateOfBirth": "2017-09-15",
+    "gender": "Gelding",
+    "owner": {
+      "ownerName": "Robert Greene",
+      "ownerContact": "+199 88 345 2222",
+      "email": "rgreene@farmzone.com"
+    }
   }
-}
+]

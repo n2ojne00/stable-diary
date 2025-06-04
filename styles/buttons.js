@@ -48,20 +48,21 @@ const ButtonStyles = StyleSheet.create({
     //Horse
     horseBase: {
         //alignSelf: 'center',
+        marginVertical: hp("1%"),
         alignItems: 'center',
         justifyContent: 'space-evenly',
         borderRadius: 5,
         width: wp("90%"),
         height: wp("18%"),
+        borderWidth: 2,
         backgroundColor: colors.lightBg,
         elevation: 3,
     },
 
     horsePressed: {
-        backgroundColor: colors.lightBrown,
+        backgroundColor: colors.greeny,
         color: colors.txtWhite,
     },
-
 
     //DROPDOWN
     selectList: {

@@ -10,10 +10,10 @@ export default function AppHeader({ navigation }) {
         <View
             style={{
                 paddingTop: hp('4%'),
-                paddingLeft: wp('4%'),
+                paddingLeft: wp('2%'),
                 height: hp('10%'),
                 position: 'absolute',
-                flexDirection: 'column',
+                flexDirection: 'row',
                 justifyContent: 'space-between',
             }}
         >
@@ -29,6 +29,7 @@ export default function AppHeader({ navigation }) {
                     color={colors.darkBrown}
                 />
             </View>
+            <Text>Hello</Text>
         </View>
     );
 }

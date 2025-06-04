@@ -40,8 +40,8 @@ export const IconButton = ({ iconName, onPress, size = 24, color = "#fff" }) => 
 };
 
 //Change title to horse name
-// <Horse title="Horse name" onPress={() => { }} color={colors.txtWhite}/>
-export const Horse = ({ title, onPress,}) => {
+// <HorseListItem title="Horse name" onPress={() => { }} />
+export const HorseListItem = ({ title, onPress,}) => {
     return (
         <Pressable
             style={({ pressed }) => [
