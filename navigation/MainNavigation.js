@@ -1,5 +1,4 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import DrawerNavigator from './AppDrawer';
 import Home from '../pages/home';
 import LoginScreen from '../account/LoginScreen';
@@ -11,9 +10,14 @@ export default function MainNavigation(navigation) {
 
     return (
 
-        <Stack.Navigator screenOptions={{headerShown: false,}} 
+        <Stack.Navigator initialRouteName='Login' screenOptions={{ headerShown: false, }}
         >
-            
+            <Stack.Screen
+                name="Login" component={LoginScreen}
+            />
+            <Stack.Screen
+                name="SignUp" component={SignUpScreen}
+            />
             <Stack.Screen
                 name="DrawerNavigation"
                 component={DrawerNavigator}
@@ -22,13 +26,9 @@ export default function MainNavigation(navigation) {
                 name="Home"
                 component={Home}
             />
-            <Stack.Screen
-                name="Login" component={LoginScreen}
-            />
-            <Stack.Screen
-                name="SignUp" component={SignUpScreen}
-            />
- 
+
+
+
 
         </Stack.Navigator>
 

@@ -14,45 +14,58 @@ const validators = {
 
     password: (value) =>
         value.length >= 6 ? '' : 'Password must be at least 6 characters',
-
+    username: (value) =>
+        value.length >= 3 ? '' : 'Username must be atleast 3 characters',
     none: () => ''  // for no validation
 };
 
 //<InputText title='' placeholder='' keytype='default' contentType='password' secure={true/false} validationType='none/password/..'/>
-export const InputText = ({ title, placeholder, keytype, contentType, secure, validationType = 'none', onValidChange, maxLength = 1000, }) => {
-    const [text, setText] = React.useState('');
-    const [error, setError] = React.useState('');
+export const InputText = ({
+  title,
+  placeholder,
+  keytype,
+  contentType,
+  secure,
+  validationType = 'none',
+  onValidChange,
+  onChangeText, // <--- Add this
+  maxLength = 1000,
+}) => {
+  const [text, setText] = React.useState('');
+  const [error, setError] = React.useState('');
 
-    const handleTextChange = (value) => {
-        setText(value);
+  const handleTextChange = (value) => {
+    setText(value);
 
-        const validate = validators[validationType] || validators.none;
-        const validationResult = validate(value);
+    const validate = validators[validationType] || validators.none;
+    const validationResult = validate(value);
 
-        setError(validationResult);
-        if (onValidChange) onValidChange(!validationResult);
-    };
+    setError(validationResult);
+    if (onValidChange) onValidChange(!validationResult);
+    if (onChangeText) onChangeText(value);
+  };
 
-    return (
-        <>
-            <Text style={txtStyles.body}>{title}</Text>
+  return (
+    <>
+      <Text style={txtStyles.body}>{title}</Text>
 
-            <TextInput
-                value={text}
-                multiline={false}
-                placeholder={placeholder}
-                placeholderTextColor={colors.txtSmall}
-                keyboardType={keytype}
-                onChangeText={handleTextChange}
-                textContentType={contentType}
-                secureTextEntry={secure}
-                style={InputStyles.txtInput}
-                maxLength={maxLength}
-            />
-            {error ? <Text style={txtStyles.error}>{error}</Text> : null}
+      <TextInput
+        value={text}
+        multiline={false}
+        autoCapitalize="none"
+        placeholder={placeholder}
+        placeholderTextColor={colors.txtSmall}
+        keyboardType={keytype}
+        onChangeText={handleTextChange}
+        textContentType={contentType}
+        secureTextEntry={secure}
+        style={InputStyles.txtInput}
+        maxLength={maxLength}
 
-        </>
-    );
+      />
+      {error ? <Text style={txtStyles.error}>{error}</Text> : null}
+    </>
+  );
 };
 
 
