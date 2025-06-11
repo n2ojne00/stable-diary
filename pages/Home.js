@@ -27,7 +27,7 @@ export default function Home() {
           <View style={styles.buttonGroup}>
             <CustomButton title="Login" onPress={() => navigation.navigate('Login')} size="small" />
             <Text style={txtStyles.body}>OR</Text>
-            <CustomButton title="Sign Up" onPress={() => navigation.navigate('SignUp')} size="small" />
+            
           </View>
         </View>
       </View>
