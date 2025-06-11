@@ -4,9 +4,7 @@ import { InputText } from '../components/txtInput';
 import { CustomButton } from '../components/pressable';
 import txtStyles from '../styles/text';
 
-
 export default function LoginScreen() {
-
 
     return (
         <View style={base.container}>

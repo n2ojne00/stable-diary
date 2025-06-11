@@ -7,6 +7,7 @@ import AddNewTraining from '../pages/newTraining';
 import Home from '../pages/home';
 import MyStable from '../pages/stableView';
 import History from '../pages/history';
+import AppTabs from './AppBottomTabs';
 
 
 
@@ -31,12 +32,12 @@ export default function DrawerNavigator() {
                 },
             })}
         >
-
             <Drawer.Screen name="Home" component={Home} />
             <Drawer.Screen name="Stable" component={MyStable} />
             <Drawer.Screen name="Profile" component={TestStyles} />
             <Drawer.Screen name="New Training" component={AddNewTraining} />
             <Drawer.Screen name="History" component={History} />
+            <Drawer.Screen name="Main" component={AppTabs} />
         </Drawer.Navigator>
 
     );
