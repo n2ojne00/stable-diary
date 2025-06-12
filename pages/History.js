@@ -1,5 +1,4 @@
 import React from 'react';
-
 import base from '../styles/base';
 import { TrainingHistoryList } from '../components/flatlist';
 import HistoryData from '../exampleData/trainingHistory.json'

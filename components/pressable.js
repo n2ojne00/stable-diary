@@ -23,7 +23,7 @@ export const CustomButton = ({ title, onPress, size }) => {
     );
 };
 
-//      <IconButton iconName="arrowleft" onPress={() => { }} size={28} color={colors.txtWhite} />
+
 export const IconButton = ({ iconName, onPress, size = 24, color = "#fff" }) => {
     return (
         <Pressable

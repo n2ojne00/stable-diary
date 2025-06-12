@@ -1,10 +1,6 @@
 import { Text, TextInput, View } from 'react-native';
 import txtStyles from '../styles/text';
 import base from '../styles/base';
-import { CustomButton, Horse, IconButton } from '../components/pressable';
-import colors from '../styles/color';
-import ButtonStyles from '../styles/buttons';
-import { InputText } from '../components/txtInput';
 
 export default function TestStyles() {
   return (
@@ -25,14 +21,8 @@ export default function TestStyles() {
             <Horse title="Horse name" onPress={() => { }} color={colors.txtWhite}/>
            */}
 
-      <View style={base.loginBox}>
-
-        <Text style={txtStyles.body}>This is text</Text>
 
 
-        <InputText title='Test' value='' placeholder='email' keytype='text' onChange={() => { }} />
-
-      </View>
     </View>
 
   );

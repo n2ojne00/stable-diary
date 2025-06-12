@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import AntDesign from '@expo/vector-icons/AntDesign';
 import { View, Text } from 'react-native';
 import base from '../styles/base';
 import { MultipleSelectList, SelectList } from 'react-native-dropdown-select-list';
 import ButtonStyles from '../styles/buttons';
-import colors from '../styles/color';
 import txtStyles from '../styles/text';
 import { InputText, NoteInput } from '../components/txtInput';
 import { CustomButton } from '../components/pressable';
 import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+
+import { Icons } from '../styles/icons';
 
 export default function AddNewTraining() {
 
@@ -71,7 +70,7 @@ export default function AddNewTraining() {
         }
         <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', }}>
           <View style={{ flexDirection: 'column', alignItems: 'center', }}>
-            <MaterialCommunityIcons name="calendar" size={30} color={colors.lightBrown} />
+             {Icons.calendar}
             <Text style={txtStyles.title}>
               {date.toLocaleDateString('fi-FI')}
             </Text>
@@ -81,7 +80,7 @@ export default function AddNewTraining() {
           {// SET THE TIME
           }
           <View style={{ flexDirection: 'column', alignItems: 'center', }}>
-            <MaterialCommunityIcons name="clock-outline" size={30} color={colors.lightBrown} />
+            {Icons.clock}
             <Text style={txtStyles.title}>
               {date.toLocaleTimeString('fi-FI', { hour: '2-digit', minute: '2-digit' })}
             </Text>
@@ -100,7 +99,7 @@ export default function AddNewTraining() {
           badgeStyles={ButtonStyles.selectBadge}
           fontFamily='NotoSansDisplay_400Regular'
           dropdownTextStyles={txtStyles.body}
-          arrowicon={<AntDesign name="caretdown" size={18} color={colors.lightBrown} />}
+          arrowicon={Icons.arrowDown}
           placeholder='Hevonen/Hevoset'
           label="Valitut hevoset"
           labelStyles={txtStyles.body}
@@ -118,7 +117,7 @@ export default function AddNewTraining() {
           dropdownStyles={ButtonStyles.selectDropDown}
           fontFamily='NotoSansDisplay_400Regular'
           dropdownTextStyles={txtStyles.body}
-          arrowicon={<AntDesign name="caretdown" size={18} color={colors.lightBrown} />}
+          arrowicon={Icons.arrowDown}
           placeholder='Valitse vaihtoehto'
           search={false}
           setSelected={(val) => setSelectedSport(val)}

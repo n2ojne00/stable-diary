@@ -21,14 +21,18 @@ export default function Home() {
 
       </View>
       <View style={base.bodyContainer}>
-        <View style={styles.authPrompt}>
 
+        <View>
+          <Text>STABLE</Text>
+        </View>
+        <View>
+          <Text>Todays Training</Text>
+        </View>
+      
           <Text style={txtStyles.body}>Please login or sign up to continue.</Text>
-          <View style={styles.buttonGroup}>
+          <View >
             <CustomButton title="Login" onPress={() => navigation.navigate('Login')} size="small" />
-            <Text style={txtStyles.body}>OR</Text>
-            
-          </View>
+        
         </View>
       </View>
 
@@ -36,15 +40,3 @@ export default function Home() {
   );
 }
 
-
-const styles = StyleSheet.create({
-  authPrompt: {
-    alignItems: 'center',
-  },
-  buttonGroup: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: 10,
-    marginTop: hp("1.5%"),
-  },
-});

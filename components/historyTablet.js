@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import txtStyles from '../styles/text';
 import ButtonStyles from '../styles/buttons';
 import colors from '../styles/color';
+import { Icons } from '../styles/icons';
 
 export const HistoryTablet = ({
   trainingDate,
@@ -14,7 +14,7 @@ export const HistoryTablet = ({
   notes,
 }) => {
   const [expanded, setExpanded] = useState(false);
-  const seeMore = <MaterialIcons name="more-horiz" size={30} color={colors.txtSubtitle} />;
+
 
   const handleToggle = () => {
     if (notes) setExpanded(!expanded);
@@ -43,7 +43,7 @@ export const HistoryTablet = ({
         expanded ? (
           <Text style={txtStyles.small}>{notes}</Text>
         ) : (
-          <Text style={txtStyles.subtitle}>{seeMore}</Text>
+          <Text style={txtStyles.subtitle}>{Icons.seeMore}</Text>
         )
       )}
 
