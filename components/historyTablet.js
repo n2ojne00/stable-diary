@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import txtStyles from '../styles/text';
+import ButtonStyles from '../styles/buttons';
+import colors from '../styles/color';
 
 export const HistoryTablet = ({
   trainingDate,
@@ -10,49 +14,40 @@ export const HistoryTablet = ({
   notes,
 }) => {
   const [expanded, setExpanded] = useState(false);
+  const seeMore = <MaterialIcons name="more-horiz" size={30} color={colors.txtSubtitle} />;
+
+  const handleToggle = () => {
+    if (notes) setExpanded(!expanded);
+  };
 
   return (
     <TouchableOpacity
       onPress={() => setExpanded(!expanded)}
       activeOpacity={0.8}
-      style={styles.container}
+      style={ButtonStyles.historyTabletContainer}
     >
-      <Text style={styles.date}>{trainingDate}</Text>
-      <Text style={styles.time}>{startingTime}</Text>
-      <Text style={styles.horse}>{horseName}</Text>
-      <Text style={styles.type}>{trainingType}</Text>
-      <Text style={styles.minutes}>{minutes} min</Text>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+        <Text style={txtStyles.body}>{startingTime}</Text>
+        <Text style={txtStyles.body}>{trainingDate}</Text>
 
-      {expanded && notes ? (
-        <Text style={styles.notes}>{notes}</Text>
-      ) : (
-        <Text style={styles.showMore}>Paina {expanded ? 'piilottaaksesi' : 'nähdäksesi'} muistiinpanot</Text>
+      </View>
+
+      <Text style={txtStyles.title}>{horseName}</Text>
+
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+        <Text style={txtStyles.subtitle}>{trainingType}</Text>
+        <Text style={txtStyles.body}>{minutes} min</Text>
+      </View>
+
+
+      {notes && (
+        expanded ? (
+          <Text style={txtStyles.small}>{notes}</Text>
+        ) : (
+          <Text style={txtStyles.subtitle}>{seeMore}</Text>
+        )
       )}
+
     </TouchableOpacity>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#f2f2f2',
-    padding: 16,
-    margin: 8,
-    borderRadius: 12,
-    shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
-  },
-  date: { fontSize: 14, color: '#666' },
-  time: { fontSize: 14, color: '#888' },
-  horse: { fontSize: 16, fontWeight: 'bold', color: '#333', marginTop: 4 },
-  type: { fontSize: 14, color: '#444', marginTop: 2 },
-  minutes: { fontSize: 14, color: '#007AFF', fontWeight: '500', marginTop: 2 },
-  notes: { marginTop: 8, fontSize: 13, color: '#444', lineHeight: 18 },
-  showMore: {
-    marginTop: 8,
-    fontSize: 12,
-    color: '#007AFF',
-    fontStyle: 'italic',
-  },
-});

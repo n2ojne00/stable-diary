@@ -55,7 +55,8 @@ const ButtonStyles = StyleSheet.create({
         borderRadius: 5,
         width: wp("90%"),
         height: wp("18%"),
-        borderWidth: 2,
+        borderWidth: 1,
+        borderColor: colors.txtBody,
         backgroundColor: colors.lightBg,
         elevation: 3,
     },
@@ -80,12 +81,22 @@ const ButtonStyles = StyleSheet.create({
         borderColor: colors.carrot,
         width: wp("4%"),
         height: wp("4%"),
-        
+
     },
     selectBadge: {
         backgroundColor: colors.carrot,
         color: colors.txtWhite,
-        
+
+    },
+
+    historyTabletContainer: {
+        backgroundColor: colors.lightBg,
+        padding: hp("2%"),
+        margin: 8,
+        borderRadius: 5,
+        elevation: 2,
+        borderWidth: 1,
+        borderColor: colors.txtBody,
     },
 
 });

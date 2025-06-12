@@ -14,7 +14,7 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 export default function AddNewTraining() {
 
   const [date, setDate] = useState(new Date());
-
+ 
   const [selectedHorse, setSelectedHorse] = React.useState("");
   const [selectedSport, setSelectedSport] = React.useState("");
 
@@ -33,6 +33,7 @@ export default function AddNewTraining() {
   const handleDateChange = (event, selectedDate) => {
     if (selectedDate) {
       setDate(selectedDate);
+      console.log("valittu pvm ja kello " + selectedDate);
     }
   };
 
