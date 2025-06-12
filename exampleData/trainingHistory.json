@@ -11,9 +11,17 @@
         "date": "2025-03-17",
          "starting":"12:45",
         "horseName": "Silver Blaze",
-        "trainingType": "Raviurheilu",
+        "trainingType": "Maasto",
         "durationMinutes":"45",
         "notes":"Ei mitään kommentoitavaa"
+    },
+    {
+        "date": "2025-04-11",
+         "starting":"12:45",
+        "horseName": "Silver Blaze",
+        "trainingType": "Raviurheilu",
+        "durationMinutes":"45",
+        "notes":""
     },
     {
         "date": "2025-03-15",

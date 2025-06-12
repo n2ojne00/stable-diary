@@ -29,7 +29,6 @@ export const HistoryTablet = ({
       <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
         <Text style={txtStyles.body}>{startingTime}</Text>
         <Text style={txtStyles.body}>{trainingDate}</Text>
-
       </View>
 
       <Text style={txtStyles.title}>{horseName}</Text>

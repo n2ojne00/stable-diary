@@ -13,6 +13,8 @@ import txtStyles from "./text";
         width: wp("85%"),
         height: wp("12%"),
         elevation: 2,
+        borderWidth: 1,
+        borderColor: colors.txtBody,
     },
 
     noteInput: {
@@ -24,6 +26,8 @@ import txtStyles from "./text";
         width: wp("85%"),
         height: wp("50%"),
         elevation: 2,
+        borderWidth: 1,
+        borderColor: colors.txtBody,
     },
     });
 

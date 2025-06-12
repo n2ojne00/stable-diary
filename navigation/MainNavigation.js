@@ -1,6 +1,4 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import DrawerNavigator from './AppDrawer';
-import Home from '../pages/home';
 import LoginScreen from '../account/LoginScreen';
 import SignUpScreen from '../account/SignUpScreen';
 import AppTabs from './AppBottomTabs';

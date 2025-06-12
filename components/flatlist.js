@@ -22,9 +22,11 @@ export default function ListComponent({ listData, renderItem, sortBy }) {
 }
 
 export function TrainingHistoryList({ listHistory, renderItem, sortBy }) {
-    const sortedData = [...listHistory].sort((a, b) =>
-        a[sortBy]?.localeCompare(b[sortBy])
-    );
+    const sortedData = [...listHistory].sort((a, b) => {
+        const aDate = new Date(`${a.date}T${a.starting}`);
+        const bDate = new Date(`${b.date}T${b.starting}`);
+        return bDate - aDate; // Newest first
+    });
 
     return (
         <View>
