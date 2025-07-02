@@ -1,5 +1,5 @@
 import React from "react";
-import { Pressable, Text } from "react-native";
+import { Pressable, Text, View } from "react-native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-native-responsive-screen";
 import txtStyles from "../styles/text";
 import AntDesign from '@expo/vector-icons/AntDesign';
@@ -24,7 +24,30 @@ export const CustomButton = ({ title, onPress, size }) => {
 };
 
 
-export const IconButton = ({ iconName, onPress, size = 24, color = "#fff" }) => {
+//Change title to horse name
+// <HorseListItem title="Horse name" onPress={() => { }} />
+export const HorseListItem = ({ title, onPress, gender, dateOfBirth }) => {
+    return (
+        <Pressable
+            style={({ pressed }) => [
+                ButtonStyles.horseBase,
+                pressed && ButtonStyles.horsePressed,
+            ]}
+            onPress={onPress}
+        >
+            <View style={{ flexDirection: 'column', justifyContent: 'space-between', width: wp("90%"), }}>
+                <Text style={[txtStyles.title, { alignSelf: 'center' }]}>{title}</Text>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+                    <Text style={txtStyles.body}>{gender}</Text>
+                    <Text style={txtStyles.body}>{dateOfBirth}</Text>
+                </View>
+            </View>
+        </Pressable>
+    );
+};
+
+/**
+ * export const IconButton = ({ iconName, onPress, size = 24, color = "#fff" }) => {
     return (
         <Pressable
             style={({ pressed }) => [
@@ -38,23 +61,4 @@ export const IconButton = ({ iconName, onPress, size = 24, color = "#fff" }) => 
         </Pressable>
     );
 };
-
-//Change title to horse name
-// <HorseListItem title="Horse name" onPress={() => { }} />
-export const HorseListItem = ({ title, onPress,}) => {
-    return (
-        <Pressable
-            style={({ pressed }) => [
-                ButtonStyles.horseBase,
-                pressed && ButtonStyles.horsePressed,
-            ]}
-            onPress={onPress}
-        >
-            <Text style={txtStyles.title}>{title}</Text>
-        </Pressable>
-    );
-};
-
-/**
- * <CustomButton title="This is Button" onPress={() => {}} size="small" />
  */

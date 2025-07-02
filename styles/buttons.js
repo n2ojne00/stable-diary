@@ -48,13 +48,12 @@ const ButtonStyles = StyleSheet.create({
 
     //Horse
     horseBase: {
-        //alignSelf: 'center',
         marginVertical: hp("1%"),
         alignItems: 'center',
         justifyContent: 'space-evenly',
         borderRadius: 5,
         width: wp("90%"),
-        height: wp("18%"),
+        height: wp("20%"),
         borderWidth: 1,
         borderColor: colors.txtBody,
         backgroundColor: colors.inputBg,
@@ -98,6 +97,7 @@ const ButtonStyles = StyleSheet.create({
         borderWidth: 1,
         borderColor: colors.txtBody,
     },
+
     pressImg: {
     flexDirection: 'column',
     width: wp("90%"),

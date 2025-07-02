@@ -1,7 +1,7 @@
 import React from 'react';
 import { FlatList, View } from 'react-native';
 
-export default function ListComponent({ listData, renderItem, sortBy }) {
+export default function StableListComponent({ listData, renderItem, sortBy }) {
     const sortedData = [...listData].sort((a, b) =>
         a[sortBy]?.localeCompare(b[sortBy])
     );
@@ -52,7 +52,7 @@ export function TrainingHistoryList({ listHistory, renderItem, sortBy }) {
       )}
     />
 
-    <ListComponent
+    <StableListComponent
   listData={FakeHorseData}
   ItemComponent={Horse}
   sortBy="horseName"
