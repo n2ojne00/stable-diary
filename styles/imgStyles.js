@@ -11,6 +11,12 @@ const photo = StyleSheet.create({
         resizeMode: 'center',
         borderRadius: wp("3%"),
     },
+    pressHome: {
+        width: wp('90%'),
+        height: hp('17%'),
+        overflow: 'hidden',
+        borderRadius: wp('2%'),
+    }
 
 
 });

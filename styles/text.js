@@ -37,6 +37,16 @@ const txtStyles = StyleSheet.create({
         fontSize: hp('1.5%'),
         color: "red",
     },
+    overImg: {
+        fontSize: hp('4%'),
+        fontFamily: 'NotoSansDisplay_400Regular',
+        color: colors.txtHeader,
+        position: 'absolute',
+        backgroundColor: colors.background,
+        padding: wp('2%'),
+        width: wp('90%'),
+        textAlign: 'center',
+    },
 });
 
 export default txtStyles;

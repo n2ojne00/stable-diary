@@ -98,6 +98,17 @@ const ButtonStyles = StyleSheet.create({
         borderWidth: 1,
         borderColor: colors.txtBody,
     },
+    pressImg: {
+    flexDirection: 'column',
+    width: wp("90%"),
+    height: hp("17%"),
+    alignItems: 'center',
+    justifyContent: 'center',
+    //backgroundColor: colors.inputBg,
+    borderRadius: wp('2%'),
+    marginBottom: hp("1%"),
+    elevation: 2,
+  },
 
 });
 

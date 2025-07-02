@@ -1,4 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-native-responsive-screen";
 import colors from '../styles/color';
 import Home from '../pages/home';
 import MyStable from '../pages/stableView';
@@ -14,7 +15,13 @@ export default function AppTabs() {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: false,
-        tabBarActiveTintColor: colors.darkBrown,
+        tabBarStyle: {
+          backgroundColor: colors.background,
+          height: hp("8%"),
+          borderTopWidth: 1,
+          borderColor: colors.lightBrown,
+        },
+        tabBarActiveTintColor: colors.greenyDark,
         tabBarInactiveTintColor: colors.lightBrown,
         tabBarIcon: ({ color, size }) => TabIcons[route.name]?.(color, size),
       })}

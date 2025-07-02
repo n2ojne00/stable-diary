@@ -10,6 +10,7 @@ const colors = {
     lightBrown: '#513C2C',
     darkBrown: '#28190E',
     greeny: '#329F5B',
+    greenyDark: '#1b6638',
 
     //txtColors
     txtHeader: '#28190E',
