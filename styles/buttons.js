@@ -72,6 +72,9 @@ const ButtonStyles = StyleSheet.create({
         borderColor: colors.lightBrown,
     },
     selectDropDown: {
+        zIndex: 999,
+        position: 'absolute',
+        top: hp("5.5%"),
         width: wp("85%"),
         backgroundColor: colors.inputBg,
         borderColor: colors.lightBrown,

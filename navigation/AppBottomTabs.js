@@ -15,6 +15,7 @@ export default function AppTabs() {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: false,
+        tabBarShowLabel: false,
         tabBarStyle: {
           backgroundColor: colors.background,
           height: hp("8%"),
@@ -23,7 +24,7 @@ export default function AppTabs() {
         },
         tabBarActiveTintColor: colors.greenyDark,
         tabBarInactiveTintColor: colors.lightBrown,
-        tabBarIcon: ({ color, size }) => TabIcons[route.name]?.(color, size),
+        tabBarIcon: ({ color, size }) => TabIcons[route.name]?.(color, 27),
       })}
     >
       <Tab.Screen name="Home" component={Home} />

@@ -25,13 +25,13 @@ export default function Home() {
       </View>
       <View style={base.bodyContainer}>
         <Text style={txtStyles.body}>Please login or sign up to continue.</Text>
-        <View >
+        <View style={{ flexDirection: 'row'}}>
           <CustomButton title="Login" onPress={() => navigation.navigate('Login')} size="small" />
           <CustomButton title="Sign Up" onPress={() => navigation.navigate('SignUp')} size="small" />
 
         </View>
 
-        <View style={{ flexDirection: 'column' }}>
+        <View >
 
           <Pressable style={ButtonStyles.pressImg} onPress={() => navigation.navigate('Stable')}>
             <Image

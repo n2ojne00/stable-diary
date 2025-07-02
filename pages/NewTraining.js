@@ -4,6 +4,7 @@ import base from '../styles/base';
 import { MultipleSelectList, SelectList } from 'react-native-dropdown-select-list';
 import ButtonStyles from '../styles/buttons';
 import txtStyles from '../styles/text';
+import FakeHorseData from '../exampleData/horseData.json';
 import { InputText, NoteInput } from '../components/txtInput';
 import { CustomButton } from '../components/pressable';
 import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
@@ -35,14 +36,6 @@ export default function AddNewTraining() {
       console.log("valittu pvm ja kello " + selectedDate);
     }
   };
-
-  const dataHorse = [
-    { key: '1', name: 'My Big Pony' },
-    { key: '2', name: 'My Medium Pony' },
-    { key: '3', name: 'My Not So Small Pony' },
-    { key: '4', name: 'My Giant Pony' },
-  ];
-  dataHorse.sort((a, b) => a.name.localeCompare(b.name));
 
   const dataSport = [
     { key: '1', value: 'Kouluratsastus' },
@@ -91,7 +84,9 @@ export default function AddNewTraining() {
 
         {// CHOOSE HORSE/HORSES
         }
+        
         <MultipleSelectList
+   
           boxStyles={ButtonStyles.selectList}
           inputStyles={txtStyles.body}
           dropdownStyles={ButtonStyles.selectDropDown}
@@ -104,14 +99,15 @@ export default function AddNewTraining() {
           label="Valitut hevoset"
           labelStyles={txtStyles.body}
           search={true}
-          setSelected={(val) => setSelectedHorse(val)}
-          data={dataHorse.map(({ key, name }) => ({ key, value: name }))}
+          setSelected={(val) => setSelectedHorse(val)} 
+          data={FakeHorseData.map(({ key, horseName }) => ({ key, value: horseName }))} //should add sorting by horseName (alphabetical order) FakeHorseData.sort((a, b) => a.horseName.localeCompare(b.horseName));
           save="value"
         />
 
         {// TYPE OF TRAINING
         }
         <SelectList
+             usePortal={true}
           boxStyles={ButtonStyles.selectList}
           inputStyles={txtStyles.body}
           dropdownStyles={ButtonStyles.selectDropDown}
