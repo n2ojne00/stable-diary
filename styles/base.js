@@ -5,6 +5,7 @@ import colors from "./color";
 //Background containers
 const base = StyleSheet.create({
     container: {
+        //marginTop: hp("4%"),
         flex: 1,
         backgroundColor: colors.background,
         justifyContent: 'center',
@@ -33,6 +34,19 @@ const base = StyleSheet.create({
         borderRadius: 10,
         backgroundColor: colors.lightBg,
         elevation: 5,
+    },
+    profileInfo: {
+        alignSelf: 'center',
+        justifyContent: 'space-evenly',
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: wp("95%"),
+        height: hp("15%"),
+        margin: hp("1%"),
+        backgroundColor: colors.inputBg,
+        borderColor: colors.lightBrown,
+        borderWidth: 1,
+        borderRadius: 5,
     },
 
 

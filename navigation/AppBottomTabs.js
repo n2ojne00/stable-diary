@@ -7,6 +7,7 @@ import TestStyles from '../pages/style-test';
 import AddNewTraining from '../pages/newTraining';
 import History from '../pages/history';
 import { TabIcons } from '../styles/icons';
+import UserProfile from '../pages/userProfile';
 
 const Tab = createBottomTabNavigator();
 
@@ -31,7 +32,7 @@ export default function AppTabs() {
       <Tab.Screen name="Stable" component={MyStable} />
       <Tab.Screen name="New Training" component={AddNewTraining} />
       <Tab.Screen name="History" component={History} />
-      <Tab.Screen name="Profile" component={TestStyles} />
+      <Tab.Screen name="Profile" component={UserProfile} />
     </Tab.Navigator>
   );
 }

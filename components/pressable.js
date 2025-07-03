@@ -9,7 +9,7 @@ import photo from "../styles/photoStyles";
 
 //<CustomButton title="This is Button" onPress={() => { }} />
 //<CustomButton title="Small Button" onPress={() => { }} size="small" />
-export const CustomButton = ({ title, onPress, size }) => {
+export const CustomButton = ({ title, onPress, size, addIcon }) => {
     return (
         <Pressable
             style={({ pressed }) => [
@@ -19,7 +19,12 @@ export const CustomButton = ({ title, onPress, size }) => {
             ]}
             onPress={onPress}
         >
-            <Text style={txtStyles.buttonSmall}>{title}</Text>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-around', width: wp("70%"), position: 'relative' }}>
+                <View style={{ position: 'absolute', left: wp("5%"),}}>
+                    {addIcon}
+                </View>
+                 <Text style={[txtStyles.buttonSmall, { textAlign: 'center', flex: 1 }]}>{title}</Text>
+            </View>
         </Pressable>
     );
 };

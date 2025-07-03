@@ -1,11 +1,43 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import base from '../styles/base';
+import txtStyles from '../styles/text';
+import { CustomButton } from '../components/pressable';
+import { ButtonIcons, Icons, TabIcons } from '../styles/icons';
+
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import colors from '../styles/color';
+
 
 export default function UserProfile() {
-  return (
-    <View style={base.container}>
-      <Text>User Profile</Text>
-    </View>
-  );
+    return (
+        <View style={base.container}>
+            <View style={base.profileInfo}>
+                <View style={styles.profileImg}>
+                    {TabIcons.Profile(colors.greenyDark, wp("15%"))}
+                </View>
+                <View style={{ flexDirection: 'column' }}>
+                    <Text style={txtStyles.body}>user.user@gmail.com</Text>
+                    <Text style={txtStyles.body}>Rekisteröitynyt vuonna 4/2025</Text>
+                </View>
+            </View>
+
+            <CustomButton addIcon={ButtonIcons.Add} title={'Lisää uusi hevonen'} onPress={() => { console.log('lisää uusi hevonen') }} />
+            <CustomButton addIcon={ButtonIcons.Settings} title={'Asetukset'} onPress={() => { console.log('asetuksiin') }} />
+            <CustomButton addIcon={ButtonIcons.Logout} title={'Kirjaudu ulos'} onPress={() => { console.log('kirjauduttu ulos') }} />
+
+        </View>
+    );
 }
+
+const styles = StyleSheet.create({
+    profileImg: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderWidth: 1,
+        width: wp("25%"),
+        height: wp("25%"),
+        borderRadius: 100,
+    }
+});
+
