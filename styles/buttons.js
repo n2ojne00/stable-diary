@@ -103,7 +103,7 @@ const ButtonStyles = StyleSheet.create({
 
     pressImg: {
     flexDirection: 'column',
-    width: wp("90%"),
+    width: wp("95%"),
     height: hp("17%"),
     alignItems: 'center',
     justifyContent: 'center',

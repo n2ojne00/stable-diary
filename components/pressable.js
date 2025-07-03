@@ -1,9 +1,10 @@
 import React from "react";
-import { Pressable, Text, View } from "react-native";
+import { Image, Pressable, Text, View } from "react-native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-native-responsive-screen";
 import txtStyles from "../styles/text";
 import AntDesign from '@expo/vector-icons/AntDesign';
 import ButtonStyles from "../styles/buttons";
+import photo from "../styles/photoStyles";
 
 
 //<CustomButton title="This is Button" onPress={() => { }} />
@@ -42,6 +43,21 @@ export const HorseListItem = ({ title, onPress, gender, dateOfBirth }) => {
                     <Text style={txtStyles.body}>{dateOfBirth}</Text>
                 </View>
             </View>
+        </Pressable>
+    );
+};
+
+export const HomeTabButton = ({ title, img, onPress }) => {
+    return (
+        <Pressable
+            style={ButtonStyles.pressImg}
+            onPress={onPress}>
+            <Image
+                source={img}
+                style={photo.pressHome}
+                resizeMode="cover"
+            />
+            <Text style={txtStyles.overImg}>{title}</Text>
         </Pressable>
     );
 };

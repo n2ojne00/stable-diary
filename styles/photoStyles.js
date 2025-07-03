@@ -12,7 +12,7 @@ const photo = StyleSheet.create({
         borderRadius: wp("3%"),
     },
     pressHome: {
-        width: wp('90%'),
+        width: wp('95%'),
         height: hp('17%'),
         overflow: 'hidden',
         borderRadius: wp('2%'),

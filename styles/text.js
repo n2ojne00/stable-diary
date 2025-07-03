@@ -44,7 +44,7 @@ const txtStyles = StyleSheet.create({
         position: 'absolute',
         backgroundColor: colors.background,
         padding: wp('2%'),
-        width: wp('90%'),
+        width: wp('95%'),
         textAlign: 'center',
     },
 });

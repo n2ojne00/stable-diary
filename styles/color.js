@@ -1,6 +1,6 @@
 const colors = {
     //background colors
-    background: '#f0dbcfa4',
+    background: '#f0dbcfc5',
     drawerBg: '#d6c5bbff',
     nocolor: '#ffffff00',
     lightBg: '#ddc1b0ff',

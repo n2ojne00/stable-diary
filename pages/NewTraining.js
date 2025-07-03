@@ -86,7 +86,6 @@ export default function AddNewTraining() {
         }
         
         <MultipleSelectList
-   
           boxStyles={ButtonStyles.selectList}
           inputStyles={txtStyles.body}
           dropdownStyles={ButtonStyles.selectDropDown}
@@ -107,7 +106,6 @@ export default function AddNewTraining() {
         {// TYPE OF TRAINING
         }
         <SelectList
-             usePortal={true}
           boxStyles={ButtonStyles.selectList}
           inputStyles={txtStyles.body}
           dropdownStyles={ButtonStyles.selectDropDown}
