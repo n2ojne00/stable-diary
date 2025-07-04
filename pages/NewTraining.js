@@ -15,8 +15,8 @@ export default function AddNewTraining() {
 
   const [date, setDate] = useState(new Date());
  
-  const [selectedHorse, setSelectedHorse] = React.useState("");
-  const [selectedSport, setSelectedSport] = React.useState("");
+  const [selectedHorse, setSelectedHorse] = useState("");
+  const [selectedSport, setSelectedSport] = useState("");
 
   const showMode = (mode) => {
     DateTimePickerAndroid.open({
@@ -24,6 +24,7 @@ export default function AddNewTraining() {
       onChange: handleDateChange,
       mode,
       is24Hour: true,
+      firstDayOfWeek: 1,
     });
   };
 
@@ -55,16 +56,16 @@ export default function AddNewTraining() {
   dataSport.sort((a, b) => a.value.localeCompare(b.value));
 
   return ( 
-    <View style={[{alignItems: 'center', justifyContent: 'center'}, base.container]}>
-      <Text style={txtStyles.header}>Harjoitus</Text>
+    <View style={[{alignItems: 'center', justifyContent: 'center',}, base.container]}>
+      <Text style={txtStyles.title}>Harjoitus</Text>
       <View>
 
         {// SET THE DATE
         }
         <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', }}>
-          <View style={{ flexDirection: 'column', alignItems: 'center', }}>
+          <View style={{ flexDirection: 'column', alignItems: 'center' }}>
              {Icons.calendar}
-            <Text style={txtStyles.title}>
+            <Text style={txtStyles.subtitle}>
               {date.toLocaleDateString('fi-FI')}
             </Text>
             <CustomButton title="Päivämäärä" onPress={showDatePicker} size="small" />
@@ -74,7 +75,7 @@ export default function AddNewTraining() {
           }
           <View style={{ flexDirection: 'column', alignItems: 'center', }}>
             {Icons.clock}
-            <Text style={txtStyles.title}>
+            <Text style={txtStyles.subtitle}>
               {date.toLocaleTimeString('fi-FI', { hour: '2-digit', minute: '2-digit' })}
             </Text>
             <CustomButton title="Kellonaika" onPress={showTimePicker} size="small" />

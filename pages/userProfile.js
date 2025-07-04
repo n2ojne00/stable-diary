@@ -7,9 +7,13 @@ import { ButtonIcons, Icons, TabIcons } from '../styles/icons';
 
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import colors from '../styles/color';
+import { useNavigation } from '@react-navigation/native';
 
 
 export default function UserProfile() {
+
+      const navigation = useNavigation();
+
     return (
         <View style={base.container}>
             <View style={base.profileInfo}>
@@ -22,7 +26,7 @@ export default function UserProfile() {
                 </View>
             </View>
 
-            <CustomButton addIcon={ButtonIcons.Add} title={'Lisää uusi hevonen'} onPress={() => { console.log('lisää uusi hevonen') }} />
+            <CustomButton addIcon={ButtonIcons.Add} title={'Lisää uusi hevonen'} onPress={() => navigation.navigate('NewHorse') } />
             <CustomButton addIcon={ButtonIcons.Settings} title={'Asetukset'} onPress={() => { console.log('asetuksiin') }} />
             <CustomButton addIcon={ButtonIcons.Logout} title={'Kirjaudu ulos'} onPress={() => { console.log('kirjauduttu ulos') }} />
 
