@@ -8,6 +8,7 @@ import AddNewTraining from '../pages/newTraining';
 import History from '../pages/history';
 import { TabIcons } from '../styles/icons';
 import UserProfile from '../pages/userProfile';
+import MainNavigation from './MainNavigation';
 
 const Tab = createBottomTabNavigator();
 
@@ -28,11 +29,12 @@ export default function AppTabs() {
         tabBarIcon: ({ color, size }) => TabIcons[route.name]?.(color, 27),
       })}
     >
-      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="Home" component={MainNavigation} />
       <Tab.Screen name="Stable" component={MyStable} />
       <Tab.Screen name="New Training" component={AddNewTraining} />
       <Tab.Screen name="History" component={History} />
       <Tab.Screen name="Profile" component={UserProfile} />
+    
     </Tab.Navigator>
   );
 }

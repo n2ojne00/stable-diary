@@ -2,6 +2,7 @@ import FontLoader from './components/fontLoader';
 import BackgroundImage from './components/background';
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import MainNavigation from './navigation/MainNavigation';
+import AppTabs from './navigation/AppBottomTabs';
 
 const navTheme = {
   ...DefaultTheme,
@@ -19,7 +20,7 @@ export default function App() {
 
       <NavigationContainer theme={navTheme} >
         <FontLoader>
-          <MainNavigation />
+          <AppTabs />
         </FontLoader>
       </NavigationContainer>
 
