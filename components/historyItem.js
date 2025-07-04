@@ -5,7 +5,7 @@ import ButtonStyles from '../styles/buttons';
 import colors from '../styles/color';
 import { Icons } from '../styles/icons';
 
-export const HistoryTablet = ({
+export const HistoryItem = ({
   trainingDate,
   startingTime,
   horseName,
@@ -21,6 +21,9 @@ export const HistoryTablet = ({
   };
 
   return (
+
+    //Training history item with expandable notes
+
     <TouchableOpacity
       onPress={() => setExpanded(!expanded)}
       activeOpacity={0.8}
@@ -31,14 +34,15 @@ export const HistoryTablet = ({
         <Text style={txtStyles.body}>{trainingDate}</Text>
       </View>
 
-      <Text style={txtStyles.title}>{horseName}</Text>
+      <Text style={txtStyles.subtitle}>{horseName}</Text>
 
       <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-        <Text style={txtStyles.subtitle}>{trainingType}</Text>
+        <Text style={txtStyles.body}>{trainingType}</Text>
         <Text style={txtStyles.body}>{minutes} min</Text>
       </View>
 
-
+      {//Note expansion
+      }
       {notes && (
         expanded ? (
           <Text style={txtStyles.small}>{notes}</Text>

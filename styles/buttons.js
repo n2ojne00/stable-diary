@@ -3,6 +3,11 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-nat
 import colors from "./color";
 import txtStyles from "./text";
 
+/**
+ * default color: colors.inputBg,
+ * pressed color: colors.drawerBg,
+ */
+
 const baseStyle = {
     backgroundColor: colors.lightBrown,
     borderRadius: 5,
@@ -61,7 +66,7 @@ const ButtonStyles = StyleSheet.create({
     },
 
     horsePressed: {
-        backgroundColor: colors.greeny,
+        backgroundColor: colors.drawerBg,
         color: colors.txtWhite,
     },
 
@@ -93,8 +98,9 @@ const ButtonStyles = StyleSheet.create({
 
     historyTabletContainer: {
         backgroundColor: colors.inputBg,
-        padding: hp("2%"),
-        margin: 8,
+        padding: hp("1.5%"),
+        marginVertical: hp("0.5%"),
+        marginHorizontal: wp("2%"),
         borderRadius: 5,
         elevation: 2,
         borderWidth: 1,

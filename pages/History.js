@@ -2,7 +2,7 @@ import React from 'react';
 import base from '../styles/base';
 import { TrainingHistoryList } from '../components/flatlist';
 import HistoryData from '../exampleData/trainingHistory.json'
-import { HistoryTablet } from '../components/historyTablet';
+import { HistoryItem } from '../components/historyItem';
 import { View } from 'react-native';
 
 export default function History() {
@@ -13,7 +13,7 @@ export default function History() {
         listHistory={HistoryData}
         sortBy="horseName"
         renderItem={({ item }) =>
-          <HistoryTablet
+          <HistoryItem
             trainingDate={item.date}
             startingTime={item.starting}
             horseName={item.horseName}

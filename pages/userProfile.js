@@ -4,7 +4,6 @@ import base from '../styles/base';
 import txtStyles from '../styles/text';
 import { CustomButton } from '../components/pressable';
 import { ButtonIcons, Icons, TabIcons } from '../styles/icons';
-
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import colors from '../styles/color';
 import { useNavigation } from '@react-navigation/native';
@@ -12,10 +11,13 @@ import { useNavigation } from '@react-navigation/native';
 
 export default function UserProfile() {
 
-      const navigation = useNavigation();
+    const navigation = useNavigation();
 
     return (
         <View style={base.container}>
+
+            {// User profile information
+            }
             <View style={base.profileInfo}>
                 <View style={styles.profileImg}>
                     {TabIcons.Profile(colors.greenyDark, wp("15%"))}
@@ -26,8 +28,14 @@ export default function UserProfile() {
                 </View>
             </View>
 
-            <CustomButton addIcon={ButtonIcons.Add} title={'Lisää uusi hevonen'} onPress={() => navigation.navigate('NewHorse') } />
+            {// Add new horse button
+            }
+            <CustomButton addIcon={ButtonIcons.Add} title={'Lisää uusi hevonen'} onPress={() => navigation.navigate('NewHorse')} />
+            {// Settings
+            }
             <CustomButton addIcon={ButtonIcons.Settings} title={'Asetukset'} onPress={() => { console.log('asetuksiin') }} />
+            {// Logout button
+            }
             <CustomButton addIcon={ButtonIcons.Logout} title={'Kirjaudu ulos'} onPress={() => { console.log('kirjauduttu ulos') }} />
 
         </View>
