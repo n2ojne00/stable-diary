@@ -7,7 +7,7 @@ import AddNewTraining from '../pages/newTraining';
 import Home from '../pages/home';
 import MyStable from '../pages/stableView';
 import History from '../pages/history';
-import AppTabs from './AppBottomTabs';
+import AppTabs from './BottomTabs';
 
 
 

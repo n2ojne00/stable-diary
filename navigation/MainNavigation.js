@@ -1,7 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from '../account/LoginScreen';
 import SignUpScreen from '../account/SignUpScreen';
-import AppTabs from './AppBottomTabs';
 import AddNewHorse from '../pages/horseProfile';
 import Home from '../pages/home';
 

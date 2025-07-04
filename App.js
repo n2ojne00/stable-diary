@@ -1,8 +1,8 @@
 import FontLoader from './components/fontLoader';
 import BackgroundImage from './components/background';
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
-import MainNavigation from './navigation/MainNavigation';
-import AppTabs from './navigation/AppBottomTabs';
+import AppTabs from './navigation/BottomTabs';
+
 
 const navTheme = {
   ...DefaultTheme,
