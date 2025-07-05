@@ -4,12 +4,15 @@ import base from '../styles/base';
 import { InputText } from '../components/txtInput';
 import ButtonStyles from '../styles/buttons';
 import txtStyles from '../styles/text';
-import { Icons } from '../styles/icons';
+import { ButtonIcons, Icons } from '../styles/icons';
 import { SelectList } from 'react-native-dropdown-select-list';
 import { CustomButton } from '../components/pressable';
 import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
+import { useNavigation } from '@react-navigation/native';
 
 export default function AddNewHorse() {
+  
+      const navigation = useNavigation();
 
   const [date, setDate] = useState(new Date());
   const [selectedGender, setSelectedGender] = useState("");
@@ -104,6 +107,8 @@ export default function AddNewHorse() {
         />
 
         <CustomButton title="Lisää talliin" onPress={() => { }} size="small"/>
+
+          <CustomButton addIcon={ButtonIcons.ArrowLeft} title={'Takaisin'} onPress={() => navigation.navigate('UserProfile')} />
 
       </View>
     </View>

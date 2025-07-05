@@ -24,7 +24,7 @@ export default function UserProfile() {
                 </View>
                 <View style={{ flexDirection: 'column' }}>
                     <Text style={txtStyles.body}>user.user@gmail.com</Text>
-                    <Text style={txtStyles.body}>Rekisteröitynyt vuonna 4/2025</Text>
+                    <Text style={txtStyles.body}>Rekisteröitynyt vuonna 2025</Text>
                 </View>
             </View>
 
@@ -33,7 +33,7 @@ export default function UserProfile() {
             <CustomButton addIcon={ButtonIcons.Add} title={'Lisää uusi hevonen'} onPress={() => navigation.navigate('NewHorse')} />
             {// Settings
             }
-            <CustomButton addIcon={ButtonIcons.Settings} title={'Asetukset'} onPress={() => { console.log('asetuksiin') }} />
+            <CustomButton addIcon={ButtonIcons.Settings} title={'Asetukset'} onPress={() => navigation.navigate('Settings')} />
             {// Logout button
             }
             <CustomButton addIcon={ButtonIcons.Logout} title={'Kirjaudu ulos'} onPress={() => { console.log('kirjauduttu ulos') }} />

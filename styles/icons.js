@@ -22,7 +22,8 @@ export const TabIcons = {
 };
 
 export const ButtonIcons = {
-  Add: <MaterialCommunityIcons name="plus" size={25} color={colors.carrot} />,
-  Settings: <Ionicons name="settings-outline" size={25} color={colors.carrot} />,
-  Logout: <Ionicons name="log-out-outline" size={25} color={colors.carrot} />,
+  Add: <MaterialCommunityIcons name="plus" size={25} color={colors.txtWhite} />,
+  Settings: <Ionicons name="settings-outline" size={25} color={colors.txtWhite} />,
+  Logout: <Ionicons name="log-out-outline" size={25} color={colors.txtWhite} />,
+  ArrowLeft: <Ionicons name="arrow-back" size={25} color={colors.txtWhite} />,
 };
