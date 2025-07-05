@@ -48,6 +48,20 @@ const base = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 5,
     },
+    toggleBg: {
+        backgroundColor: colors.inputBg,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingHorizontal: hp("1%"),
+        paddingVertical: hp("1.5%"),
+        marginVertical: hp("0.5%"),
+        marginHorizontal: wp("2%"),
+        borderRadius: 5,
+        elevation: 2,
+        borderWidth: 1,
+        borderColor: colors.txtBody,
+    },
 
 
 

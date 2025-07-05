@@ -1,6 +1,7 @@
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import AntDesign from '@expo/vector-icons/AntDesign';
+import Entypo from '@expo/vector-icons/Entypo';
 import { Ionicons } from '@expo/vector-icons';
 import colors from './color';
 
@@ -11,7 +12,9 @@ export const Icons = {
   arrowDown: <AntDesign name="caretdown" size={18} color={colors.carrot} />,
   horseHead: <MaterialCommunityIcons name="horse-variant" size={90} color={colors.lightBrown} />,
   barn: <MaterialCommunityIcons name="barn" size={100} color={colors.lightBrown} />,
-};
+  plus: <Entypo name="plus" size={25} color={colors.lightBrown} />,
+  minus: <Entypo name="minus" size={25} color={colors.lightBrown} />,
+}; 
 
 export const TabIcons = {
   Home: (color, size) => <Ionicons name="home" size={size} color={color} />,
@@ -26,4 +29,5 @@ export const ButtonIcons = {
   Settings: <Ionicons name="settings-outline" size={25} color={colors.txtWhite} />,
   Logout: <Ionicons name="log-out-outline" size={25} color={colors.txtWhite} />,
   ArrowLeft: <Ionicons name="arrow-back" size={25} color={colors.txtWhite} />,
+  ArrowRight: <Ionicons name="arrow-forward" size={25} color={colors.txtWhite} />,
 };
