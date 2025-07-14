@@ -33,4 +33,5 @@ Some of the images and illustrations used in this project were generated using A
 
 - **Author**: Netta Ojala
 - **Year**: 2025
+- **University**: Oulu University of Applied Sciences
 
