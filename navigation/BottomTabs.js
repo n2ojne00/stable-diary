@@ -29,8 +29,8 @@ export default function AppTabs() {
       })}
     >
       <Tab.Screen name="Home" component={MainNavigation} />
-      <Tab.Screen name="Stable" component={MyStable} />
       <Tab.Screen name="New Training" component={AddNewTraining} />
+      <Tab.Screen name="Stable" component={MyStable} />
       <Tab.Screen name="History" component={History} />
       <Tab.Screen name="Profile" component={ProfileStack} />
     

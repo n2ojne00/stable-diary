@@ -14,7 +14,6 @@ export default function Settings() {
 
     const [isOn, setIsOn] = useState(false);
 
-
     return (
 
         <View style={base.container}>

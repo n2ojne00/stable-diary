@@ -15,13 +15,13 @@ export const Icons = {
   plus: <Entypo name="plus" size={25} color={colors.lightBrown} />,
   minus: <Entypo name="minus" size={25} color={colors.lightBrown} />,
 }; 
-
+//<MaterialCommunityIcons name="map-clock-outline" size={24} color="black" />
 export const TabIcons = {
   Home: (color, size) => <Ionicons name="home" size={size} color={color} />,
-  Stable: (color, size) => <Ionicons name="trail-sign-outline" size={size} color={color} />,
+  Stable: (color, size) => <MaterialCommunityIcons name="barn" size={size} color={color} />,
   Profile: (color, size) => <Ionicons name="person" size={size} color={color} />,
-  'New Training': (color, size) => <Ionicons name="fitness" size={size} color={color} />,
-  History: (color, size) => <Ionicons name="time" size={size} color={color} />,
+  'New Training': (color, size) => <MaterialCommunityIcons name="map-clock-outline"  size={size} color={color} />,
+  History: (color, size) => <Entypo name="back-in-time" size={size} color={color} />,
 };
 
 export const ButtonIcons = {
