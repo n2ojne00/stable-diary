@@ -14,9 +14,11 @@ import { Icons } from '../styles/icons';
 export default function AddNewTraining() {
 
   const [date, setDate] = useState(new Date());
- 
+
   const [selectedHorse, setSelectedHorse] = useState("");
   const [selectedSport, setSelectedSport] = useState("");
+  const [duration, setDuration] = useState("");
+  const [notes, setNotes] = useState("");
 
   const showMode = (mode) => {
     DateTimePickerAndroid.open({
@@ -55,8 +57,21 @@ export default function AddNewTraining() {
   //sorting data to alphabetical order
   dataSport.sort((a, b) => a.value.localeCompare(b.value));
 
-  return ( 
-    <View style={[{alignItems: 'center', justifyContent: 'center',}, base.container]}>
+  const saveTraining = () => {
+    const trainingData = {
+      date: date,
+      horse: selectedHorse,
+      sport: selectedSport,
+      duration: duration,
+      notes: notes,
+
+    }
+    // Function to save the training data
+    console.log(trainingData);
+  };
+
+  return (
+    <View style={[{ alignItems: 'center', justifyContent: 'center', }, base.container]}>
       <Text style={txtStyles.title}>Harjoitus</Text>
       <View>
 
@@ -64,7 +79,7 @@ export default function AddNewTraining() {
         }
         <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', }}>
           <View style={{ flexDirection: 'column', alignItems: 'center' }}>
-             {Icons.calendar}
+            {Icons.calendar}
             <Text style={txtStyles.subtitle}>
               {date.toLocaleDateString('fi-FI')}
             </Text>
@@ -85,7 +100,7 @@ export default function AddNewTraining() {
 
         {// CHOOSE HORSE/HORSES
         }
-        
+
         <MultipleSelectList
           boxStyles={ButtonStyles.selectList}
           inputStyles={txtStyles.body}
@@ -99,7 +114,7 @@ export default function AddNewTraining() {
           label="Valitut hevoset"
           labelStyles={txtStyles.body}
           search={true}
-          setSelected={(val) => setSelectedHorse(val)} 
+          setSelected={(val) => setSelectedHorse(val)}
           data={FakeHorseData.map(({ key, horseName }) => ({ key, value: horseName }))} //should add sorting by horseName (alphabetical order) FakeHorseData.sort((a, b) => a.horseName.localeCompare(b.horseName));
           save="value"
         />
@@ -121,15 +136,15 @@ export default function AddNewTraining() {
         />
         {// EXERCISE DURATION IN MINUTES
         }
-        <InputText title='Harjoituksen kesto minuutteina' placeholder='min' keytype='numeric' maxLength={3} />
+        <InputText title='Harjoituksen kesto minuutteina' placeholder='min' keytype='numeric' maxLength={3} onChangeText={setDuration} />
 
         {// NOTES
         }
-        <NoteInput title='Muistiinpanot' placeholder='...' keytype='default' />
+        <NoteInput title='Muistiinpanot' placeholder='...' keytype='default' onChangeText={setNotes} />
 
         {// SAVE
         }
-        <CustomButton title="Tallenna" onPress={() => { }} size="small"/>
+        <CustomButton title="Tallenna" onPress={saveTraining} size="small" />
 
       </View>
     </View>

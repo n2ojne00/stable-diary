@@ -9,14 +9,14 @@ import InputStyles from "../styles/input";
 
 //Validators to certain text input if needed.
 const validators = {
-    email: (value) =>
-        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? '' : 'Invalid email address',
+  email: (value) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? '' : 'Invalid email address',
 
-    password: (value) =>
-        value.length >= 6 ? '' : 'Password must be at least 6 characters',
-    username: (value) =>
-        value.length >= 3 ? '' : 'Username must be atleast 3 characters',
-    none: () => ''  // for no validation
+  password: (value) =>
+    value.length >= 6 ? '' : 'Password must be at least 6 characters',
+  username: (value) =>
+    value.length >= 3 ? '' : 'Username must be atleast 3 characters',
+  none: () => ''  // for no validation
 };
 
 //<InputText title='' placeholder='' keytype='default' contentType='password' secure={true/false} validationType='none/password/..'/>
@@ -28,8 +28,7 @@ export const InputText = ({
   secure,
   validationType = 'none',
   onValidChange,
-  onChangeText, // <--- Add this
-  maxLength = 1000,
+  onChangeText,
 }) => {
   const [text, setText] = React.useState('');
   const [error, setError] = React.useState('');
@@ -60,42 +59,50 @@ export const InputText = ({
         textContentType={contentType}
         secureTextEntry={secure}
         style={InputStyles.txtInput}
-        maxLength={maxLength}
-
+        maxLength={1000}
       />
+
       {error ? <Text style={txtStyles.error}>{error}</Text> : null}
     </>
   );
 };
 
+export const NoteInput = ({
+  title,
+  placeholder,
+  keytype,
+  contentType,
+  maxLength = 1000,
+  onValidChange,
+  onChangeText,
+}) => {
 
-export const NoteInput = ({ title, placeholder, keytype, contentType, maxLength = 1000, }) => {
-    const [text, setText] = React.useState('');
-    const [error, setError] = React.useState('');
+  const [text, setText] = React.useState('');
+  const [error, setError] = React.useState('');
 
-    const handleTextChange = (value) => {
-        setText(value);
-    };
+ const handleTextChange = (value) => {
+  setText(value);
+  onChangeText?.(value);
+ };
+  return (
+    <>
+      <Text style={txtStyles.body}>{title}</Text>
 
-    return (
-        <>
-            <Text style={txtStyles.body}>{title}</Text>
+      <TextInput
+        value={text}
+        multiline={true}
+        placeholder={placeholder}
+        placeholderTextColor={colors.txtSmall}
+        keyboardType={keytype}
+        onChangeText={handleTextChange}
+        textContentType={contentType}
+        style={InputStyles.noteInput}
+        maxLength={maxLength}
+      />
+      {error ? <Text style={txtStyles.error}>{error}</Text> : null}
 
-            <TextInput
-                value={text}
-                multiline={true}
-                placeholder={placeholder}
-                placeholderTextColor={colors.txtSmall}
-                keyboardType={keytype}
-                onChangeText={handleTextChange}
-                textContentType={contentType}
-                style={InputStyles.noteInput}
-                maxLength={maxLength}
-            />
-            {error ? <Text style={txtStyles.error}>{error}</Text> : null}
-
-        </>
-    );
+    </>
+  );
 };
 
 
