@@ -10,7 +10,7 @@ export default function History() {
     <View style={base.container}>
 
       <TrainingHistoryList
-        listHistory={HistoryData}
+        listHistory={HistoryData} // Replace with actual data source
         sortBy="horseName"
         renderItem={({ item }) =>
           <HistoryItem

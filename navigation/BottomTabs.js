@@ -2,12 +2,11 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-native-responsive-screen";
 import colors from '../styles/color';
 import MyStable from '../pages/stableView';
-import AddNewTraining from '../pages/newTraining';
-import History from '../pages/history';
 import { TabIcons } from '../styles/icons';
-
 import ProfileStack from './SideNavigation';
 import MainNavigation from './MainNavigation';
+import AddNewTraining from '../pages/NewTraining';
+import History from '../pages/History';
 
 const Tab = createBottomTabNavigator();
 
