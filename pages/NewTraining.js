@@ -10,15 +10,19 @@ import { CustomButton } from '../components/pressable';
 import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
 
 import { Icons } from '../styles/icons';
+import { TrainingHistoryList } from '../components/flatlist';
 
 export default function AddNewTraining() {
 
-  const [date, setDate] = useState(new Date());
+  const [savedTraining, setSavedTraining] = useState([]);
+  //console.log("Tallennetut harjoitukset: ", savedTraining);
 
-  const [selectedHorse, setSelectedHorse] = useState("");
+  const [date, setDate] = useState(new Date());
+  const [selectedHorse, setSelectedHorse] = useState([]);
   const [selectedSport, setSelectedSport] = useState("");
   const [duration, setDuration] = useState("");
   const [notes, setNotes] = useState("");
+
 
   const showMode = (mode) => {
     DateTimePickerAndroid.open({
@@ -36,7 +40,7 @@ export default function AddNewTraining() {
   const handleDateChange = (event, selectedDate) => {
     if (selectedDate) {
       setDate(selectedDate);
-      console.log("valittu pvm ja kello " + selectedDate);
+      //console.log("valittu pvm ja kello " + selectedDate);
     }
   };
 
@@ -57,18 +61,56 @@ export default function AddNewTraining() {
   //sorting data to alphabetical order
   dataSport.sort((a, b) => a.value.localeCompare(b.value));
 
+  // Function for checking inputs before saving
+ const acceptSaving = () => {
+  if (selectedHorse.length === 0) {
+    alert("Valitse vähintään yksi hevonen.");
+    return false;
+  }
+
+  if (!selectedSport) {
+    alert("Valitse laji.");
+    return false;
+  }
+
+  if (!duration) {
+    alert("Syötä harjoituksen kesto.");
+    return false;
+  }
+
+  alert("Tallennus onnistui.");
+  return true;
+};
+
+
   const saveTraining = () => {
+    
+    const canSave = acceptSaving();
+    
+    if (canSave) {
     const trainingData = {
+      id: savedTraining.length + 1, // Id generation based on current length 
       date: date,
       horse: selectedHorse,
       sport: selectedSport,
       duration: duration,
       notes: notes,
-
+      saveDate: new Date().toLocaleString(), 
     }
-    // Function to save the training data
+
+    // Saves and resets the form
+    setSavedTraining([...savedTraining, trainingData]);
+    setDate(new Date());
+    setSelectedHorse([]);
+    setSelectedSport("");
+    setDuration("");
+    setNotes("");
+
     console.log(trainingData);
+  }
+  
   };
+
 
   return (
     <View style={[{ alignItems: 'center', justifyContent: 'center', }, base.container]}>
@@ -98,10 +140,10 @@ export default function AddNewTraining() {
 
         </View>
 
-        {// CHOOSE HORSE/HORSES
+        {// CHOOSE HORSE
         }
 
-        <MultipleSelectList
+        <SelectList
           boxStyles={ButtonStyles.selectList}
           inputStyles={txtStyles.body}
           dropdownStyles={ButtonStyles.selectDropDown}
@@ -113,8 +155,8 @@ export default function AddNewTraining() {
           placeholder='Hevonen/Hevoset'
           label="Valitut hevoset"
           labelStyles={txtStyles.body}
-          search={true}
-          setSelected={(val) => setSelectedHorse(val)}
+          search={false}
+          setSelected={setSelectedHorse}
           data={FakeHorseData.map(({ key, horseName }) => ({ key, value: horseName }))} //should add sorting by horseName (alphabetical order) FakeHorseData.sort((a, b) => a.horseName.localeCompare(b.horseName));
           save="value"
         />
@@ -128,23 +170,38 @@ export default function AddNewTraining() {
           fontFamily='NotoSansDisplay_400Regular'
           dropdownTextStyles={txtStyles.body}
           arrowicon={Icons.arrowDown}
-          placeholder='Valitse vaihtoehto'
+          placeholder='Valitse treeni'
           search={false}
-          setSelected={(val) => setSelectedSport(val)}
+          setSelected={setSelectedSport}
           data={dataSport}
           save="value"
         />
         {// EXERCISE DURATION IN MINUTES
         }
-        <InputText title='Harjoituksen kesto minuutteina' placeholder='min' keytype='numeric' maxLength={3} onChangeText={setDuration} />
+        <InputText title='Harjoituksen kesto minuutteina'
+          placeholder='min'
+          keytype='numeric'
+          maxLength={3}
+          value={duration}
+          onChangeText={setDuration}
+          validationType='training'
+        />
 
         {// NOTES
         }
-        <NoteInput title='Muistiinpanot' placeholder='...' keytype='default' onChangeText={setNotes} />
+        <NoteInput title='Muistiinpanot'
+          placeholder='...'
+          keytype='default'
+          onChangeText={setNotes}
+          value={notes}
+        />
 
         {// SAVE
         }
-        <CustomButton title="Tallenna" onPress={saveTraining} size="small" />
+        <CustomButton title="Tallenna"
+          onPress={saveTraining}
+          size="small"
+        />
 
       </View>
     </View>

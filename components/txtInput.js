@@ -1,8 +1,8 @@
+import React, { useState } from 'react';
 import { Text, TextInput, } from "react-native";
 import colors from "../styles/color";
 import txtStyles from "../styles/text";
 import ButtonStyles from "../styles/buttons";
-import React from "react";
 import InputStyles from "../styles/input";
 
 //keyboardShouldPersistTaps="handled" 
@@ -13,9 +13,11 @@ const validators = {
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? '' : 'Invalid email address',
 
   password: (value) =>
-    value.length >= 6 ? '' : 'Password must be at least 6 characters',
+    value.length >= 6 ? '' : 'Salasanan tulee olla vähintään 6 merkkiä',
   username: (value) =>
-    value.length >= 3 ? '' : 'Username must be atleast 3 characters',
+    value.length >= 3 ? '' : 'Käyttäjätunnuksen tulee olla vähintään 3 merkkiä',
+  training: (value) =>
+    value.length >= 1  ? '' : 'Lisää minuutit',
   none: () => ''  // for no validation
 };
 
@@ -29,12 +31,16 @@ export const InputText = ({
   validationType = 'none',
   onValidChange,
   onChangeText,
+  value = '',
+  maxLength,
 }) => {
-  const [text, setText] = React.useState('');
-  const [error, setError] = React.useState('');
+  //const [text, setText] = useState('');
+  const [error, setError] = useState('');
+
+
 
   const handleTextChange = (value) => {
-    setText(value);
+    //setText(value);
 
     const validate = validators[validationType] || validators.none;
     const validationResult = validate(value);
@@ -42,6 +48,7 @@ export const InputText = ({
     setError(validationResult);
     if (onValidChange) onValidChange(!validationResult);
     if (onChangeText) onChangeText(value);
+
   };
 
   return (
@@ -49,7 +56,7 @@ export const InputText = ({
       <Text style={txtStyles.body}>{title}</Text>
 
       <TextInput
-        value={text}
+        value={value}
         multiline={false}
         autoCapitalize="none"
         placeholder={placeholder}
@@ -59,7 +66,8 @@ export const InputText = ({
         textContentType={contentType}
         secureTextEntry={secure}
         style={InputStyles.txtInput}
-        maxLength={1000}
+        maxLength={maxLength}
+
       />
 
       {error ? <Text style={txtStyles.error}>{error}</Text> : null}
@@ -75,21 +83,20 @@ export const NoteInput = ({
   maxLength = 1000,
   onValidChange,
   onChangeText,
+  value = '',
 }) => {
 
-  const [text, setText] = React.useState('');
-  const [error, setError] = React.useState('');
+  const [error, setError] = useState('');
 
- const handleTextChange = (value) => {
-  setText(value);
-  onChangeText?.(value);
- };
+  const handleTextChange = (value) => {
+    onChangeText?.(value);
+  };
   return (
     <>
       <Text style={txtStyles.body}>{title}</Text>
 
       <TextInput
-        value={text}
+        value={value}
         multiline={true}
         placeholder={placeholder}
         placeholderTextColor={colors.txtSmall}
