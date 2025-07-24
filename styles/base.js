@@ -11,12 +11,15 @@ const base = StyleSheet.create({
         justifyContent: 'center',
     },
 
-    logoHeader: {
-        width: wp("100%"),
-        height: hp("20%"),
+    frontView: {
+        flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        flexDirection: 'row'
+        flexDirection: 'column',
+    },
+    loginView: { 
+        flexDirection: 'column', 
+        marginTop: hp("2%"),
     },
     bodyContainer: {
         alignItems: 'center',

@@ -14,22 +14,8 @@ export default function Home() {
 
   return (
     <View style={base.container}>
-      <View style={base.logoHeader}>
-        <Image
-          source={require('../images/stableBoy.png')}
-          style={photo.logo}
-          resizeMode="cover"
 
-        />
-
-      </View>
       <View style={base.bodyContainer}>
-        <Text style={txtStyles.body}>Please login or sign up to continue.</Text>
-        <View style={{ flexDirection: 'row' }}>
-          <CustomButton title="Login" onPress={() => navigation.navigate('Login')} size="small" />
-          <CustomButton title="Sign Up" onPress={() => navigation.navigate('SignUp')} size="small" />
-
-        </View>
 
         <View >
 

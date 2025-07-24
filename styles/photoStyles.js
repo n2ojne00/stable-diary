@@ -6,10 +6,11 @@ import colors from "./color";
 const photo = StyleSheet.create({
 
     logo: {
-        width: wp("40%"),
-        height: hp("18%"),
-        resizeMode: 'center',
-        borderRadius: wp("3%"),
+        width: wp("65%"),
+        height: hp("30%"),
+        resizeMode: 'cover',
+        borderRadius: wp("5%"),
+        
     },
     pressHome: {
         width: wp('95%'),

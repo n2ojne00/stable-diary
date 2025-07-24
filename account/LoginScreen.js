@@ -7,8 +7,11 @@ import { CustomButton } from '../components/pressable';
 import txtStyles from '../styles/text';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { AUTH } from '../FirebaseConfig';
+import { useNavigation } from '@react-navigation/native';
 
 export default function LoginScreen() {
+
+    const navigation = useNavigation();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -18,8 +21,8 @@ export default function LoginScreen() {
             const userCredential = await signInWithEmailAndPassword(AUTH, email, password);
             const user = userCredential.user;
             alert('Login successful!');
-            console.log('Logged in:', user);
-            // Voit ohjata käyttäjän etusivulle tms.
+            navigation.navigate('HomeScreen'); // Navigate to HomeScreen after successful login
+            console.log('Logged in:', user); 
         } catch (error) {
             console.error('Login error:', error.message);
         }
