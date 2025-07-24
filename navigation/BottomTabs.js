@@ -3,8 +3,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-nat
 import colors from '../styles/color';
 import MyStable from '../pages/stableView';
 import { TabIcons } from '../styles/icons';
-import ProfileStack from './SideNavigation';
-import MainNavigation from './MainNavigation';
+import { HomeStack, ProfileStack } from './SideNavigation';
 import AddNewTraining from '../pages/NewTraining';
 import History from '../pages/History';
 
@@ -27,7 +26,7 @@ export default function AppTabs() {
         tabBarIcon: ({ color, size }) => TabIcons[route.name]?.(color, 27),
       })}
     >
-      <Tab.Screen name="Home" component={MainNavigation} />
+      <Tab.Screen name="Home" component={HomeStack} />
       <Tab.Screen name="New Training" component={AddNewTraining} />
       <Tab.Screen name="Stable" component={MyStable} />
       <Tab.Screen name="History" component={History} />

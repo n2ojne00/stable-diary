@@ -1,7 +1,8 @@
 import FontLoader from './components/fontLoader';
 import BackgroundImage from './components/background';
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
-import AppTabs from './navigation/BottomTabs';
+
+import AuthLoader from './components/authLoader';
 
 
 const navTheme = {
@@ -20,7 +21,7 @@ export default function App() {
 
       <NavigationContainer theme={navTheme} >
         <FontLoader>
-          <AppTabs />
+          <AuthLoader />
         </FontLoader>
       </NavigationContainer>
 
