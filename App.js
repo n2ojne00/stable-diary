@@ -1,8 +1,9 @@
 import FontLoader from './components/fontLoader';
 import BackgroundImage from './components/background';
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
+import AuthLoader from './account/authLoader';
+import { UserProvider } from './components/userInformation';
 
-import AuthLoader from './components/authLoader';
 
 
 const navTheme = {
@@ -21,7 +22,9 @@ export default function App() {
 
       <NavigationContainer theme={navTheme} >
         <FontLoader>
-          <AuthLoader />
+          <UserProvider>
+            <AuthLoader />
+          </UserProvider>
         </FontLoader>
       </NavigationContainer>
 

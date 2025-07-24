@@ -8,11 +8,26 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 import colors from '../styles/color';
 import { useNavigation } from '@react-navigation/native';
 import { logout } from '../account/LogOut';
+import { useUser } from '../components/userInformation';
 
 
 export default function UserProfile() {
+    const { user } = useUser();
+
+    if (!user) {
+        return <Text>Käyttäjä ei ole kirjautunut</Text>;
+    }
 
     const navigation = useNavigation();
+
+    const creationTime = user.metadata?.creationTime;
+
+    const formattedDate = creationTime
+        ? new Date(creationTime).toLocaleDateString('fi-FI', {
+            year: 'numeric',
+            month: 'long',
+        })
+        : 'Tuntematon';
 
     return (
         <View style={base.container}>
@@ -24,8 +39,8 @@ export default function UserProfile() {
                     {TabIcons.Profile(colors.greenyDark, wp("15%"))}
                 </View>
                 <View style={{ flexDirection: 'column' }}>
-                    <Text style={txtStyles.body}>user.user@gmail.com</Text>
-                    <Text style={txtStyles.body}>Rekisteröitynyt vuonna 2025</Text>
+                    <Text style={txtStyles.body}> {user.email}</Text>
+                    <Text style={txtStyles.body}> Rekisteröitynyt: {formattedDate}</Text>
                 </View>
             </View>
 

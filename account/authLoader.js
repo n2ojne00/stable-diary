@@ -24,7 +24,7 @@ export default function AuthLoader() {
   }, []);
 
   if (user === undefined) {
-    return null;
+    return null; //Loading screeen?
   }
 
   return user ? <AppTabs /> : <AuthStack />;
