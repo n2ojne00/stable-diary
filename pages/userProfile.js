@@ -7,6 +7,7 @@ import { ButtonIcons, Icons, TabIcons } from '../styles/icons';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import colors from '../styles/color';
 import { useNavigation } from '@react-navigation/native';
+import { logout } from '../account/LogOut';
 
 
 export default function UserProfile() {
@@ -33,10 +34,10 @@ export default function UserProfile() {
             <CustomButton addIcon={ButtonIcons.Add} title={'Lisää uusi hevonen'} onPress={() => navigation.navigate('NewHorse')} />
             {// Settings
             }
-            <CustomButton addIcon={ButtonIcons.Settings} title={'Asetukset'} onPress={() => navigation.navigate('Settings')} />
+            <CustomButton addIcon={ButtonIcons.Settings} title={'Asetukset'} onPress={() => navigation.navigate('SettingsScreen')} />
             {// Logout button
             }
-            <CustomButton addIcon={ButtonIcons.Logout} title={'Kirjaudu ulos'} onPress={() => { console.log('kirjauduttu ulos') }} />
+            <CustomButton addIcon={ButtonIcons.Logout} title={'Kirjaudu ulos'} onPress={() => logout(navigation)} />
 
         </View>
     );
