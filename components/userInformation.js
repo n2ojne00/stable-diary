@@ -28,5 +28,5 @@ export const UserProvider = ({ children }) => {
   );
 };
 
-// Helppokäyttöinen hook
+// Hook to use user information in components
 export const useUser = () => useContext(UserContext);

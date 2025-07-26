@@ -15,12 +15,13 @@ export const logout = async (navigation) => {
     await signOut(AUTH);
     console.log('Signout successful');
 
-    if (navigation) {
+   /**  if (navigation) {
       navigation.reset({
         index: 0,
         routes: [{ name: 'AuthLoader' }]
       });
     }
+      */ //Do we need to reset navigation here? does authLoader handle it on its own?
 
   } catch (error) {
     console.error('Logging out failed:', error.message);

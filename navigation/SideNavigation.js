@@ -6,6 +6,7 @@ import Settings from "../pages/settings";
 import LoginScreen from "../account/LoginScreen";
 import SignUpScreen from "../account/SignUpScreen";
 import Home from "../pages/home";
+import AuthLoader from "../account/authLoader";
 
 const Stack = createNativeStackNavigator();
 
@@ -37,6 +38,8 @@ export function AuthStack() {
       <Stack.Screen name="FrontScreen" component={FrontScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="SignUp" component={SignUpScreen} />
+      <Stack.Screen name="HomeScreen" component={Home} />
+
     </Stack.Navigator>
   );
 };
