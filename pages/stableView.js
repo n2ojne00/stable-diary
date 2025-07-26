@@ -12,7 +12,7 @@ export default function MyStable() {
   return (
     <View style={base.container}>
       
-      <View style={base.logoHeader}>
+      <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center',}}>
         {Icons.horseHead}
         {Icons.barn}
       </View>

@@ -1,6 +1,6 @@
 import { View, Text } from 'react-native';
 import { useState } from 'react';
-
+import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import base from '../styles/base';
 import { InputText } from '../components/txtInput';
 import { CustomButton } from '../components/pressable';
@@ -15,11 +15,23 @@ export default function SignUpScreen() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const DB = getFirestore();
+
       const signUp = async () => {
     try {
       const userCredential = await createUserWithEmailAndPassword(AUTH, email, password);
       const user = userCredential.user;
+
       console.log("User registered:", user);
+
+       await setDoc(doc(DB, "users", user.uid), {
+      username: username,
+      email: user.email,
+      createdAt: new Date().toISOString()
+    });
+
+    console.log("User saved to Firestore:", username);
+
     } catch (error) {
       console.error("Registration error:", error.message);
     }
