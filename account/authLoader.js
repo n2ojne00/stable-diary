@@ -3,6 +3,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import AppTabs from '../navigation/BottomTabs';
 import { AuthStack } from '../navigation/SideNavigation';
 import { AUTH } from '../FirebaseConfig';
+import LoadingScreen from '../components/loading';
 
 
 
@@ -24,7 +25,9 @@ export default function AuthLoader() {
   }, []);
 
   if (user === undefined) {
-    return null; //Loading screeen?
+    return (
+      <LoadingScreen />
+    );
   }
 
   return user ? <AppTabs /> : <AuthStack />;

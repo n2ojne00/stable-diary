@@ -5,6 +5,7 @@ import {
   NotoSansDisplay_400Regular,
   NotoSansDisplay_400Regular_Italic,
 } from '@expo-google-fonts/noto-sans-display';
+import LoadingScreen from './loading';
 
 export default function FontLoader({ children }) {
   const [fontsLoaded] = useFonts({
@@ -14,9 +15,7 @@ export default function FontLoader({ children }) {
 
   if (!fontsLoaded) {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <ActivityIndicator size="large" color="orange" />
-      </View>
+      <LoadingScreen />
     );
   }
 
