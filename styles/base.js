@@ -57,6 +57,7 @@ const base = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
+        width: wp("95%"),
         paddingHorizontal: hp("1%"),
         paddingVertical: hp("1.5%"),
         marginVertical: hp("0.5%"),

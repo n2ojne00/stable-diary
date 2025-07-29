@@ -30,4 +30,5 @@ export const ButtonIcons = {
   Logout: <Ionicons name="log-out-outline" size={25} color={colors.txtWhite} />,
   ArrowLeft: <Ionicons name="arrow-back" size={25} color={colors.txtWhite} />,
   ArrowRight: <Ionicons name="arrow-forward" size={25} color={colors.txtWhite} />,
+  barnWhite: <MaterialCommunityIcons name="barn" size={25} color={colors.txtWhite} />,
 };

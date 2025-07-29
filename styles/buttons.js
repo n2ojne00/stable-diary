@@ -57,7 +57,7 @@ const ButtonStyles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-evenly',
         borderRadius: 5,
-        width: wp("90%"),
+        width: wp("95%"),
         height: wp("20%"),
         borderWidth: 1,
         borderColor: colors.txtBody,
@@ -99,7 +99,7 @@ const ButtonStyles = StyleSheet.create({
 
     historyTabletContainer: {
         backgroundColor: colors.inputBg,
-        width: wp("90%"),
+        width: wp("95%"),
         padding: hp("1.5%"),
         marginVertical: hp("0.5%"),
         marginHorizontal: wp("2%"),
