@@ -1,13 +1,10 @@
 import { View, Text, Button, StyleSheet, Image, Pressable } from 'react-native';
 import base from '../styles/base';
 import { useNavigation } from '@react-navigation/native';
-import { CustomButton, HomeTabButton } from '../components/pressable';
-import txtStyles from '../styles/text';
+import { HomeTabButton } from '../components/pressable';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import photo from '../styles/photoStyles';
 import colors from '../styles/color';
-import { Icons } from '../styles/icons';
-import ButtonStyles from '../styles/buttons';
+
 
 export default function Home() {
   const navigation = useNavigation();

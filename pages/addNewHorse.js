@@ -153,7 +153,7 @@ export default function AddNewHorse() {
           onChangeText={setOwner}
         />
 
-        <CustomButton title="Lisää talliin" onPress={handleAddHorse} size="small" />
+        <CustomButton addIcon={ButtonIcons.barnWhite} title="Lisää talliin" onPress={handleAddHorse}  />
 
         <CustomButton addIcon={ButtonIcons.ArrowLeft} title={'Takaisin'} onPress={() => navigation.navigate('UserProfile')} />
 
