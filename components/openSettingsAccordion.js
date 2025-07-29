@@ -8,7 +8,7 @@ import { Icons } from '../styles/icons';
 
 // Accordion item for settings
 
-export const SettingsAccordionItem = ({ title, buttons, AddIcon = [] }) => {
+export const SettingsAccordionItem = ({ title, buttons = [] }) => {
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -28,6 +28,7 @@ export const SettingsAccordionItem = ({ title, buttons, AddIcon = [] }) => {
         <View style={{ marginTop: 10 }}>
           {buttons.map((btn,) => (
             <CustomButton
+              addIcon={btn.addIcon}
               key={btn.title} // Ensure unique key for each button, currently using title
               title={btn.title}
               onPress={btn.onPress}

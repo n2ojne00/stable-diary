@@ -32,16 +32,17 @@ export default function Settings() {
             <SettingsAccordionItem
                 title="Tallin hallinnointi"
                 buttons={[
-                    { title: 'Lisää hevonen', onPress: () => navigation.navigate('NewHorse')  },
+                    { addIcon: ButtonIcons.Add, title: 'Lisää hevonen', onPress: () => navigation.navigate('NewHorse') },
                     { title: 'Muuta hevosen tietoja', onPress: () => console.log('Hevosen tietojen muutos') },
-                    { title: 'Poista hevosia', onPress: () => console.log('Poista') },
+                    { addIcon: ButtonIcons.Trash, title: 'Poista hevosia', onPress: () => console.log('Poista') },
                 ]}
             />
+
             <SettingsAccordionItem
                 title="Käyttäjätili"
                 buttons={[
                     { title: 'Vaihda sähköposti', onPress: () => console.log('Vaihda sähköposti') },
-                    { title: 'Poista tili', onPress: () => console.log('Poista tili') }, // Add alert to confirm deletion
+                    { addIcon: ButtonIcons.Trash, title: 'Poista tili', onPress: () => console.log('Poista tili') }, // Add alert to confirm deletion
                 ]}
             />
 

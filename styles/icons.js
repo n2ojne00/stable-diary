@@ -2,6 +2,7 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import Entypo from '@expo/vector-icons/Entypo';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Ionicons } from '@expo/vector-icons';
 import colors from './color';
 
@@ -31,4 +32,5 @@ export const ButtonIcons = {
   ArrowLeft: <Ionicons name="arrow-back" size={25} color={colors.txtWhite} />,
   ArrowRight: <Ionicons name="arrow-forward" size={25} color={colors.txtWhite} />,
   barnWhite: <MaterialCommunityIcons name="barn" size={25} color={colors.txtWhite} />,
+  Trash: <FontAwesome name="trash" size={25} color={colors.txtWhite}  />,
 };
