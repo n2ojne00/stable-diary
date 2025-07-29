@@ -17,11 +17,12 @@ const base = StyleSheet.create({
         justifyContent: 'center',
         flexDirection: 'column',
     },
-    loginView: { 
-        flexDirection: 'column', 
+    loginView: {
+        flexDirection: 'column',
         marginTop: hp("2%"),
     },
     bodyContainer: {
+        justifyContent: 'center',
         alignItems: 'center',
         height: hp("75%"),
         borderRadius: 20
@@ -65,6 +66,13 @@ const base = StyleSheet.create({
         borderWidth: 1,
         borderColor: colors.txtBody,
     },
+
+    TopBarPosition: {
+        width: wp("100%"),
+        position: 'absolute',
+        top: hp("5.5%"),
+        alignItems: 'center',
+    }
 
 
 

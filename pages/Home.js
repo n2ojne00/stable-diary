@@ -20,20 +20,22 @@ export default function Home() {
         <View >
 
           <HomeTabButton
-            title="TALLI"
+            title="talli"
             img={require('../images/barn.jpg')}
             onPress={() => navigation.navigate('Stable')}
           />
 
           <HomeTabButton
-            title="HARJOITUS"
+            title="harjoitus"
             img={require('../images/cowboy.png')}
             onPress={() => navigation.navigate('New Training')}
           />
-
-          <Pressable style={styles.calendar}>
+          {/**
+  * <Pressable style={styles.calendar}>
             <Text style={txtStyles.subtitle}>WEEK View</Text>
           </Pressable>
+  */}
+
 
         </View>
       </View>

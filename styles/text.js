@@ -38,6 +38,7 @@ const txtStyles = StyleSheet.create({
         color: "red",
     },
     overImg: {
+        textTransform: 'uppercase',
         fontSize: hp('4%'),
         fontFamily: 'NotoSansDisplay_400Regular',
         color: colors.txtHeader,

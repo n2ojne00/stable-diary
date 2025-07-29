@@ -99,6 +99,7 @@ const ButtonStyles = StyleSheet.create({
 
     historyTabletContainer: {
         backgroundColor: colors.inputBg,
+        width: wp("90%"),
         padding: hp("1.5%"),
         marginVertical: hp("0.5%"),
         marginHorizontal: wp("2%"),
@@ -109,16 +110,16 @@ const ButtonStyles = StyleSheet.create({
     },
 
     pressImg: {
-    flexDirection: 'column',
-    width: wp("95%"),
-    height: hp("17%"),
-    alignItems: 'center',
-    justifyContent: 'center',
-    //backgroundColor: colors.inputBg,
-    borderRadius: wp('2%'),
-    marginBottom: hp("1%"),
-    elevation: 2,
-  },
+        flexDirection: 'column',
+        width: wp("95%"),
+        height: hp("17%"),
+        alignItems: 'center',
+        justifyContent: 'center',
+        //backgroundColor: colors.inputBg,
+        borderRadius: wp('2%'),
+        marginBottom: hp("1%"),
+        elevation: 2,
+    },
 
 });
 
