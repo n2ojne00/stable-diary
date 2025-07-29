@@ -23,9 +23,7 @@ export default function StableListComponent({ listData, renderItem, sortBy }) {
 
 export function TrainingHistoryList({ listHistory, renderItem, sortBy }) {
     const sortedData = [...listHistory].sort((a, b) => {
-        const aDate = new Date(`${a.date}T${a.starting}`);
-        const bDate = new Date(`${b.date}T${b.starting}`);
-        return bDate - aDate; // Newest first
+        return new Date(b[sortBy]) - new Date(a[sortBy]);
     });
 
     return (
