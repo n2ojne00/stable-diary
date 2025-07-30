@@ -7,7 +7,7 @@ import { Icons } from '../styles/icons';
 
 export const HistoryItem = ({
   trainingDate,
-  startingTime,
+
   horseName,
   trainingType,
   minutes,
@@ -20,6 +20,12 @@ export const HistoryItem = ({
     if (notes) setExpanded(!expanded);
   };
 
+  // Format the date and time for user-friendly display (Finnish locale)
+  const dateObj = new Date(trainingDate);
+  const formattedDate = dateObj.toLocaleDateString('fi-FI');
+  const formattedTime = dateObj.toLocaleTimeString('fi-FI', { hour: '2-digit', minute: '2-digit' });
+  
+  
   return (
 
     //Training history item with expandable notes
@@ -30,11 +36,11 @@ export const HistoryItem = ({
       style={ButtonStyles.historyTabletContainer}
     >
       <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-        <Text style={txtStyles.body}>{startingTime}</Text>
-        <Text style={txtStyles.body}>{trainingDate}</Text>
+        <Text style={txtStyles.subtitle}>{formattedTime}</Text>
+        <Text style={txtStyles.subtitle}>{formattedDate}</Text>
       </View>
 
-      <Text style={txtStyles.subtitle}>{horseName}</Text>
+      <Text style={txtStyles.title}>{horseName}</Text>
 
       <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
         <Text style={txtStyles.body}>{trainingType}</Text>

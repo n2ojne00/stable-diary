@@ -1,21 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text } from 'react-native';
 import base from '../styles/base';
 import { MultipleSelectList, SelectList } from 'react-native-dropdown-select-list';
+import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
+
 import ButtonStyles from '../styles/buttons';
 import txtStyles from '../styles/text';
 import FakeHorseData from '../exampleData/horseData.json';
 import { InputText, NoteInput } from '../components/txtInput';
 import { CustomButton } from '../components/pressable';
-import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
-
 import { Icons } from '../styles/icons';
-import { TrainingHistoryList } from '../components/flatlist';
+
+import { collection, query, where, onSnapshot, addDoc } from "firebase/firestore";
+import { DB } from '../FirebaseConfig';
+import { useUser } from '../components/userInformation';
 
 export default function AddNewTraining() {
 
   const [savedTraining, setSavedTraining] = useState([]);
   //console.log("Tallennetut harjoitukset: ", savedTraining);
+  const { user } = useUser();
+  const [horseList, setHorseList] = useState([]);
 
   const [date, setDate] = useState(new Date());
   const [selectedHorse, setSelectedHorse] = useState([]);
@@ -44,6 +49,7 @@ export default function AddNewTraining() {
     }
   };
 
+  //This to firestore ?
   const dataSport = [
     { key: '1', value: 'Kouluratsastus' },
     { key: '2', value: 'Esteet' },
@@ -62,53 +68,72 @@ export default function AddNewTraining() {
   dataSport.sort((a, b) => a.value.localeCompare(b.value));
 
   // Function for checking inputs before saving
- const acceptSaving = () => {
-  if (selectedHorse.length === 0) {
-    alert("Valitse vähintään yksi hevonen.");
-    return false;
-  }
-
-  if (!selectedSport) {
-    alert("Valitse laji.");
-    return false;
-  }
-
-  if (!duration) {
-    alert("Syötä harjoituksen kesto.");
-    return false;
-  }
-
-  alert("Tallennus onnistui.");
-  return true;
-};
-
-
-  const saveTraining = () => {
-    
-    const canSave = acceptSaving();
-    
-    if (canSave) {
-    const trainingData = {
-      id: savedTraining.length + 1, // Id generation based on current length 
-      date: date,
-      horse: selectedHorse,
-      sport: selectedSport,
-      duration: duration,
-      notes: notes,
-      saveDate: new Date().toLocaleString(), 
+  const acceptSaving = () => {
+    if (selectedHorse.length === 0) {
+      alert("Valitse vähintään yksi hevonen.");
+      return false;
     }
 
-    // Saves and resets the form
-    setSavedTraining([...savedTraining, trainingData]);
-    setDate(new Date());
-    setSelectedHorse([]);
-    setSelectedSport("");
-    setDuration("");
-    setNotes("");
+    if (!selectedSport) {
+      alert("Valitse laji.");
+      return false;
+    }
 
-    console.log(trainingData);
-  }
-  
+    if (!duration) {
+      alert("Syötä harjoituksen kesto.");
+      return false;
+    }
+    return true;
+  };
+
+  useEffect(() => {
+    if (!user) return;
+
+    const q = query(collection(DB, "horses"), where("userId", "==", user.uid));
+
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const horses = [];
+      querySnapshot.forEach((doc) => {
+        horses.push({ id: doc.id, ...doc.data() });
+      });
+      setHorseList(horses);
+    });
+
+    return () => unsubscribe();
+  }, [user]);
+
+  const saveTraining = async () => {
+    const canSave = acceptSaving();
+    if (!canSave) return;
+
+    const selectedHorseObj = horseList.find(h => h.id === selectedHorse);
+
+    const trainingData = {
+      date: date.toISOString(),
+      horseId: selectedHorseObj?.id,
+      horseName: selectedHorseObj?.name,
+      sport: selectedSport,
+      duration,
+      notes,
+      userId: user.uid,
+      saveDate: new Date().toISOString()
+    };
+
+    try {
+      await addDoc(collection(DB, "trainings"), trainingData);
+      alert("Harjoitus tallennettu!");
+
+      //Navigation to history?
+      setSavedTraining([...savedTraining, trainingData]);
+      setDate(new Date());
+      setSelectedHorse("");
+      setSelectedSport("");
+      setDuration("");
+      setNotes("");
+    } catch (error) {
+      console.error("Virhe tallennettaessa:", error);
+      alert("Tallennus epäonnistui.");
+    }
   };
 
 
@@ -152,13 +177,12 @@ export default function AddNewTraining() {
           fontFamily='NotoSansDisplay_400Regular'
           dropdownTextStyles={txtStyles.body}
           arrowicon={Icons.arrowDown}
-          placeholder='Hevonen/Hevoset'
-          label="Valitut hevoset"
+          placeholder='Hevonen'
           labelStyles={txtStyles.body}
           search={false}
-          setSelected={setSelectedHorse}
-          data={FakeHorseData.map(({ key, horseName }) => ({ key, value: horseName }))} //should add sorting by horseName (alphabetical order) FakeHorseData.sort((a, b) => a.horseName.localeCompare(b.horseName));
-          save="value"
+          setSelected={(val) => setSelectedHorse(val)}
+          data={horseList.map(h => ({ key: h.id, value: h.name }))}
+          save="key"
         />
 
         {// TYPE OF TRAINING
@@ -200,7 +224,6 @@ export default function AddNewTraining() {
         }
         <CustomButton title="Tallenna"
           onPress={saveTraining}
-          size="small"
         />
 
       </View>
