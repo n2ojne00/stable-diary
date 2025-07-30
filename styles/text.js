@@ -28,6 +28,33 @@ const txtStyles = StyleSheet.create({
         color: colors.txtSmall,
         fontFamily: 'NotoSansDisplay_400Regular_Italic',
     },
+    //WHITE VERSIO
+    headerWhite: {
+        fontSize: hp('4%'),
+        fontFamily: 'NotoSansDisplay_400Regular',
+        color: colors.txtWhite,
+    },
+    titleWhite: {
+        fontSize: hp('3%'),
+        fontFamily: 'NotoSansDisplay_400Regular',
+        color: colors.txtWhite,
+    },
+    subtitleWhite: {
+        fontSize: hp('2.5%'),
+        fontFamily: 'NotoSansDisplay_400Regular',
+        color: colors.txtWhite,
+    },
+    bodyWhite: {
+        fontSize: hp('2%'),
+        color: colors.txtWhite,
+        fontFamily: 'NotoSansDisplay_400Regular',
+    },
+    smallWhite: {
+        fontSize: hp('1.8%'),
+        color: colors.txtWhite,
+        fontFamily: 'NotoSansDisplay_400Regular_Italic',
+    },
+
     buttonSmall: {
         fontSize: hp('2%'),
         color: colors.txtWhite,
@@ -47,6 +74,17 @@ const txtStyles = StyleSheet.create({
         padding: wp('2%'),
         width: wp('95%'),
         textAlign: 'center',
+    },
+    horseInfoTabTxt: {
+        justifyContent: 'space-around',
+        alignSelf: 'center',
+        backgroundColor: colors.overImg,
+        width: wp('95%'),
+        height: hp('15%'),
+        textAlign: 'center',
+        borderColor: colors.lightBrown,
+        borderWidth: 2,
+        borderRadius: wp('6%'),
     },
 });
 

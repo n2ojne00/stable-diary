@@ -10,11 +10,17 @@ const photo = StyleSheet.create({
         height: hp("30%"),
         resizeMode: 'cover',
         borderRadius: wp("5%"),
-        
+
     },
+
     pressHome: {
         width: wp('95%'),
         height: hp('17%'),
+        overflow: 'hidden',
+        borderRadius: wp('2%'),
+    },
+
+    horseInfoImg: {
         overflow: 'hidden',
         borderRadius: wp('2%'),
     }

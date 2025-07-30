@@ -121,6 +121,13 @@ const ButtonStyles = StyleSheet.create({
         elevation: 2,
     },
 
+    horseInformationTab: {
+        marginVertical: hp("1%"),
+        width: wp("95%"),
+        borderRadius: wp('2%'),
+        elevation: 2,
+    }
+
 });
 
 export default ButtonStyles;

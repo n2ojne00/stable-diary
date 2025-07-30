@@ -5,6 +5,8 @@ const colors = {
     nocolor: '#ffffff00',
     lightBg: '#ddc1b0ff',
     inputBg: '#f0d7caff',
+    overImg: '#462b1883',
+
 
     carrot: '#CE8147',
     lightBrown: '#513C2C',
@@ -18,6 +20,7 @@ const colors = {
     txtBody: '#5e3920',
     txtSmall: '#a0775aab',
     txtWhite: '#fffbf7',
+
 
 };
 
