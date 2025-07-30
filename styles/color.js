@@ -5,7 +5,7 @@ const colors = {
     nocolor: '#ffffff00',
     lightBg: '#ddc1b0ff',
     inputBg: '#f0d7caff',
-    overImg: '#462b1883',
+    overImg: '#5a463870',
 
 
     carrot: '#CE8147',
@@ -19,7 +19,7 @@ const colors = {
     txtSubtitle: '#462b18',
     txtBody: '#5e3920',
     txtSmall: '#a0775aab',
-    txtWhite: '#fffbf7',
+    txtWhite: '#fff7f1f6',
 
 
 };

@@ -77,7 +77,6 @@ const txtStyles = StyleSheet.create({
     },
     horseInfoTabTxt: {
         justifyContent: 'space-around',
-        alignSelf: 'center',
         backgroundColor: colors.overImg,
         width: wp('95%'),
         height: hp('15%'),

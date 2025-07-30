@@ -63,8 +63,10 @@ export default function MyStable() {
             renderItem={({ item }) => (
               <HorseInformation
                 title={item.name}
+                dateOfBirth={item.birthday?.substring(0, 4)} //show only year, --> data is ISO YYYY-MM-DD
+                breed={item.breed}
                 gender={item.gender}
-                dateOfBirth={item.birthday}
+                owner={item.owner}
                 onPress={() => { }}
               />
             )}
