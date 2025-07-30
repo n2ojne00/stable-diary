@@ -16,7 +16,7 @@ const colors = {
     txtHeader: '#28190E',
     txtSubtitle: '#462b18',
     txtBody: '#5e3920',
-    txtSmall: '#6e4527',
+    txtSmall: '#a0775aab',
     txtWhite: '#fffbf7',
 
 };
