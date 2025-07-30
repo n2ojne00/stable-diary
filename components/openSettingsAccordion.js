@@ -26,10 +26,10 @@ export const SettingsAccordionItem = ({ title, buttons = [] }) => {
       {/* drop-down menu with mapped buttons */}
       {expanded && (
         <View style={{ marginTop: 10 }}>
-          {buttons.map((btn,) => (
+          {buttons.map((btn) => (
             <CustomButton
+              key={btn.id}
               addIcon={btn.addIcon}
-              key={btn.title} // Ensure unique key for each button, currently using title
               title={btn.title}
               onPress={btn.onPress}
             />

@@ -32,17 +32,17 @@ export default function Settings() {
             <SettingsAccordionItem
                 title="Tallin hallinnointi"
                 buttons={[
-                    { addIcon: ButtonIcons.Add, title: 'Lisää hevonen', onPress: () => navigation.navigate('NewHorse') },
-                    { title: 'Muuta hevosen tietoja', onPress: () => console.log('Hevosen tietojen muutos') },
-                    { addIcon: ButtonIcons.Trash, title: 'Poista hevosia', onPress: () => console.log('Poista') },
+                    { id: '1', addIcon: ButtonIcons.Add, title: 'Lisää hevonen', onPress: () => navigation.navigate('NewHorse') },
+                    { id: '2', title: 'Muuta hevosen tietoja', onPress: () => console.log('Hevosen tietojen muutos') },
+                    { id: '3', addIcon: ButtonIcons.Trash, title: 'Poista hevosia', onPress: () => console.log('Poista') },
                 ]}
             />
 
             <SettingsAccordionItem
                 title="Käyttäjätili"
                 buttons={[
-                    { title: 'Vaihda sähköposti', onPress: () => console.log('Vaihda sähköposti') },
-                    { addIcon: ButtonIcons.Trash, title: 'Poista tili', onPress: () => console.log('Poista tili') }, // Add alert to confirm deletion
+                    { id: '4', title: 'Vaihda sähköposti', onPress: () => console.log('Vaihda sähköposti') },
+                    { id: '5', addIcon: ButtonIcons.Trash, title: 'Poista tili', onPress: () => console.log('Poista tili') }, // Add alert to confirm deletion
                 ]}
             />
 
