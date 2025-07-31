@@ -97,11 +97,11 @@ export default function History() {
           data={horseList.map(h => ({ key: h.id, value: h.name }))}
           save="key"
         />
-
-        {
-          //Showing training history based on selected horse sorted by date
-        }
-
+      </View>
+      {
+        //Showing training history based on selected horse sorted by date
+      }
+      <View style={{ flex: 1, }}>
         {loading ? (
           <LoadingScreen />
         ) : trainingData.length === 0 ? (
@@ -122,6 +122,7 @@ export default function History() {
           />
         )}
       </View>
+
     </View>
   );
 }

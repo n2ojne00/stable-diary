@@ -23,6 +23,7 @@ const ButtonStyles = StyleSheet.create({
         width: wp("70%"),
         height: hp("5.5%"),
         alignSelf: 'center',
+        borderRadius: wp('1%'),
     },
     small: {
         width: wp("40%"),
@@ -56,7 +57,7 @@ const ButtonStyles = StyleSheet.create({
         marginVertical: hp("1%"),
         alignItems: 'center',
         justifyContent: 'space-evenly',
-        borderRadius: 5,
+        borderRadius: wp('2%'),
         width: wp("95%"),
         height: wp("20%"),
         borderWidth: 1,
@@ -71,7 +72,7 @@ const ButtonStyles = StyleSheet.create({
     },
 
     //DROPDOWN
-    selectList: {
+    selectList: {    
         width: wp("85%"),
         backgroundColor: colors.inputBg,
         borderColor: colors.lightBrown,
@@ -92,7 +93,7 @@ const ButtonStyles = StyleSheet.create({
         padding: hp("1.5%"),
         marginVertical: hp("0.5%"),
         marginHorizontal: wp("2%"),
-        borderRadius: 5,
+        borderRadius: wp('2%'),
         elevation: 2,
         borderWidth: 1,
         borderColor: colors.txtBody,

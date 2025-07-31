@@ -9,7 +9,7 @@ import txtStyles from "./text";
     txtInput: {
         marginVertical: hp("0.8%"),
         backgroundColor: colors.inputBg,
-        borderRadius: 5,
+        borderRadius: wp('2%'),
         width: wp("85%"),
         height: wp("12%"),
         elevation: 2,
@@ -22,7 +22,7 @@ import txtStyles from "./text";
         padding: 5,
         textAlignVertical: 'top',
         backgroundColor: colors.inputBg,
-        borderRadius: 5,
+        borderRadius: wp('2%'),
         width: wp("85%"),
         height: wp("50%"),
         elevation: 2,

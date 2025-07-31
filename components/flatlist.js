@@ -27,7 +27,7 @@ export function TrainingHistoryList({ listHistory, renderItem, sortBy }) {
     });
 
     return (
-        <View>
+    
             <FlatList
                 showsVerticalScrollIndicator={false}
                 data={sortedData}
@@ -35,7 +35,7 @@ export function TrainingHistoryList({ listHistory, renderItem, sortBy }) {
                 renderItem={renderItem}
                 contentContainerStyle={{ paddingVertical: 8 }}
             />
-        </View>
+        
     );
 }
 

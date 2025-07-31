@@ -35,7 +35,7 @@ const base = StyleSheet.create({
         paddingHorizontal: wp("5%"),
         width: wp("95%"),
         height: hp("50%"),
-        borderRadius: 10,
+       borderRadius: wp('2%'),
         backgroundColor: colors.lightBg,
         elevation: 5,
     },
@@ -50,7 +50,7 @@ const base = StyleSheet.create({
         backgroundColor: colors.inputBg,
         borderColor: colors.lightBrown,
         borderWidth: 1,
-        borderRadius: 5,
+        borderRadius: wp('2%'),
     },
     toggleBg: {
         backgroundColor: colors.inputBg,
@@ -62,7 +62,7 @@ const base = StyleSheet.create({
         paddingVertical: hp("1.5%"),
         marginVertical: hp("0.5%"),
         marginHorizontal: wp("2%"),
-        borderRadius: 5,
+        borderRadius: wp('2%'),
         elevation: 2,
         borderWidth: 1,
         borderColor: colors.txtBody,
@@ -70,8 +70,7 @@ const base = StyleSheet.create({
 
     TopBarPosition: {
         width: wp("100%"),
-        position: 'absolute',
-        top: hp("5.5%"),
+        paddingTop: hp("5.5%"),
         alignItems: 'center',
     }
 
