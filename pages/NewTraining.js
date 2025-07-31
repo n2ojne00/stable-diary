@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text } from 'react-native';
 import base from '../styles/base';
-import { MultipleSelectList, SelectList } from 'react-native-dropdown-select-list';
+import { SelectList } from 'react-native-dropdown-select-list';
 import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
 
 import ButtonStyles from '../styles/buttons';
@@ -14,8 +14,11 @@ import { Icons } from '../styles/icons';
 import { collection, query, where, onSnapshot, addDoc } from "firebase/firestore";
 import { DB } from '../FirebaseConfig';
 import { useUser } from '../components/userInformation';
+import { useNavigation } from '@react-navigation/native';
 
 export default function AddNewTraining() {
+
+  const navigation = useNavigation();
 
   const [savedTraining, setSavedTraining] = useState([]);
   //console.log("Tallennetut harjoitukset: ", savedTraining);
@@ -122,14 +125,14 @@ export default function AddNewTraining() {
     try {
       await addDoc(collection(DB, "trainings"), trainingData);
       alert("Harjoitus tallennettu!");
-
-      //Navigation to history?
+      
       setSavedTraining([...savedTraining, trainingData]);
       setDate(new Date());
       setSelectedHorse("");
       setSelectedSport("");
       setDuration("");
       setNotes("");
+      //navigation.navigate('History');
     } catch (error) {
       console.error("Virhe tallennettaessa:", error);
       alert("Tallennus epäonnistui.");
@@ -172,13 +175,10 @@ export default function AddNewTraining() {
           boxStyles={ButtonStyles.selectList}
           inputStyles={txtStyles.body}
           dropdownStyles={ButtonStyles.selectDropDown}
-          checkBoxStyles={ButtonStyles.selectCheckBox}
-          badgeStyles={ButtonStyles.selectBadge}
           fontFamily='NotoSansDisplay_400Regular'
           dropdownTextStyles={txtStyles.body}
           arrowicon={Icons.arrowDown}
           placeholder='Hevonen'
-          labelStyles={txtStyles.body}
           search={false}
           setSelected={(val) => setSelectedHorse(val)}
           data={horseList.map(h => ({ key: h.id, value: h.name }))}

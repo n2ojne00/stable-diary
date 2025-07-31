@@ -5,7 +5,6 @@ const colors = {
     nocolor: '#ffffff00',
     lightBg: '#ddc1b0ff',
     inputBg: '#f0d7caff',
-    overImg: '#5a463870',
 
 
     carrot: '#CE8147',

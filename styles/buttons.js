@@ -85,17 +85,6 @@ const ButtonStyles = StyleSheet.create({
         backgroundColor: colors.inputBg,
         borderColor: colors.lightBrown,
     },
-    selectCheckBox: {
-        borderColor: colors.carrot,
-        width: wp("4%"),
-        height: wp("4%"),
-
-    },
-    selectBadge: {
-        backgroundColor: colors.carrot,
-        color: colors.txtWhite,
-
-    },
 
     historyTabletContainer: {
         backgroundColor: colors.inputBg,
@@ -125,7 +114,6 @@ const ButtonStyles = StyleSheet.create({
         marginVertical: hp("1%"),
         width: wp("95%"),
         borderRadius: wp('2%'),
-        elevation: 2,
     }
 
 });

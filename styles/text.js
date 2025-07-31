@@ -76,14 +76,15 @@ const txtStyles = StyleSheet.create({
         textAlign: 'center',
     },
     horseInfoTabTxt: {
+        padding: 5,
         justifyContent: 'space-around',
-        backgroundColor: colors.overImg,
+        backgroundColor: colors.inputBg,
         width: wp('95%'),
-        height: hp('15%'),
+        minHeight: hp('13%'),
         textAlign: 'center',
         borderColor: colors.lightBrown,
-        borderWidth: 2,
-        borderRadius: wp('6%'),
+        borderWidth: 1,
+        borderRadius: wp('2%'),
     },
 });
 
