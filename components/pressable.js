@@ -8,13 +8,14 @@ import photo from "../styles/photoStyles";
 
 //<CustomButton title="This is Button" onPress={() => { }} />
 //<CustomButton title="Small Button" onPress={() => { }} size="small" />
-export const CustomButton = ({ title, onPress, size, addIcon }) => {
+export const CustomButton = ({ title, onPress, size, addIcon,reStyle }) => {
     return (
         <Pressable
             style={({ pressed }) => [
                 ButtonStyles.base,
                 ButtonStyles[size],
                 pressed && ButtonStyles.pressed,
+                reStyle
             ]}
             onPress={onPress}
         >

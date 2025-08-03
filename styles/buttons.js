@@ -115,6 +115,12 @@ const ButtonStyles = StyleSheet.create({
         marginVertical: hp("1%"),
         width: wp("95%"),
         borderRadius: wp('2%'),
+    },
+
+    deleteBtn: {
+        alignSelf: 'center',
+        borderRadius: wp('1%'),
+        backgroundColor:'#be190d',
     }
 
 });

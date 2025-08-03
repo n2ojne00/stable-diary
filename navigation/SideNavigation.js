@@ -8,6 +8,8 @@ import SignUpScreen from "../account/SignUpScreen";
 import Home from "../pages/home";
 import AuthLoader from "../account/authLoader";
 import HorseListScreen from "../pages/removeHorse";
+import { DeleteUser } from "../account/removeUser";
+import UpdateEmail from "../account/updateEmail";
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +32,8 @@ export function ProfileStack() {
       <Stack.Screen name="NewHorse" component={AddNewHorse} />
       <Stack.Screen name="SettingsScreen" component={Settings} />
       <Stack.Screen name="RemoveHorse" component={HorseListScreen} />
+      <Stack.Screen name="DeleteUser" component={DeleteUser} />
+      <Stack.Screen name="UpdateEmail" component={UpdateEmail} />
 
     </Stack.Navigator>
   );
