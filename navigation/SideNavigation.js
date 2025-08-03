@@ -7,27 +7,30 @@ import LoginScreen from "../account/LoginScreen";
 import SignUpScreen from "../account/SignUpScreen";
 import Home from "../pages/home";
 import AuthLoader from "../account/authLoader";
+import HorseListScreen from "../pages/removeHorse";
 
 const Stack = createNativeStackNavigator();
 
 export function HomeStack() {
 
-    return (
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="HomeScreen" component={Home} />
-            <Stack.Screen name="NewHorse" component={AddNewHorse} />
-            
-        </Stack.Navigator>
-    );
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="HomeScreen" component={Home} />
+      <Stack.Screen name="NewHorse" component={AddNewHorse} />
+
+    </Stack.Navigator>
+  );
 };
 
 export function ProfileStack() {
+
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="UserProfile" component={UserProfile} />
       <Stack.Screen name="NewHorse" component={AddNewHorse} />
       <Stack.Screen name="SettingsScreen" component={Settings} />
-     
+      <Stack.Screen name="RemoveHorse" component={HorseListScreen} />
+
     </Stack.Navigator>
   );
 };

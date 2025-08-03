@@ -15,6 +15,8 @@ export const Icons = {
   barn: <MaterialCommunityIcons name="barn" size={100} color={colors.lightBrown} />,
   plus: <Entypo name="plus" size={25} color={colors.lightBrown} />,
   minus: <Entypo name="minus" size={25} color={colors.lightBrown} />,
+  Trash: <FontAwesome name="trash" size={30} color={colors.greenyDark} />,
+  
 }; 
 //<MaterialCommunityIcons name="map-clock-outline" size={24} color="black" />
 export const TabIcons = {
