@@ -29,6 +29,7 @@ export const SettingsAccordionItem = ({ title, buttons = [] }) => {
           {buttons.map((btn) => (
             <CustomButton
               key={btn.id}
+              reStyle={btn.reStyle}
               addIcon={btn.addIcon}
               title={btn.title}
               onPress={btn.onPress}

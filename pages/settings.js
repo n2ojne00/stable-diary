@@ -45,7 +45,7 @@ export default function Settings() {
                 title="Käyttäjätili"
                 buttons={[
                     { id: 4, title: 'Vaihda sähköposti', onPress: () => navigation.navigate('UpdateEmail') },
-                    { id: 5, addIcon: ButtonIcons.Trash, title: 'Poista tili', onPress: () => navigation.navigate('DeleteUser'), }, // Add alert to confirm deletion
+                    { id: 5, addIcon: ButtonIcons.Trash, title: 'Poista tili', onPress: () => navigation.navigate('DeleteUser'), reStyle: ButtonStyles.deleteBtn }, // Add alert to confirm deletion
                 ]}
             />
 
