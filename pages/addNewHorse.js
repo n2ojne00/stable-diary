@@ -133,7 +133,11 @@ export default function AddNewHorse() {
         }
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingVertical: 5 }}>
 
-          <CustomButton title="Syntymäpäivä" onPress={showDatePicker} size="small" />
+          <CustomButton
+            title="Syntymäpäivä"
+            onPress={showDatePicker}
+            size="small"
+          />
 
           {Icons.calendar}
           <Text style={txtStyles.subtitle}>
@@ -153,9 +157,18 @@ export default function AddNewHorse() {
           onChangeText={setOwner}
         />
 
-        <CustomButton addIcon={ButtonIcons.barnWhite} title="Lisää talliin" onPress={handleAddHorse}  />
+        <CustomButton
+          addIcon={ButtonIcons.barnWhite}
+          title="Lisää talliin"
+          onPress={handleAddHorse}
+        />
 
-        <CustomButton addIcon={ButtonIcons.ArrowLeft} title={'Takaisin'} onPress={() => navigation.navigate('UserProfile')} />
+        <CustomButton
+          addIcon={ButtonIcons.ArrowLeft}
+          title={'Takaisin'}
+          onPress={() => navigation.navigate('UserProfile')}
+          reStyle={ButtonStyles.goBackBtn}
+        />
 
       </View>
     </View>

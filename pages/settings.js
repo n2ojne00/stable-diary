@@ -7,6 +7,7 @@ import txtStyles from '../styles/text';
 import { CustomButton } from '../components/pressable';
 import { ButtonIcons } from '../styles/icons';
 import { SettingsAccordionItem } from '../components/openSettingsAccordion';
+import ButtonStyles from '../styles/buttons';
 
 export default function Settings() {
 
@@ -48,7 +49,12 @@ export default function Settings() {
                 ]}
             />
 
-            <CustomButton addIcon={ButtonIcons.ArrowLeft} title={'Takaisin'} onPress={() => navigation.navigate('UserProfile')} />
+            <CustomButton
+                addIcon={ButtonIcons.ArrowLeft}
+                title={'Takaisin'}
+                onPress={() => navigation.navigate('UserProfile')}
+                reStyle={ButtonStyles.goBackBtn}
+            />
 
 
         </View>

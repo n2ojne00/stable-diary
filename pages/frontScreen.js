@@ -20,8 +20,15 @@ export default function FrontScreen() {
                 <View style={base.loginView}>
                     <Text style={txtStyles.body}>Kirjaudu sisään tai rekisteröidy jatkaaksesi.</Text>
 
-                    <CustomButton title="Kirjaudu" onPress={() => navigation.navigate('Login')} />
-                    <CustomButton title="Rekisteröidy" onPress={() => navigation.navigate('SignUp')} />
+                    <CustomButton
+                        title="Kirjaudu"
+                        onPress={() => navigation.navigate('Login')}
+                    />
+
+                    <CustomButton
+                        title="Rekisteröidy"
+                        onPress={() => navigation.navigate('SignUp')}
+                    />
 
                 </View>
 

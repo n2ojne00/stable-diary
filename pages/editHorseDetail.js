@@ -181,8 +181,14 @@ export default function EditHorse() {
                         />
 
                         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingVertical: 5 }}>
-                            <CustomButton title="Syntymäpäivä" onPress={showDatePicker} size="small" />
+                            <CustomButton
+                                title="Syntymäpäivä"
+                                onPress={showDatePicker}
+                                size="small"
+                            />
+
                             {Icons.calendar}
+                            
                             <Text style={txtStyles.subtitle}>{date.toLocaleDateString('fi-FI')}</Text>
                         </View>
 

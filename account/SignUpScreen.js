@@ -9,6 +9,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { AUTH } from '../FirebaseConfig';
 import { ButtonIcons } from '../styles/icons';
 import { useNavigation } from '@react-navigation/native';
+import ButtonStyles from '../styles/buttons';
 
 
 export default function SignUpScreen() {
@@ -77,9 +78,18 @@ export default function SignUpScreen() {
           onChangeText={setPassword}
         />
 
-        <CustomButton title="Rekisteröidy" onPress={signUp} />
+        <CustomButton
+          title="Rekisteröidy"
+          onPress={signUp}
+        />
 
-        <CustomButton addIcon={ButtonIcons.ArrowLeft} title={'Takaisin'} onPress={() => navigation.goBack()} />
+        <CustomButton
+          addIcon={ButtonIcons.ArrowLeft}
+          title={'Takaisin'}
+          onPress={() => navigation.goBack()}
+          reStyle={ButtonStyles.goBackBtn}
+        />
+
       </View>
     </View>
   );

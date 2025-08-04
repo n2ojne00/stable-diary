@@ -9,6 +9,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { AUTH } from '../FirebaseConfig';
 import { useNavigation } from '@react-navigation/native';
 import { ButtonIcons } from '../styles/icons';
+import ButtonStyles from '../styles/buttons';
 
 export default function LoginScreen() {
 
@@ -56,9 +57,18 @@ export default function LoginScreen() {
                     onChangeText={setPassword}
                 />
 
-                <CustomButton title="Kirjaudu" onPress={handleLogin} />
+                <CustomButton
+                    title="Kirjaudu"
+                    onPress={handleLogin}
+                />
 
-                <CustomButton addIcon={ButtonIcons.ArrowLeft} title={'Takaisin'} onPress={() => navigation.goBack()} />
+                <CustomButton
+                    addIcon={ButtonIcons.ArrowLeft}
+                    title={'Takaisin'}
+                    onPress={() => navigation.goBack()}
+                    reStyle={ButtonStyles.goBackBtn}
+                />
+
             </View>
         </View>
     );
