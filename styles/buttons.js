@@ -72,7 +72,7 @@ const ButtonStyles = StyleSheet.create({
     },
 
     //DROPDOWN
-    selectList: {    
+    selectList: {
         width: wp("85%"),
         backgroundColor: colors.inputBg,
         borderColor: colors.lightBrown,
@@ -120,7 +120,12 @@ const ButtonStyles = StyleSheet.create({
     deleteBtn: {
         alignSelf: 'center',
         borderRadius: wp('1%'),
-        backgroundColor:'#be190d',
+        backgroundColor: '#be190d',
+    },
+    goBackBtn: {
+        alignSelf: 'center',
+        borderRadius: wp('1%'),
+        backgroundColor: colors.carrot,
     }
 
 });

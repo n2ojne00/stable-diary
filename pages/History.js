@@ -97,6 +97,7 @@ export default function History() {
           data={horseList.map(h => ({ key: h.id, value: h.name }))}
           save="key"
         />
+
       </View>
       {
         //Showing training history based on selected horse sorted by date
@@ -105,7 +106,9 @@ export default function History() {
         {loading ? (
           <LoadingScreen />
         ) : trainingData.length === 0 ? (
-          <Text style={txtStyles.body}>Hevoselle {selectedHorseName} ei löytynyt tallennettuja treenejä</Text>
+          <Text style={[txtStyles.body, { textAlign: 'center'}]}>
+            Hevoselle {selectedHorseName} ei löytynyt tallennettuja treenejä
+          </Text>
         ) : (
           <TrainingHistoryList
             listHistory={trainingData}
