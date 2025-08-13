@@ -63,10 +63,10 @@ export default function History() {
     );
 
     //onSnapshot to listen real time changes about training data
-        const unsubscribe = onSnapshot(q, snapshot => {
+    const unsubscribe = onSnapshot(q, snapshot => {
       const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
-      // Jaetaan tuleviin ja menneisiin treeneihin
+      //Separating past and future trainings
       const now = new Date();
       const past = [];
       const future = [];
@@ -93,7 +93,7 @@ export default function History() {
         {
           //Select horse dropdown
         }
-         <SelectList
+        <SelectList
           boxStyles={ButtonStyles.selectList}
           inputStyles={txtStyles.body}
           dropdownStyles={ButtonStyles.selectDropDown}
@@ -114,19 +114,19 @@ export default function History() {
       {
         //Showing training history based on selected horse sorted by date
       }
-    <View style={{ flex: 1 }}>
+      <View style={{ flex: 1 }}>
         {loading ? (
           <LoadingScreen />
         ) : (!trainingData.past?.length && !trainingData.future?.length) ? (
-          <Text style={[txtStyles.body, { textAlign: 'center'}]}>
+          <Text style={[txtStyles.body, { textAlign: 'center' }]}>
             Hevoselle {selectedHorseName} ei löytynyt tallennettuja treenejä
           </Text>
         ) : (
           <>
             {trainingData.future?.length > 0 && (
-             <View style={{ flex: 1}}>
+              <View style={{ flex: 1 }}>
                 <View style={base.historyTitle}>
-                <Text style={[txtStyles.title, { marginLeft: 10, }]}>Tulevat</Text>
+                  <Text style={[txtStyles.title, { marginLeft: 10, }]}>Tulevat</Text>
                 </View>
                 <TrainingHistoryList
                   listHistory={trainingData.future}
@@ -145,10 +145,10 @@ export default function History() {
               </View>
             )}
             {trainingData.past?.length > 0 && (
-              <View style={{ flex: 2}}>
-              <View style={base.historyTitle}>
-                <Text style={[txtStyles.title, { marginLeft: 10 }]}>Historia</Text>
-               </View>
+              <View style={{ flex: 2 }}>
+                <View style={base.historyTitle}>
+                  <Text style={[txtStyles.title, { marginLeft: 10 }]}>Historia</Text>
+                </View>
                 <TrainingHistoryList
                   listHistory={trainingData.past}
                   sortBy="date"
