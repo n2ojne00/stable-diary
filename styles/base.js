@@ -72,7 +72,14 @@ const base = StyleSheet.create({
         width: wp("100%"),
         paddingTop: hp("5.5%"),
         alignItems: 'center',
-    }
+    },
+
+    historyTitle: {
+         borderBottomWidth: 2, 
+         borderColor: colors.lightBrown, 
+         paddingVertical: 5, 
+         backgroundColor: colors.inputBg
+    },
 
 
 

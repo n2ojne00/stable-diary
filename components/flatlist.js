@@ -16,7 +16,7 @@ export default function StableListComponent({ listData, renderItem, sortBy }) {
     );
 }
 
-export function TrainingHistoryList({ listHistory, renderItem, sortBy }) {
+export function TrainingHistoryList({ listHistory, renderItem, sortBy, inverted = false }) {
     const sortedData = [...listHistory].sort((a, b) => {
         return new Date(b[sortBy]) - new Date(a[sortBy]);
     });
@@ -24,6 +24,7 @@ export function TrainingHistoryList({ listHistory, renderItem, sortBy }) {
     return (
 
         <FlatList
+            inverted={inverted}
             showsVerticalScrollIndicator={false}
             data={sortedData}
             keyExtractor={(item, index) => `${item.date}-${index}`}

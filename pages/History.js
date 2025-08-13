@@ -12,6 +12,7 @@ import { collection, query, where, onSnapshot } from 'firebase/firestore';
 import { DB } from '../FirebaseConfig';
 import { useUser } from '../components/userInformation';
 import LoadingScreen from '../components/loading';
+import colors from '../styles/color';
 
 
 export default function History() {
@@ -62,12 +63,23 @@ export default function History() {
     );
 
     //onSnapshot to listen real time changes about training data
-    const unsubscribe = onSnapshot(q, (snapshot) => {
-      const data = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-      }));
-      setTrainingData(data);
+        const unsubscribe = onSnapshot(q, snapshot => {
+      const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+      // Jaetaan tuleviin ja menneisiin treeneihin
+      const now = new Date();
+      const past = [];
+      const future = [];
+      data.forEach(item => {
+        const trainingDate = new Date(item.date);
+        if (trainingDate < now) {
+          past.push(item);
+        } else {
+          future.push(item);
+        }
+      });
+
+      setTrainingData({ past, future });
       setLoading(false); // loading done
     });
 
@@ -81,7 +93,7 @@ export default function History() {
         {
           //Select horse dropdown
         }
-        <SelectList
+         <SelectList
           boxStyles={ButtonStyles.selectList}
           inputStyles={txtStyles.body}
           dropdownStyles={ButtonStyles.selectDropDown}
@@ -102,30 +114,59 @@ export default function History() {
       {
         //Showing training history based on selected horse sorted by date
       }
-      <View style={{ flex: 1, }}>
+    <View style={{ flex: 1 }}>
         {loading ? (
           <LoadingScreen />
-        ) : trainingData.length === 0 ? (
+        ) : (!trainingData.past?.length && !trainingData.future?.length) ? (
           <Text style={[txtStyles.body, { textAlign: 'center'}]}>
             Hevoselle {selectedHorseName} ei löytynyt tallennettuja treenejä
           </Text>
         ) : (
-          <TrainingHistoryList
-            listHistory={trainingData}
-            sortBy="date"
-            renderItem={({ item }) =>
-              <HistoryItem
-                trainingDate={item.date}
-                horseName={item.horseName}
-                trainingType={item.sport}
-                minutes={item.duration}
-                notes={item.notes}
-              />
-            }
-          />
+          <>
+            {trainingData.future?.length > 0 && (
+             <View style={{ flex: 1}}>
+                <View style={base.historyTitle}>
+                <Text style={[txtStyles.title, { marginLeft: 10, }]}>Tulevat</Text>
+                </View>
+                <TrainingHistoryList
+                  listHistory={trainingData.future}
+                  sortBy="date"
+                  inverted={true} // Invert to show the most recent first
+                  renderItem={({ item }) => (
+                    <HistoryItem
+                      trainingDate={item.date}
+                      horseName={item.horseName}
+                      trainingType={item.sport}
+                      minutes={item.duration}
+                      notes={item.notes}
+                    />
+                  )}
+                />
+              </View>
+            )}
+            {trainingData.past?.length > 0 && (
+              <View style={{ flex: 2}}>
+              <View style={base.historyTitle}>
+                <Text style={[txtStyles.title, { marginLeft: 10 }]}>Historia</Text>
+               </View>
+                <TrainingHistoryList
+                  listHistory={trainingData.past}
+                  sortBy="date"
+                  renderItem={({ item }) => (
+                    <HistoryItem
+                      trainingDate={item.date}
+                      horseName={item.horseName}
+                      trainingType={item.sport}
+                      minutes={item.duration}
+                      notes={item.notes}
+                    />
+                  )}
+                />
+              </View>
+            )}
+          </>
         )}
       </View>
-
     </View>
   );
 }
