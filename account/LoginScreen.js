@@ -10,6 +10,7 @@ import { AUTH } from '../FirebaseConfig';
 import { useNavigation } from '@react-navigation/native';
 import { ButtonIcons } from '../styles/icons';
 import ButtonStyles from '../styles/buttons';
+import KeyboardScrollWrapper from '../components/scrollview';
 
 export default function LoginScreen() {
 
@@ -31,6 +32,7 @@ export default function LoginScreen() {
     };
 
     return (
+        <KeyboardScrollWrapper>
         <View style={base.container}>
 
             <View style={base.loginBox}>
@@ -71,5 +73,6 @@ export default function LoginScreen() {
 
             </View>
         </View>
+</KeyboardScrollWrapper>
     );
 }

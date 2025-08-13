@@ -13,6 +13,7 @@ import { SelectList } from 'react-native-dropdown-select-list';
 import { CustomButton } from '../components/pressable';
 import { DB } from '../FirebaseConfig';
 import { useUser } from '../components/userInformation';
+import KeyboardScrollWrapper from '../components/scrollview';
 
 
 export default function AddNewHorse() {
@@ -91,86 +92,88 @@ export default function AddNewHorse() {
 
 
   return (
-    <View style={[{ alignItems: 'center', justifyContent: 'center' }, base.container]}>
-      <View>
-        <Text style={txtStyles.title}>Lisää hevonen</Text>
-        {// NAME AND BREED
-        }
-        <InputText
-          title={'Hevosen nimi'}
-          text={'text'}
-          placeholder={'Hevosen nimi'}
-          maxLength={50}
-          value={name}
-          onChangeText={setName}
-        />
-        <InputText
-          title={'Rotu'}
-          text={'text'}
-          placeholder={'Rotu'}
-          maxLength={50}
-          value={breed}
-          onChangeText={setBreed}
+    <KeyboardScrollWrapper>
+      <View style={[{ alignItems: 'center', justifyContent: 'center' }, base.container]}>
+        <View>
+          <Text style={txtStyles.title}>Lisää hevonen</Text>
+          {// NAME AND BREED
+          }
+          <InputText
+            title={'Hevosen nimi'}
+            text={'text'}
+            placeholder={'Hevosen nimi'}
+            maxLength={50}
+            value={name}
+            onChangeText={setName}
+          />
+          <InputText
+            title={'Rotu'}
+            text={'text'}
+            placeholder={'Rotu'}
+            maxLength={50}
+            value={breed}
+            onChangeText={setBreed}
 
-        />
-        {//CHOOSE GENDER
-        }
-        <SelectList
-          boxStyles={ButtonStyles.selectList}
-          inputStyles={txtStyles.body}
-          dropdownStyles={ButtonStyles.selectDropDown}
-          fontFamily='NotoSansDisplay_400Regular'
-          dropdownTextStyles={txtStyles.body}
-          arrowicon={Icons.arrowDown}
-          placeholder='Valitse sukupuoli'
-          search={false}
-          setSelected={(val) => setSelectedGender(val)}
-          data={gender}
-          save="value"
-        />
-
-        {// ADD BIRTHDAY
-        }
-        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingVertical: 5 }}>
-
-          <CustomButton
-            title="Syntymäpäivä"
-            onPress={showDatePicker}
-            size="small"
+          />
+          {//CHOOSE GENDER
+          }
+          <SelectList
+            boxStyles={ButtonStyles.selectList}
+            inputStyles={txtStyles.body}
+            dropdownStyles={ButtonStyles.selectDropDown}
+            fontFamily='NotoSansDisplay_400Regular'
+            dropdownTextStyles={txtStyles.body}
+            arrowicon={Icons.arrowDown}
+            placeholder='Valitse sukupuoli'
+            search={false}
+            setSelected={(val) => setSelectedGender(val)}
+            data={gender}
+            save="value"
           />
 
-          {Icons.calendar}
-          <Text style={txtStyles.subtitle}>
-            {date.toLocaleDateString('fi-FI')}
-          </Text>
+          {// ADD BIRTHDAY
+          }
+          <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingVertical: 5 }}>
+
+            <CustomButton
+              title="Syntymäpäivä"
+              onPress={showDatePicker}
+              size="small"
+            />
+
+            {Icons.calendar}
+            <Text style={txtStyles.subtitle}>
+              {date.toLocaleDateString('fi-FI')}
+            </Text>
+
+          </View>
+
+          {// OWNER NAME
+          }
+          <InputText
+            title={'Omistajan nimi'}
+            text={'text'}
+            placeholder={'Omistajan nimi'}
+            maxLength={50}
+            value={owner}
+            onChangeText={setOwner}
+          />
+
+          <CustomButton
+            addIcon={ButtonIcons.barnWhite}
+            title="Lisää talliin"
+            onPress={handleAddHorse}
+          />
+
+          <CustomButton
+            addIcon={ButtonIcons.ArrowLeft}
+            title={'Takaisin'}
+            onPress={() => navigation.navigate('UserProfile')}
+            reStyle={ButtonStyles.goBackBtn}
+          />
 
         </View>
-
-        {// OWNER NAME
-        }
-        <InputText
-          title={'Omistajan nimi'}
-          text={'text'}
-          placeholder={'Omistajan nimi'}
-          maxLength={50}
-          value={owner}
-          onChangeText={setOwner}
-        />
-
-        <CustomButton
-          addIcon={ButtonIcons.barnWhite}
-          title="Lisää talliin"
-          onPress={handleAddHorse}
-        />
-
-        <CustomButton
-          addIcon={ButtonIcons.ArrowLeft}
-          title={'Takaisin'}
-          onPress={() => navigation.navigate('UserProfile')}
-          reStyle={ButtonStyles.goBackBtn}
-        />
-
       </View>
-    </View>
+    </KeyboardScrollWrapper>
   );
 }

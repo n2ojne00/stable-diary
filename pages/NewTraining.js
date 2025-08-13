@@ -10,11 +10,13 @@ import FakeHorseData from '../exampleData/horseData.json';
 import { InputText, NoteInput } from '../components/txtInput';
 import { CustomButton } from '../components/pressable';
 import { Icons } from '../styles/icons';
+import KeyboardScrollWrapper from '../components/scrollview';
 
 import { collection, query, where, onSnapshot, addDoc } from "firebase/firestore";
 import { DB } from '../FirebaseConfig';
 import { useUser } from '../components/userInformation';
 import { useNavigation } from '@react-navigation/native';
+
 
 export default function AddNewTraining() {
 
@@ -61,10 +63,12 @@ export default function AddNewTraining() {
     { key: '5', value: 'Maastakäsittely' },
     { key: '6', value: 'Monté' },
     { key: '7', value: 'Lännenratsastus' },
-    { key: '8', value: 'Hölkkälenkki' },
+    { key: '8', value: 'Hölkkäajo' },
     { key: '9', value: 'Vetoajo' },
     { key: '10', value: 'Raviurheilu' },
     { key: '11', value: 'Kävelytys' },
+    { key: '12', value: 'Maasto' },
+    { key: '13', value: 'Kilpailu' },
 
   ];
   //sorting data to alphabetical order
@@ -125,7 +129,7 @@ export default function AddNewTraining() {
     try {
       await addDoc(collection(DB, "trainings"), trainingData);
       alert("Harjoitus tallennettu!");
-      
+
       setSavedTraining([...savedTraining, trainingData]);
       setDate(new Date());
       setSelectedHorse("");
@@ -141,92 +145,94 @@ export default function AddNewTraining() {
 
 
   return (
-    <View style={[{ alignItems: 'center', justifyContent: 'center', }, base.container]}>
-      <Text style={txtStyles.title}>Harjoitus</Text>
-      <View>
+    <KeyboardScrollWrapper>
+      <View style={[{ alignItems: 'center', justifyContent: 'center', }, base.container]}>
+        <Text style={txtStyles.title}>Harjoitus</Text>
+        <View>
 
-        {// SET THE DATE
-        }
-        <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', }}>
-          <View style={{ flexDirection: 'column', alignItems: 'center' }}>
-            {Icons.calendar}
-            <Text style={txtStyles.subtitle}>
-              {date.toLocaleDateString('fi-FI')}
-            </Text>
-            <CustomButton title="Päivämäärä" onPress={showDatePicker} size="small" />
-          </View>
-
-          {// SET THE TIME
+          {// SET THE DATE
           }
-          <View style={{ flexDirection: 'column', alignItems: 'center', }}>
-            {Icons.clock}
-            <Text style={txtStyles.subtitle}>
-              {date.toLocaleTimeString('fi-FI', { hour: '2-digit', minute: '2-digit' })}
-            </Text>
-            <CustomButton title="Kellonaika" onPress={showTimePicker} size="small" />
+          <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', }}>
+            <View style={{ flexDirection: 'column', alignItems: 'center' }}>
+              {Icons.calendar}
+              <Text style={txtStyles.subtitle}>
+                {date.toLocaleDateString('fi-FI')}
+              </Text>
+              <CustomButton title="Päivämäärä" onPress={showDatePicker} size="small" />
+            </View>
+
+            {// SET THE TIME
+            }
+            <View style={{ flexDirection: 'column', alignItems: 'center', }}>
+              {Icons.clock}
+              <Text style={txtStyles.subtitle}>
+                {date.toLocaleTimeString('fi-FI', { hour: '2-digit', minute: '2-digit' })}
+              </Text>
+              <CustomButton title="Kellonaika" onPress={showTimePicker} size="small" />
+            </View>
+
           </View>
+
+          {// CHOOSE HORSE
+          }
+
+          <SelectList
+            boxStyles={ButtonStyles.selectList}
+            inputStyles={txtStyles.body}
+            dropdownStyles={ButtonStyles.selectDropDown}
+            fontFamily='NotoSansDisplay_400Regular'
+            dropdownTextStyles={txtStyles.body}
+            arrowicon={Icons.arrowDown}
+            placeholder='Hevonen'
+            search={false}
+            setSelected={(val) => setSelectedHorse(val)}
+            data={horseList.map(h => ({ key: h.id, value: h.name }))}
+            save="key"
+          />
+
+          {// TYPE OF TRAINING
+          }
+          <SelectList
+            boxStyles={ButtonStyles.selectList}
+            inputStyles={txtStyles.body}
+            dropdownStyles={ButtonStyles.selectDropDown}
+            fontFamily='NotoSansDisplay_400Regular'
+            dropdownTextStyles={txtStyles.body}
+            arrowicon={Icons.arrowDown}
+            placeholder='Valitse treeni'
+            search={false}
+            setSelected={setSelectedSport}
+            data={dataSport}
+            save="value"
+          />
+          {// EXERCISE DURATION IN MINUTES
+          }
+          <InputText title='Harjoituksen kesto minuutteina'
+            placeholder='min'
+            keytype='numeric'
+            maxLength={3}
+            value={duration}
+            onChangeText={setDuration}
+            validationType='training'
+          />
+
+          {// NOTES
+          }
+          <NoteInput title='Muistiinpanot'
+            placeholder='...'
+            keytype='default'
+            onChangeText={setNotes}
+            value={notes}
+          />
+
+          {// SAVE
+          }
+          <CustomButton title="Tallenna"
+            onPress={saveTraining}
+          />
 
         </View>
-
-        {// CHOOSE HORSE
-        }
-
-        <SelectList
-          boxStyles={ButtonStyles.selectList}
-          inputStyles={txtStyles.body}
-          dropdownStyles={ButtonStyles.selectDropDown}
-          fontFamily='NotoSansDisplay_400Regular'
-          dropdownTextStyles={txtStyles.body}
-          arrowicon={Icons.arrowDown}
-          placeholder='Hevonen'
-          search={false}
-          setSelected={(val) => setSelectedHorse(val)}
-          data={horseList.map(h => ({ key: h.id, value: h.name }))}
-          save="key"
-        />
-
-        {// TYPE OF TRAINING
-        }
-        <SelectList
-          boxStyles={ButtonStyles.selectList}
-          inputStyles={txtStyles.body}
-          dropdownStyles={ButtonStyles.selectDropDown}
-          fontFamily='NotoSansDisplay_400Regular'
-          dropdownTextStyles={txtStyles.body}
-          arrowicon={Icons.arrowDown}
-          placeholder='Valitse treeni'
-          search={false}
-          setSelected={setSelectedSport}
-          data={dataSport}
-          save="value"
-        />
-        {// EXERCISE DURATION IN MINUTES
-        }
-        <InputText title='Harjoituksen kesto minuutteina'
-          placeholder='min'
-          keytype='numeric'
-          maxLength={3}
-          value={duration}
-          onChangeText={setDuration}
-          validationType='training'
-        />
-
-        {// NOTES
-        }
-        <NoteInput title='Muistiinpanot'
-          placeholder='...'
-          keytype='default'
-          onChangeText={setNotes}
-          value={notes}
-        />
-
-        {// SAVE
-        }
-        <CustomButton title="Tallenna"
-          onPress={saveTraining}
-        />
-
       </View>
-    </View>
+    </KeyboardScrollWrapper>
   );
 }

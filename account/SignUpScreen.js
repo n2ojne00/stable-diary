@@ -10,6 +10,7 @@ import { AUTH } from '../FirebaseConfig';
 import { ButtonIcons } from '../styles/icons';
 import { useNavigation } from '@react-navigation/native';
 import ButtonStyles from '../styles/buttons';
+import KeyboardScrollWrapper from '../components/scrollview';
 
 
 export default function SignUpScreen() {
@@ -44,53 +45,55 @@ export default function SignUpScreen() {
 
 
   return (
-    <View style={base.container}>
+    <KeyboardScrollWrapper>
+      <View style={base.container}>
 
-      <View style={base.loginBox}>
-        <Text style={txtStyles.title}> Luo tunnukset </Text>
+        <View style={base.loginBox}>
+          <Text style={txtStyles.title}> Luo tunnukset </Text>
 
-        {//validator for username needed
-        }
-        <InputText title='Käyttäjätunnus'
-          placeholder='käyttäjätunnus'
-          keytype='text'
-          validationType='username'
-          value={username}
-          onChangeText={setUsername}
-        />
+          {//validator for username needed
+          }
+          <InputText title='Käyttäjätunnus'
+            placeholder='käyttäjätunnus'
+            keytype='text'
+            validationType='username'
+            value={username}
+            onChangeText={setUsername}
+          />
 
-        <InputText title='Sähköposti'
-          placeholder='sähköposti'
-          keytype='email-address'
-          contentType='email'
-          validationType='email'
-          value={email}
-          onChangeText={setEmail}
-        />
+          <InputText title='Sähköposti'
+            placeholder='sähköposti'
+            keytype='email-address'
+            contentType='email'
+            validationType='email'
+            value={email}
+            onChangeText={setEmail}
+          />
 
-        <InputText title='Salasana'
-          placeholder='salasana'
-          keytype='default'
-          contentType='password'
-          secure={true}
-          validationType='password'
-          value={password}
-          onChangeText={setPassword}
-        />
+          <InputText title='Salasana'
+            placeholder='salasana'
+            keytype='default'
+            contentType='password'
+            secure={true}
+            validationType='password'
+            value={password}
+            onChangeText={setPassword}
+          />
 
-        <CustomButton
-          title="Rekisteröidy"
-          onPress={signUp}
-        />
+          <CustomButton
+            title="Rekisteröidy"
+            onPress={signUp}
+          />
 
-        <CustomButton
-          addIcon={ButtonIcons.ArrowLeft}
-          title={'Takaisin'}
-          onPress={() => navigation.goBack()}
-          reStyle={ButtonStyles.goBackBtn}
-        />
+          <CustomButton
+            addIcon={ButtonIcons.ArrowLeft}
+            title={'Takaisin'}
+            onPress={() => navigation.goBack()}
+            reStyle={ButtonStyles.goBackBtn}
+          />
 
+        </View>
       </View>
-    </View>
+    </KeyboardScrollWrapper>
   );
 }

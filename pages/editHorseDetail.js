@@ -13,6 +13,7 @@ import { useUser } from '../components/userInformation';
 import { DB } from '../FirebaseConfig';
 import { useNavigation } from '@react-navigation/native';
 import colors from '../styles/color';
+import KeyboardScrollWrapper from '../components/scrollview';
 
 
 export default function EditHorse() {
@@ -127,95 +128,97 @@ export default function EditHorse() {
     }
 
     return (
-        <View style={[{ alignItems: 'center', justifyContent: 'center' }, base.container]}>
-            <View>
+        <KeyboardScrollWrapper>
+            <View style={[{ alignItems: 'center', justifyContent: 'center' }, base.container]}>
+                <View>
 
-                <Text style={txtStyles.title}>Muokkaa hevosen tietoja</Text>
-                <SelectList
-                    boxStyles={ButtonStyles.selectList}
-                    inputStyles={txtStyles.body}
-                    dropdownStyles={ButtonStyles.selectDropDown}
-                    fontFamily='NotoSansDisplay_400Regular'
-                    dropdownTextStyles={txtStyles.body}
-                    arrowicon={Icons.arrowDown}
-                    placeholder='Valitse hevonen'
-                    search={false}
-                    setSelected={setSelectedHorseId}
-                    data={horseList.map(h => ({ key: h.id, value: h.name }))}
-                    save="key"
-                />
+                    <Text style={txtStyles.title}>Muokkaa hevosen tietoja</Text>
+                    <SelectList
+                        boxStyles={ButtonStyles.selectList}
+                        inputStyles={txtStyles.body}
+                        dropdownStyles={ButtonStyles.selectDropDown}
+                        fontFamily='NotoSansDisplay_400Regular'
+                        dropdownTextStyles={txtStyles.body}
+                        arrowicon={Icons.arrowDown}
+                        placeholder='Valitse hevonen'
+                        search={false}
+                        setSelected={setSelectedHorseId}
+                        data={horseList.map(h => ({ key: h.id, value: h.name }))}
+                        save="key"
+                    />
 
-                {selectedHorse && (
-                    <View style={{ marginTop: 20 }}>
-                        <InputText
-                            title={'Hevosen nimi'}
-                            text={'text'}
-                            placeholder={'Hevosen nimi'}
-                            maxLength={50}
-                            value={name}
-                            onChangeText={setName}
-                        />
-
-                        <InputText
-                            title={'Rotu'}
-                            text={'text'}
-                            placeholder={'Rotu'}
-                            maxLength={50}
-                            value={breed}
-                            onChangeText={setBreed}
-                        />
-
-                        <SelectList
-                            boxStyles={ButtonStyles.selectList}
-                            inputStyles={txtStyles.body}
-                            dropdownStyles={ButtonStyles.selectDropDown}
-                            fontFamily='NotoSansDisplay_400Regular'
-                            dropdownTextStyles={txtStyles.body}
-                            arrowicon={Icons.arrowDown}
-                            placeholder='Sukupuoli'
-                            search={false}
-                            setSelected={setSelectedGender}
-                            data={genderOptions}
-                            save="value"
-                            defaultOption={{ key: selectedGender, value: selectedGender }}
-                        />
-
-                        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingVertical: 5 }}>
-                            <CustomButton
-                                title="Syntymäpäivä"
-                                onPress={showDatePicker}
-                                size="small"
+                    {selectedHorse && (
+                        <View style={{ marginTop: 20 }}>
+                            <InputText
+                                title={'Hevosen nimi'}
+                                text={'text'}
+                                placeholder={'Hevosen nimi'}
+                                maxLength={50}
+                                value={name}
+                                onChangeText={setName}
                             />
 
-                            {Icons.calendar}
-                            
-                            <Text style={txtStyles.subtitle}>{date.toLocaleDateString('fi-FI')}</Text>
+                            <InputText
+                                title={'Rotu'}
+                                text={'text'}
+                                placeholder={'Rotu'}
+                                maxLength={50}
+                                value={breed}
+                                onChangeText={setBreed}
+                            />
+
+                            <SelectList
+                                boxStyles={ButtonStyles.selectList}
+                                inputStyles={txtStyles.body}
+                                dropdownStyles={ButtonStyles.selectDropDown}
+                                fontFamily='NotoSansDisplay_400Regular'
+                                dropdownTextStyles={txtStyles.body}
+                                arrowicon={Icons.arrowDown}
+                                placeholder='Sukupuoli'
+                                search={false}
+                                setSelected={setSelectedGender}
+                                data={genderOptions}
+                                save="value"
+                                defaultOption={{ key: selectedGender, value: selectedGender }}
+                            />
+
+                            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingVertical: 5 }}>
+                                <CustomButton
+                                    title="Syntymäpäivä"
+                                    onPress={showDatePicker}
+                                    size="small"
+                                />
+
+                                {Icons.calendar}
+
+                                <Text style={txtStyles.subtitle}>{date.toLocaleDateString('fi-FI')}</Text>
+                            </View>
+
+                            <InputText
+                                title={"Omistajan nimi"}
+                                text={"text"}
+                                placeholder={"Omistaja"}
+                                maxLength={50}
+                                value={owner}
+                                onChangeText={setOwner}
+                            />
+
+                            <CustomButton
+                                title="Tallenna muutokset"
+                                onPress={handleSave}
+                            />
+
+                            <CustomButton
+                                addIcon={ButtonIcons.ArrowLeft}
+                                title={'Takaisin'}
+                                onPress={() => navigation.goBack()}
+                                reStyle={ButtonStyles.goBackBtn}
+                            />
+
                         </View>
-
-                        <InputText
-                            title={"Omistajan nimi"}
-                            text={"text"}
-                            placeholder={"Omistaja"}
-                            maxLength={50}
-                            value={owner}
-                            onChangeText={setOwner}
-                        />
-
-                        <CustomButton
-                            title="Tallenna muutokset"
-                            onPress={handleSave}
-                        />
-
-                        <CustomButton
-                            addIcon={ButtonIcons.ArrowLeft}
-                            title={'Takaisin'}
-                            onPress={() => navigation.goBack()}
-                            reStyle={ButtonStyles.goBackBtn}
-                        />
-
-                    </View>
-                )}
+                    )}
+                </View>
             </View>
-        </View>
+        </KeyboardScrollWrapper>
     );
 }
