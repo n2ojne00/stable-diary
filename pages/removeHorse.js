@@ -1,16 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, Button, Alert, StyleSheet, Pressable } from 'react-native';
 import { DB } from '../FirebaseConfig';
-import {
-  collection,
-  query,
-  where,
-  getDocs,
-  deleteDoc,
-  doc,
-  setDoc,
-  getDoc,
-} from 'firebase/firestore';
+import { collection, query, where, getDocs, deleteDoc, doc, setDoc, getDoc, } from 'firebase/firestore';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+
 import { useUser } from '../components/userInformation';
 import base from '../styles/base';
 import { Icons } from '../styles/icons';
@@ -98,19 +91,30 @@ const HorseListScreen = () => {
 
   const renderHorse = ({ item }) => (
 
-    <View style={[txtStyles.horseInfoTabTxt, { margin: 5, alignSelf: 'center' }]}>
-      <Text style={[txtStyles.title, { paddingLeft: 10, }]}>
-        {item.name}
-      </Text>
-      <View style={{ flexDirection: 'row', }}>
-        <View style={{ flex: 1, paddingLeft: 10, }}>
-          <Text style={txtStyles.subtitle}>{item.breed}</Text>
+    <View style={[txtStyles.horseInfoTabTxt]}>
+
+
+      <View style={{ flexDirection: 'row', marginLeft: wp('3%'), }}>
+        <View style={{ flex: 2 }}>
+          <Text style={txtStyles.body}>{item.breed}</Text>
         </View>
-        <View style={{ flex: 1, paddingLeft: 10, }}>
-          <Text style={txtStyles.subtitle}>{item.gender}</Text>
+        <View style={{ flex: 1 }}>
+          <Text style={txtStyles.body}>{item.gender}</Text>
         </View>
       </View>
-      <View style={{ alignSelf: 'flex-end', top: 15, right: 15, position: 'absolute' }}>
+
+
+      <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: wp('3%') }}>
+        <View style={{ flex: 2 }}>
+          <Text style={txtStyles.title}>{item.name}</Text>
+        </View>
+        <View style={{ flex: 1 }}>
+          <Text style={[txtStyles.subtitle, { flexShrink: 1, flexWrap: 'wrap' }]} numberOfLines={3}
+            ellipsizeMode="tail">{item.birthday?.substring(0, 4)}</Text>
+        </View>
+      </View>
+
+      <View style={{ alignItems: 'flex-end', marginRight: 15, }}>
         <Pressable onPress={() => RemoveHorse(item.id)} >
           {Icons.Trash}
         </Pressable>
