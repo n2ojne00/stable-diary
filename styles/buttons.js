@@ -79,9 +79,6 @@ const ButtonStyles = StyleSheet.create({
         marginVertical: hp("0.7%"),
     },
     selectDropDown: {
-        zIndex: 999,
-        position: 'absolute',
-        top: hp("6.5%"),
         width: wp("85%"),
         backgroundColor: colors.inputBg,
         borderColor: colors.lightBrown,
@@ -105,7 +102,6 @@ const ButtonStyles = StyleSheet.create({
         height: hp("17%"),
         alignItems: 'center',
         justifyContent: 'center',
-        //backgroundColor: colors.inputBg,
         borderRadius: wp('2%'),
         marginBottom: hp("1%"),
         elevation: 2,
@@ -122,6 +118,7 @@ const ButtonStyles = StyleSheet.create({
         borderRadius: wp('1%'),
         backgroundColor: '#be190d',
     },
+    
     goBackBtn: {
         alignSelf: 'center',
         borderRadius: wp('1%'),

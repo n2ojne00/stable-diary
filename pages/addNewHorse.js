@@ -168,7 +168,7 @@ export default function AddNewHorse() {
           <CustomButton
             addIcon={ButtonIcons.ArrowLeft}
             title={'Takaisin'}
-            onPress={() => navigation.navigate('UserProfile')}
+            onPress={() => navigation.goBack()}
             reStyle={ButtonStyles.goBackBtn}
           />
 

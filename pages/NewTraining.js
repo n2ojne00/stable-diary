@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import base from '../styles/base';
 import { SelectList } from 'react-native-dropdown-select-list';
 import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-native-responsive-screen";
 
 import ButtonStyles from '../styles/buttons';
 import txtStyles from '../styles/text';
@@ -132,8 +133,8 @@ export default function AddNewTraining() {
 
       setSavedTraining([...savedTraining, trainingData]);
       setDate(new Date());
-      setSelectedHorse("");
-      setSelectedSport("");
+      setSelectedHorse(""); //no visual effect??
+      setSelectedSport(""); //no visual effect??
       setDuration("");
       setNotes("");
       //navigation.navigate('History');
@@ -180,6 +181,7 @@ export default function AddNewTraining() {
             boxStyles={ButtonStyles.selectList}
             inputStyles={txtStyles.body}
             dropdownStyles={ButtonStyles.selectDropDown}
+            maxHeight={hp("20%")}
             fontFamily='NotoSansDisplay_400Regular'
             dropdownTextStyles={txtStyles.body}
             arrowicon={Icons.arrowDown}
@@ -192,10 +194,12 @@ export default function AddNewTraining() {
 
           {// TYPE OF TRAINING
           }
+
           <SelectList
             boxStyles={ButtonStyles.selectList}
             inputStyles={txtStyles.body}
             dropdownStyles={ButtonStyles.selectDropDown}
+            maxHeight={hp("20%")}
             fontFamily='NotoSansDisplay_400Regular'
             dropdownTextStyles={txtStyles.body}
             arrowicon={Icons.arrowDown}
@@ -205,6 +209,7 @@ export default function AddNewTraining() {
             data={dataSport}
             save="value"
           />
+
           {// EXERCISE DURATION IN MINUTES
           }
           <InputText title='Harjoituksen kesto minuutteina'

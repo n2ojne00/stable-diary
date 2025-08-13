@@ -15,12 +15,14 @@ export default function KeyboardScrollWrapper({ children, contentStyle }) {
     <KeyboardAvoidingView
       style={{ flex: 1 }}
       behavior="height"
-      keyboardVerticalOffset={hp("-8%")}
+      keyboardVerticalOffset={0}
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <ScrollView
           contentContainerStyle={[{ flexGrow: 1, justifyContent: "center" }, contentStyle]}
           keyboardShouldPersistTaps="handled"
+          showsHorizontalScrollIndicator={false}
+          showsVerticalScrollIndicator={false}
         >
           {children}
         </ScrollView>

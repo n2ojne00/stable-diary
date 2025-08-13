@@ -6,6 +6,7 @@ import { TabIcons } from '../styles/icons';
 import { HomeStack, ProfileStack } from './SideNavigation';
 import AddNewTraining from '../pages/NewTraining';
 import History from '../pages/History';
+import { View } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
@@ -16,14 +17,19 @@ export default function AppTabs() {
         headerShown: false,
         tabBarShowLabel: false,
         tabBarStyle: {
+
           backgroundColor: colors.background,
-          height: hp("8%"),
-          borderTopWidth: 1,
           borderColor: colors.lightBrown,
+          borderTopWidth: 1,
         },
         tabBarActiveTintColor: colors.greenyDark,
         tabBarInactiveTintColor: colors.lightBrown,
-        tabBarIcon: ({ color, size }) => TabIcons[route.name]?.(color, 27),
+        tabBarIcon: ({ color, size, focused }) => (
+          <View>
+            {TabIcons[route.name]?.(color, 30)}
+            {focused && <View style={{ height: 3, backgroundColor: colors.darkBrown, marginTop: 2, borderRadius: 5 }} />}
+          </View>
+        )
       })}
     >
       <Tab.Screen name="Home" component={HomeStack} />
@@ -31,7 +37,7 @@ export default function AppTabs() {
       <Tab.Screen name="Stable" component={MyStable} />
       <Tab.Screen name="History" component={History} />
       <Tab.Screen name="Profile" component={ProfileStack} />
-    
+
     </Tab.Navigator>
   );
 }
