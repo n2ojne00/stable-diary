@@ -5,7 +5,7 @@ const colors = {
     nocolor: '#ffffff00',
     lightBg: '#ddc1b0ff',
     inputBg: '#f0d7caff',
-
+    modalBg: '#00000066',
 
     carrot: '#CE8147',
     lightBrown: '#513C2C',

@@ -3,7 +3,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-nat
 import colors from '../styles/color';
 import MyStable from '../pages/stableView';
 import { TabIcons } from '../styles/icons';
-import { HomeStack, ProfileStack } from './SideNavigation';
+import { HomeStack, ProfileStack, StableStack } from './SideNavigation';
 import AddNewTraining from '../pages/NewTraining';
 import History from '../pages/History';
 import { View } from 'react-native';
@@ -34,7 +34,7 @@ export default function AppTabs() {
     >
       <Tab.Screen name="Home" component={HomeStack} />
       <Tab.Screen name="New Training" component={AddNewTraining} />
-      <Tab.Screen name="Stable" component={MyStable} />
+      <Tab.Screen name="Stable" component={StableStack} />
       <Tab.Screen name="History" component={History} />
       <Tab.Screen name="Profile" component={ProfileStack} />
 

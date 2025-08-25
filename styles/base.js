@@ -81,6 +81,16 @@ const base = StyleSheet.create({
          backgroundColor: colors.inputBg
     },
 
+    alertModal: {
+        borderWidth: 1,
+        width: wp("90%"),
+        alignSelf: 'center',
+        backgroundColor: colors.inputBg,
+        borderColor: colors.lightBrown,
+        borderWidth: 1,
+        borderRadius: wp('2%'),
+        padding: wp("5%"),
+    }
 
 
 

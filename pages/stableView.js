@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text } from 'react-native';
 import base from '../styles/base';
-
-import FakeHorseData from '../exampleData/horseData.json';
 import StableListComponent from '../components/flatlist';
 import { Icons } from '../styles/icons';
 import txtStyles from '../styles/text';
@@ -12,12 +10,17 @@ import LoadingScreen from '../components/loading';
 import { collection, query, where, onSnapshot } from 'firebase/firestore';
 import { DB } from '../FirebaseConfig';
 import { useUser } from '../components/userInformation';
+import { useNavigation } from '@react-navigation/native';
+import AlertModal from '../components/alertModal';
 
 
 export default function MyStable() {
+
   const { user } = useUser();
   const [horses, setHorses] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [modalVisible, setModalVisible] = useState(false);
+  const navigation = useNavigation();
 
   useEffect(() => {
     if (!user) {
@@ -68,10 +71,26 @@ export default function MyStable() {
                 gender={item.gender}
                 owner={item.owner}
                 onPress={() => { }}
+                onLongPress={() => setModalVisible(true)}
               />
             )}
           />
         )}
+        <AlertModal
+          visible={modalVisible}
+          onClose={() => setModalVisible(false)}
+          header="Siirry toimintoon"
+          firstTitle="Muokkaa hevosta"
+          firstOption={() => {
+            navigation.navigate("EditHorse");
+          }}
+          
+          secondTitle="Poista hevosia"
+          secondOption={() => {
+            navigation.navigate("RemoveHorse");
+          }}
+        />
+
       </View>
     </View>
   );

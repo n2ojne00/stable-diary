@@ -10,6 +10,8 @@ import HorseListScreen from "../pages/removeHorse";
 import { DeleteUser } from "../account/removeUser";
 import { UpdateEmail } from "../account/updateEmail";
 import EditHorse from "../pages/editHorseDetail";
+import { HorseInformation } from "../components/horseInformation";
+import MyStable from "../pages/stableView";
 
 
 const Stack = createNativeStackNavigator();
@@ -21,6 +23,16 @@ export function HomeStack() {
       <Stack.Screen name="HomeScreen" component={Home} />
       <Stack.Screen name="NewHorse" component={AddNewHorse} />
 
+    </Stack.Navigator>
+  );
+};
+export function StableStack() {
+
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="MyStable" component={MyStable} />
+      <Stack.Screen name="EditHorse" component={EditHorse} />
+      <Stack.Screen name="RemoveHorse" component={HorseListScreen} />
     </Stack.Navigator>
   );
 };
@@ -36,7 +48,6 @@ export function ProfileStack() {
       <Stack.Screen name="RemoveHorse" component={HorseListScreen} />
       <Stack.Screen name="DeleteUser" component={DeleteUser} />
       <Stack.Screen name="UpdateEmail" component={UpdateEmail} />
-
     </Stack.Navigator>
   );
 };
