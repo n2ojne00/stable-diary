@@ -20,10 +20,11 @@ export const SettingsAccordionItem = ({ title, buttons = [] }) => {
 
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: hp("1%") }}>
         <Text style={txtStyles.subtitle}>{title}</Text>
-        {expanded ? [Icons.minus] : [Icons.plus]}
+        {expanded ? Icons.minus : Icons.plus}
       </View>
 
       {/* drop-down menu with mapped buttons */}
+
       {expanded && (
         <View style={{ marginTop: 10 }}>
           {buttons.map((btn) => (
@@ -34,6 +35,7 @@ export const SettingsAccordionItem = ({ title, buttons = [] }) => {
               title={btn.title}
               onPress={btn.onPress}
             />
+            
           ))}
         </View>
       )}
