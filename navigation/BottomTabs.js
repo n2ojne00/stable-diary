@@ -34,9 +34,24 @@ export default function AppTabs() {
     >
       <Tab.Screen name="Home" component={HomeStack} />
       <Tab.Screen name="New Training" component={AddNewTraining} />
-      <Tab.Screen name="Stable" component={StableStack} />
+      <Tab.Screen name="Stable"
+        component={StableStack}
+        listeners={({ navigation }) => ({
+          tabPress: e => {
+            navigation.navigate('Stable', { screen: 'MyStable' });
+          },
+        })}
+      />
       <Tab.Screen name="History" component={History} />
-      <Tab.Screen name="Profile" component={ProfileStack} />
+      <Tab.Screen
+        name="Profile"
+        component={ProfileStack}
+        listeners={({ navigation }) => ({
+          tabPress: e => {
+            navigation.navigate('Profile', { screen: 'UserProfile' });
+          },
+        })}
+      />
 
     </Tab.Navigator>
   );

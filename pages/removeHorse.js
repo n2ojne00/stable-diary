@@ -10,7 +10,7 @@ import { Icons } from '../styles/icons';
 import txtStyles from '../styles/text';
 
 
-const HorseListScreen = () => {
+export default function HorseListScreen() {
 
   const [horses, setHorses] = useState([]);
   const { user } = useUser();
@@ -90,39 +90,40 @@ const HorseListScreen = () => {
   };
 
   const renderHorse = ({ item }) => (
+    <View style={{ paddingVertical: 5, }}>
+      <View style={[txtStyles.horseInfoTabTxt]}>
 
-    <View style={[txtStyles.horseInfoTabTxt]}>
 
-
-      <View style={{ flexDirection: 'row', marginLeft: wp('3%'), }}>
-        <View style={{ flex: 2 }}>
-          <Text style={txtStyles.body}>{item.breed}</Text>
+        <View style={{ flexDirection: 'row', marginLeft: wp('3%'), }}>
+          <View style={{ flex: 2 }}>
+            <Text style={txtStyles.body}>{item.breed}</Text>
+          </View>
+          <View style={{ flex: 1 }}>
+            <Text style={txtStyles.body}>{item.gender}</Text>
+          </View>
         </View>
-        <View style={{ flex: 1 }}>
-          <Text style={txtStyles.body}>{item.gender}</Text>
+
+
+        <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: wp('3%') }}>
+          <View style={{ flex: 2 }}>
+            <Text style={txtStyles.title}>{item.name}</Text>
+          </View>
+          <View style={{ flex: 1 }}>
+            <Text style={[txtStyles.subtitle, { flexShrink: 1, flexWrap: 'wrap' }]} numberOfLines={3}
+              ellipsizeMode="tail">{item.birthday?.substring(0, 4)}</Text>
+          </View>
         </View>
+
+        <View style={{ alignItems: 'flex-end', marginRight: 15, }}>
+          <Pressable onPress={() => RemoveHorse(item.id)} >
+            {Icons.Trash}
+          </Pressable>
+
+
+        </View>
+
+
       </View>
-
-
-      <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: wp('3%') }}>
-        <View style={{ flex: 2 }}>
-          <Text style={txtStyles.title}>{item.name}</Text>
-        </View>
-        <View style={{ flex: 1 }}>
-          <Text style={[txtStyles.subtitle, { flexShrink: 1, flexWrap: 'wrap' }]} numberOfLines={3}
-            ellipsizeMode="tail">{item.birthday?.substring(0, 4)}</Text>
-        </View>
-      </View>
-
-      <View style={{ alignItems: 'flex-end', marginRight: 15, }}>
-        <Pressable onPress={() => RemoveHorse(item.id)} >
-          {Icons.Trash}
-        </Pressable>
-
-
-      </View>
-
-
     </View>
   );
 
@@ -130,6 +131,7 @@ const HorseListScreen = () => {
     <View style={[base.container, { paddingTop: 40, alignItems: 'center', }]}>
       <Text style={txtStyles.header}>Poista tallista</Text>
       <FlatList
+        showsVerticalScrollIndicator={false}
         data={horses}
         keyExtractor={(item) => item.id}
         renderItem={renderHorse}
@@ -137,7 +139,7 @@ const HorseListScreen = () => {
       />
     </View>
   );
+
 };
 
-export default HorseListScreen;
 
