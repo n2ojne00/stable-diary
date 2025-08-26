@@ -75,6 +75,7 @@ export function DeleteUser() {
                 />
 
                 <CustomButton
+                    addIcon={ButtonIcons.Trash}
                     title="Poista tili"
                     onPress={handleDelete}
                     reStyle={ButtonStyles.deleteBtn}
@@ -84,6 +85,7 @@ export function DeleteUser() {
                     addIcon={ButtonIcons.ArrowLeft}
                     title={'Takaisin'}
                     onPress={() => navigation.goBack()}
+                    reStyle={ButtonStyles.goBackBtn}
                 />
 
             </View>
