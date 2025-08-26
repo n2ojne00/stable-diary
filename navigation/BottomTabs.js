@@ -32,7 +32,14 @@ export default function AppTabs() {
         )
       })}
     >
-      <Tab.Screen name="Home" component={HomeStack} />
+      <Tab.Screen name="Home"
+        component={HomeStack}
+        listeners={({ navigation }) => ({
+          tabPress: e => {
+            navigation.navigate('Home', { screen: 'HomeScreen' });
+          },
+        })}
+      />
       <Tab.Screen name="New Training" component={AddNewTraining} />
       <Tab.Screen name="Stable"
         component={StableStack}
@@ -42,7 +49,15 @@ export default function AppTabs() {
           },
         })}
       />
-      <Tab.Screen name="History" component={History} />
+      <Tab.Screen name="History"
+        component={History}
+      /** currently not in use, no side navigation for history
+       * listeners={({ navigation }) => ({
+          tabPress: e => {
+            navigation.navigate('History', { screen: 'HistoryScreen' });
+          },
+        })}*/
+      />
       <Tab.Screen
         name="Profile"
         component={ProfileStack}
