@@ -34,9 +34,23 @@ export default function Settings() {
                 key="StableManagement"
                 title="Tallin hallinnointi"
                 buttons={[
-                    { id: 1, addIcon: ButtonIcons.Add, title: 'Lisää hevonen', onPress: () => navigation.navigate('NewHorse') },
-                    { id: 2, title: 'Muuta hevosen tietoja', onPress: () => navigation.navigate('EditHorse') },
-                    { id: 3, addIcon: ButtonIcons.Trash, title: 'Poista hevosia', onPress: () => navigation.navigate('RemoveHorse') },
+                    {
+                        id: 1,
+                        addIcon: ButtonIcons.Add,
+                        title: 'Lisää hevonen',
+                        onPress: () => navigation.navigate('NewHorse')
+                    },
+                    {
+                        id: 2,
+                        title: 'Muuta hevosen tietoja',
+                        onPress: () => navigation.navigate('EditHorse')
+                    },
+                    {
+                        id: 3,
+                        addIcon: ButtonIcons.Trash,
+                        title: 'Poista hevosia',
+                        onPress: () => navigation.navigate('RemoveHorse'),
+                    },
                 ]}
             />
 
@@ -44,8 +58,16 @@ export default function Settings() {
                 key="UserManagement"
                 title="Käyttäjätili"
                 buttons={[
-                    { id: 4, title: 'Vaihda sähköposti', onPress: () => navigation.navigate('UpdateEmail') },
-                    { id: 5, addIcon: ButtonIcons.Trash, title: 'Poista tili', onPress: () => navigation.navigate('DeleteUser'), reStyle: ButtonStyles.deleteBtn }, // Add alert to confirm deletion
+                    {
+                        id: 4,
+                        title: 'Vaihda sähköposti',
+                        onPress: () => navigation.navigate('UpdateEmail')
+                    },
+                    {
+                        id: 5, addIcon: ButtonIcons.Trash,
+                        title: 'Poista tili',
+                        onPress: () => navigation.navigate('DeleteUser'),
+                    },
                 ]}
             />
 
