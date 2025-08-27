@@ -25,7 +25,7 @@ export default function LoginScreen() {
             const user = userCredential.user;
             alert('Login successful!');
             //navigation.navigate('HomeScreen'); // Navigate to HomeScreen after successful login. Does authLoader handle it on its own?
-            console.log('Logged in:', user);
+            //console.log('Logged in:', user); 
         } catch (error) {
             console.error('Login error:', error.message);
         }
