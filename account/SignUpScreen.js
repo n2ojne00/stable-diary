@@ -24,6 +24,13 @@ export default function SignUpScreen() {
   const DB = getFirestore();
 
   const signUp = async () => {
+
+    if (!username.trim() || !email.trim() || !password.trim()) {
+      alert('Täytä kaikki kentät ennen rekisteröitymistä.');
+      console.error("Täytä kaikki kentät ennen rekisteröitymistä.");
+      return;
+    }
+
     try {
       const userCredential = await createUserWithEmailAndPassword(AUTH, email, password);
       const user = userCredential.user;
