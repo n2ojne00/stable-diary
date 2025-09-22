@@ -29,12 +29,15 @@ export default function AddNewTraining() {
   const [horseList, setHorseList] = useState([]);
 
   const [date, setDate] = useState(new Date());
-  const [selectedHorse, setSelectedHorse] = useState([]);
+  const [selectedHorse, setSelectedHorse] = useState("");
   const [selectedSport, setSelectedSport] = useState("");
   const [duration, setDuration] = useState("");
   const [notes, setNotes] = useState("");
 
+  //const [formKey, setFormKey] = useState(0); // key={formKey}
+  //setFormKey(prev => prev + 1); // to reset the form inputs
 
+//Date and time PICKER FUNCTIONS
   const showMode = (mode) => {
     DateTimePickerAndroid.open({
       value: date,
@@ -55,7 +58,7 @@ export default function AddNewTraining() {
     }
   };
 
-  //This to firestore ?
+  //Hard coded sports data for dropdown
   const dataSport = [
     { key: '1', value: 'Kouluratsastus' },
     { key: '2', value: 'Esteet' },
@@ -97,10 +100,11 @@ export default function AddNewTraining() {
   useEffect(() => {
     if (!user) return;
 
+    // Fetch horses from Firestore where userId matches the current user
     const q = query(collection(DB, "horses"), where("userId", "==", user.uid));
 
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      const horses = [];
+      const horses = []; //array for storing horses from firestore
       querySnapshot.forEach((doc) => {
         horses.push({ id: doc.id, ...doc.data() });
       });
@@ -111,11 +115,14 @@ export default function AddNewTraining() {
   }, [user]);
 
   const saveTraining = async () => {
+
+    // Checks if saving is accepted
     const canSave = acceptSaving();
     if (!canSave) return;
 
     const selectedHorseObj = horseList.find(h => h.id === selectedHorse);
 
+    //training data object for saving
     const trainingData = {
       date: date.toISOString(),
       horseId: selectedHorseObj?.id,
@@ -127,17 +134,18 @@ export default function AddNewTraining() {
       saveDate: new Date().toISOString()
     };
 
+    //Save to firestore database trainings collection and update the states
     try {
       await addDoc(collection(DB, "trainings"), trainingData);
       alert("Harjoitus tallennettu!");
 
       setSavedTraining([...savedTraining, trainingData]);
       setDate(new Date());
-      setSelectedHorse(""); //no visual effect??
-      setSelectedSport(""); //no visual effect??
+      setSelectedHorse("");
+      setSelectedSport("");
       setDuration("");
       setNotes("");
-      //navigation.navigate('History');
+      navigation.replace('New Training'); //navigates back to itself, to reset the form --> unmountOnBlur: true on tab navigator
     } catch (error) {
       console.error("Virhe tallennettaessa:", error);
       alert("Tallennus epäonnistui.");
@@ -146,7 +154,7 @@ export default function AddNewTraining() {
 
 
   return (
-    <KeyboardScrollWrapper>
+    <KeyboardScrollWrapper >
       <View style={[{ alignItems: 'center', justifyContent: 'center', }, base.container]}>
         <Text style={txtStyles.title}>Harjoitus</Text>
         <View>
