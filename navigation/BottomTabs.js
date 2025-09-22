@@ -1,7 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-native-responsive-screen";
 import colors from '../styles/color';
-import MyStable from '../pages/stableView';
 import { TabIcons } from '../styles/icons';
 import { HomeStack, ProfileStack, StableStack } from './SideNavigation';
 import AddNewTraining from '../pages/NewTraining';
@@ -40,7 +38,11 @@ export default function AppTabs() {
           },
         })}
       />
-      <Tab.Screen name="New Training" component={AddNewTraining} />
+
+      <Tab.Screen name="New Training" component={AddNewTraining}
+       options={{ unmountOnBlur: true }} // to reset the form when leaving the tab
+      />
+
       <Tab.Screen name="Stable"
         component={StableStack}
         listeners={({ navigation }) => ({

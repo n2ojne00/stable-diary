@@ -12,6 +12,7 @@ import { UpdateEmail } from "../account/updateEmail";
 import EditHorse from "../pages/editHorseDetail";
 import { HorseInformation } from "../components/horseInformation";
 import MyStable from "../pages/stableView";
+import AddNewTraining from "../pages/NewTraining";
 
 
 const Stack = createNativeStackNavigator();
@@ -22,7 +23,7 @@ export function HomeStack() {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="HomeScreen" component={Home} />
       <Stack.Screen name="NewHorse" component={AddNewHorse} />
-
+      <Stack.Screen name="New Training" component={AddNewTraining} />
     </Stack.Navigator>
   );
 };

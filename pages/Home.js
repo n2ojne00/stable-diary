@@ -1,12 +1,7 @@
-import { View, Text, Button, StyleSheet, Image, Pressable } from 'react-native';
+import { View, } from 'react-native';
 import base from '../styles/base';
 import { useNavigation } from '@react-navigation/native';
 import { HomeTabButton } from '../components/pressable';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import colors from '../styles/color';
-import txtStyles from '../styles/text';
-import photo from '../styles/photoStyles';
-
 
 export default function Home() {
   const navigation = useNavigation();
@@ -34,20 +29,10 @@ export default function Home() {
           onPress={() => navigation.navigate('NewHorse')}
         />
 
-
       </View>
 
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  calendar: {
-    width: wp("90%"),
-    height: hp("20%"),
-    backgroundColor: colors.greeny,
-    borderWidth: 1,
-    borderRadius: 5,
-  },
-});
 
