@@ -28,32 +28,6 @@ const txtStyles = StyleSheet.create({
         color: colors.txtSmall,
         fontFamily: 'NotoSansDisplay_400Regular_Italic',
     },
-    //WHITE VERSIO
-    headerWhite: {
-        fontSize: hp('4%'),
-        fontFamily: 'NotoSansDisplay_400Regular',
-        color: colors.txtWhite,
-    },
-    titleWhite: {
-        fontSize: hp('3%'),
-        fontFamily: 'NotoSansDisplay_400Regular',
-        color: colors.txtWhite,
-    },
-    subtitleWhite: {
-        fontSize: hp('2.5%'),
-        fontFamily: 'NotoSansDisplay_400Regular',
-        color: colors.txtWhite,
-    },
-    bodyWhite: {
-        fontSize: hp('2%'),
-        color: colors.txtWhite,
-        fontFamily: 'NotoSansDisplay_400Regular',
-    },
-    smallWhite: {
-        fontSize: hp('1.8%'),
-        color: colors.txtWhite,
-        fontFamily: 'NotoSansDisplay_400Regular_Italic',
-    },
 
     buttonSmall: {
         fontSize: hp('2%'),

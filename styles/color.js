@@ -20,7 +20,10 @@ const colors = {
     txtSmall: '#a0775aab',
     txtWhite: '#fff7f1f6',
 
+    error: '#ff0000',
+
 
 };
+
 
 export default colors;
