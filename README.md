@@ -7,9 +7,11 @@ Mobile Application designed for Android users. Horses diary always on your pocke
 git clone https://github.com/n2ojne00/stable-diary
 ```
 
-## Key Components (coming/planned)
+## Key Components
 - Track your horses training
 - Possibility to manage multiple horses
+- Remove user profile or horses
+- Edit added horses
 
 
 ## Thesis Project
