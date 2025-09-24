@@ -33,6 +33,7 @@ export function StableStack() {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="MyStable" component={MyStable} />
       <Stack.Screen name="EditHorse" component={EditHorse} />
+      <Stack.Screen name="NewHorse" component={AddNewHorse} />
       <Stack.Screen name="RemoveHorse" component={HorseListScreen} />
     </Stack.Navigator>
   );

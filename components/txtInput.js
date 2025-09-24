@@ -10,7 +10,7 @@ import InputStyles from "../styles/input";
 //Validators to certain text input if needed.
 const validators = {
   email: (value) =>
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? '' : 'Invalid email address',
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? '' : 'Sähköpostiosoite ei kelpaa',
 
   password: (value) =>
     value.length >= 6 ? '' : 'Salasanan tulee olla vähintään 6 merkkiä',

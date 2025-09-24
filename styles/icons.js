@@ -1,6 +1,5 @@
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import AntDesign from '@expo/vector-icons/AntDesign';
 import Entypo from '@expo/vector-icons/Entypo';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Ionicons } from '@expo/vector-icons';
@@ -10,13 +9,12 @@ export const Icons = {
   seeMore: <MaterialIcons name="more-horiz" size={30} color={colors.txtSubtitle} />,
   clock: <MaterialCommunityIcons name="clock-outline" size={30} color={colors.lightBrown} />,
   calendar: <MaterialCommunityIcons name="calendar" size={30} color={colors.lightBrown} />,
-  arrowDown: <AntDesign name="caretdown" size={18} color={colors.carrot} />,
+  arrowDown: <FontAwesome name="caret-down" size={22} color={colors.carrot} />,
   horseHead: <MaterialCommunityIcons name="horse-variant" size={90} color={colors.lightBrown} />,
   barn: <MaterialCommunityIcons name="barn" size={100} color={colors.lightBrown} />,
   plus: <Entypo name="plus" size={25} color={colors.lightBrown} />,
   minus: <Entypo name="minus" size={25} color={colors.lightBrown} />,
   Trash: <FontAwesome name="trash" size={30} color={colors.error} />,
-  
 }; 
 //<MaterialCommunityIcons name="map-clock-outline" size={24} color="black" />
 export const TabIcons = {
