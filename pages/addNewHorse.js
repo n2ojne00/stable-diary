@@ -51,7 +51,7 @@ export default function AddNewHorse() {
       await addDoc(collection(DB, "horses"), newHorse);
 
       alert("Hevonen lisätty!");
-      navigation.goBack(); //its profile
+      navigation.goBack();
       console.log("Hevonen lisätty:", newHorse);
     } catch (error) {
       console.error("Error adding horse:", error);
