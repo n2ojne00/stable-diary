@@ -12,6 +12,7 @@ import { DB } from '../FirebaseConfig';
 import { useUser } from '../components/userInformation';
 import { useNavigation } from '@react-navigation/native';
 import AlertModal from '../components/alertModal';
+import colors from '../styles/color';
 
 
 export default function MyStable() {
@@ -58,7 +59,16 @@ export default function MyStable() {
         {loading ? (
           <LoadingScreen />
         ) : horses.length === 0 ? (
-          <Text style={txtStyles.body}>Tallissa ei hevosia. Voit lisätä niitä profiilistasi.</Text>
+          <Text style={txtStyles.body}>
+            Tallista ei löytynyt hevosia. Voit lisätä niitä{" "}
+            <Text
+              style={{ color: colors.darkBrown, textDecorationLine: "underline" }}
+              onPress={() => navigation.navigate("NewHorse")}
+            >
+              profiilistasi
+            </Text>
+            .
+          </Text>
         ) : (
           <StableListComponent
             listData={horses}
@@ -83,7 +93,7 @@ export default function MyStable() {
           firstOption={() => {
             navigation.navigate("EditHorse");
           }}
-          
+
           secondTitle="Poista hevosia"
           secondOption={() => {
             navigation.navigate("RemoveHorse");

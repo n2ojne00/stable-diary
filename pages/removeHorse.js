@@ -34,10 +34,10 @@ export default function HorseListScreen() {
   };
 
   //Alert to confirm horse removal
-  const RemoveHorse = async (horseId) => {
+  const RemoveHorse = async (horseId, horseName) => {
     Alert.alert(
-      'Vahvista poisto',
-      'Haluatko varmasti poistaa hevosen ja kaikki siihen liittyvät harjoitukset?',
+      "Vahvista poisto",
+      `Haluatko varmasti poistaa hevosen nimeltä ${horseName} ja kaikki siihen liittyvät harjoitukset?`,
       [
         { text: 'Peruuta', style: 'cancel' },
         {
@@ -115,7 +115,7 @@ export default function HorseListScreen() {
         </View>
 
         <View style={{ alignItems: 'flex-end', marginRight: 15, }}>
-          <Pressable onPress={() => RemoveHorse(item.id)} >
+          <Pressable onPress={() => RemoveHorse(item.id, item.name)} >
             {Icons.Trash}
           </Pressable>
 
