@@ -44,9 +44,11 @@ export default function SignUpScreen() {
       });
 
       console.log("User saved to Firestore:", username);
+      alert('Rekisteröityminen onnistui! Tervetuloa ' + username);
 
     } catch (error) {
       console.error("Registration error:", error.message);
+      alert('Rekisteröityminen epäonnistui.');
     }
   };
 

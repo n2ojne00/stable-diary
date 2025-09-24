@@ -23,56 +23,57 @@ export default function LoginScreen() {
         try {
             const userCredential = await signInWithEmailAndPassword(AUTH, email, password);
             const user = userCredential.user;
-            alert('Login successful!');
+            alert('Kirjautuminen onnistui!');
             //navigation.navigate('HomeScreen'); // Navigate to HomeScreen after successful login. Does authLoader handle it on its own?
             //console.log('Logged in:', user); 
         } catch (error) {
-            console.error('Login error:', error.message);
+            alert('Kirjautuminen epäonnistui. Tarkista sähköposti ja salasana.');
+            //console.error('Login error:', error.message);
         }
     };
 
     return (
         <KeyboardScrollWrapper>
-        <View style={base.container}>
+            <View style={base.container}>
 
-            <View style={base.loginBox}>
-                <Text style={txtStyles.title}>Kirjaudu sisään</Text>
+                <View style={base.loginBox}>
+                    <Text style={txtStyles.title}>Kirjaudu sisään</Text>
 
-                <InputText
-                    title='Sähköposti'
-                    placeholder='sähköposti'
-                    keytype='email-address'
-                    contentType='email'
-                    validationType='email'
-                    value={email}
-                    onChangeText={setEmail}
-                />
+                    <InputText
+                        title='Sähköposti'
+                        placeholder='sähköposti'
+                        keytype='email-address'
+                        contentType='email'
+                        validationType='email'
+                        value={email}
+                        onChangeText={setEmail}
+                    />
 
-                <InputText
-                    title='Salasana'
-                    placeholder='salasana'
-                    keytype='default'
-                    contentType='password'
-                    secure={true}
-                    //validationType='password'
-                    value={password}
-                    onChangeText={setPassword}
-                />
+                    <InputText
+                        title='Salasana'
+                        placeholder='salasana'
+                        keytype='default'
+                        contentType='password'
+                        secure={true}
+                        //validationType='password'
+                        value={password}
+                        onChangeText={setPassword}
+                    />
 
-                <CustomButton
-                    title="Kirjaudu"
-                    onPress={handleLogin}
-                />
+                    <CustomButton
+                        title="Kirjaudu"
+                        onPress={handleLogin}
+                    />
 
-                <CustomButton
-                    addIcon={ButtonIcons.ArrowLeft}
-                    title={'Takaisin'}
-                    onPress={() => navigation.goBack()}
-                    reStyle={ButtonStyles.goBackBtn}
-                />
+                    <CustomButton
+                        addIcon={ButtonIcons.ArrowLeft}
+                        title={'Takaisin'}
+                        onPress={() => navigation.goBack()}
+                        reStyle={ButtonStyles.goBackBtn}
+                    />
 
+                </View>
             </View>
-        </View>
-</KeyboardScrollWrapper>
+        </KeyboardScrollWrapper>
     );
 }

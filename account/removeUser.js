@@ -48,7 +48,7 @@ export function DeleteUser() {
             Alert.alert('Tili poistettu', 'Käyttäjätilisi on poistettu.');
 
         } catch (error) {
-            console.error('Virhe poistossa:', error);
+            //console.error('Virhe poistossa:', error);
             Alert.alert('Virhe', 'Tarkista salasana');
         } finally {
             setLoading(false);
