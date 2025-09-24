@@ -70,8 +70,7 @@ export default function MyStable() {
                 breed={item.breed}
                 gender={item.gender}
                 owner={item.owner}
-                onPress={() => { }}
-                onLongPress={() => setModalVisible(true)}
+                onPress={() => setModalVisible(true)}
               />
             )}
           />

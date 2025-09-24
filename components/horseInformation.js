@@ -1,26 +1,21 @@
 //Change title to horse name
 import React, { useEffect, useState } from 'react';
-import { Alert, Pressable, Text, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import txtStyles from "../styles/text";
 import ButtonStyles from "../styles/buttons";
 import colors from "../styles/color";
 import { TabIcons } from "../styles/icons";
-import { useNavigation } from "@react-navigation/native";
-import AlertModal from "./alertModal";
 
 // Item to list of horses in stable view
-export const HorseInformation = ({ onPress, title, onLongPress, dateOfBirth, breed, gender, owner }) => {
+export const HorseInformation = ({ onPress, title, dateOfBirth, breed, gender, owner }) => {
 
     return (
         <>
             <Pressable
-                style={({ pressed }) => [
+                style={() => [
                     ButtonStyles.horseInformationTab,
-                    pressed && ButtonStyles.pressed
                 ]}
-                onPress={onPress}
-                onLongPress={onLongPress}
             >
 
                 <View style={txtStyles.horseInfoTabTxt}>
@@ -44,17 +39,23 @@ export const HorseInformation = ({ onPress, title, onLongPress, dateOfBirth, bre
                         </View>
                     </View>
 
-                    <View style={{ alignItems: 'flex-end', marginRight: wp('3%'), }}>
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginRight: wp('3%'), }}>
+                        <Pressable onPress={onPress}>
+                            <Text style={txtStyles.title}> ... </Text>
+                        </Pressable>
+
+
                         <Text style={txtStyles.body}>
                             {TabIcons.Profile([colors.lightBrown], 16)} {owner}
                         </Text>
                     </View>
 
+
                 </View>
 
             </Pressable>
 
-         
+
         </>
     );
 };
