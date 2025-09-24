@@ -34,8 +34,8 @@ export default function AddNewTraining() {
   const [duration, setDuration] = useState("");
   const [notes, setNotes] = useState("");
 
-  //const [formKey, setFormKey] = useState(0); // key={formKey}
-  //setFormKey(prev => prev + 1); // to reset the form inputs
+  const [formKey, setFormKey] = useState(0);
+
 
 //Date and time PICKER FUNCTIONS
   const showMode = (mode) => {
@@ -145,7 +145,7 @@ export default function AddNewTraining() {
       setSelectedSport("");
       setDuration("");
       setNotes("");
-      navigation.replace('New Training'); //navigates back to itself, to reset the form --> unmountOnBlur: true on tab navigator
+      setFormKey(prev => prev + 1);
     } catch (error) {
       console.error("Virhe tallennettaessa:", error);
       alert("Tallennus epäonnistui.");
@@ -154,7 +154,7 @@ export default function AddNewTraining() {
 
 
   return (
-    <KeyboardScrollWrapper >
+    <KeyboardScrollWrapper key={formKey}>
       <View style={[{ alignItems: 'center', justifyContent: 'center', }, base.container]}>
         <Text style={txtStyles.title}>Harjoitus</Text>
         <View>
