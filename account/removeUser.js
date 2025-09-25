@@ -19,41 +19,51 @@ export function DeleteUser() {
     const [loading, setLoading] = useState(false);
     const navigation = useNavigation();
 
-    //
     const handleDelete = async () => {
-        const user = AUTH.currentUser;
-        if (!user) {
-            Alert.alert('Virhe', 'Käyttäjää ei löytynyt.');
-            return;
-        }
-
         if (!password) {
             Alert.alert('Virhe', 'Syötä salasana.');
             return;
         }
 
-        setLoading(true);
+        // Confirm before deleting
+        Alert.alert(
+            'Vahvista tilin poisto',
+            'Haluatko varmasti poistaa tilisi? Tämä toiminto on peruuttamaton.',
+            [
+                { text: 'Peruuta', style: 'cancel' },
+                {
+                    text: 'Poista',
+                    style: 'destructive',
+                    onPress: async () => {
+                        setLoading(true);
+                        try {
+                            const user = AUTH.currentUser;
+                            if (!user) {
+                                Alert.alert('Virhe', 'Käyttäjää ei löytynyt.');
+                                return;
+                            }
 
-        try {
-            //checks given password
-            const credential = EmailAuthProvider.credential(user.email, password);
-            await reauthenticateWithCredential(user, credential);
+                            const credential = EmailAuthProvider.credential(user.email, password);
+                            await reauthenticateWithCredential(user, credential);
 
-            //Removing from firestore
-            await deleteDoc(doc(DB, 'users', user.uid));
+                            //remove user data from firestore
+                            await deleteDoc(doc(DB, 'users', user.uid));
+                            //Remove user from authentication
+                            await user.delete();
 
-            //Remove from firebase AUTH
-            await user.delete();
+                            Alert.alert('Tili poistettu', 'Käyttäjätilisi on poistettu.');
 
-            Alert.alert('Tili poistettu', 'Käyttäjätilisi on poistettu.');
-
-        } catch (error) {
-            //console.error('Virhe poistossa:', error);
-            Alert.alert('Virhe', 'Tarkista salasana');
-        } finally {
-            setLoading(false);
-        }
+                        } catch (error) {
+                            Alert.alert('Virhe', 'Tarkista salasana');
+                        } finally {
+                            setLoading(false);
+                        }
+                    }
+                }
+            ]
+        );
     };
+
 
     return (
         <View style={[{ alignItems: 'center', justifyContent: 'center', }, base.container]}>
